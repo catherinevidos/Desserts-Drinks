@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AuthRoute,
+  AuthRoute
 } from '../util/route_util';
 import {
   Switch
