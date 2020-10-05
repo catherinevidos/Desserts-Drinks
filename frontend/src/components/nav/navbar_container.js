@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 import {
   logout
-} from '../../src/actions/session_actions.js';
+} from '../../actions/session_actions.js';
 import Navbar from './navbar';
 
 const mapStateToProps = state => {
