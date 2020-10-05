@@ -29,13 +29,13 @@ export const clearErrors = () => ({
     type: CLEAR_SESSION_ERRORS
 });
 
-export const signup = user => dispatch (
+export const signup = user => dispatch => (
     APIUtil.signup(user)
         .then(user => dispatch(receiveCurrentUser(user))),
         err => dispatch(receiveErrors(err.response.data))
 );
 
-export const login = user => dispatch (
+export const login = user => dispatch => (
     APIUtil.login(user)
         .then(res => {
             const { token } = res.data;
@@ -44,7 +44,7 @@ export const login = user => dispatch (
 
             const decoded = jwt_decode(token);
             dispatch(receiveCurrentUser(decoded));
-        }).catch(err => dispatach(receiveErrors(err.response.data)))
+        }).catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const logout = () => dispatch => {
