@@ -19,7 +19,6 @@ const App = () => (
       <AuthRoute exact path='/signup' component={SignupContainer}/>
     </Switch> 
   </div>
-
 );
 
 export default App;
