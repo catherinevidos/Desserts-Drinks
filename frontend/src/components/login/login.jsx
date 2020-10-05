@@ -1,5 +1,6 @@
 import React from 'react';
 import Video from '../video/video';
+import {Link} from 'react-router-dom';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -95,9 +96,9 @@ export default class Login extends React.Component {
 
               {this.renderErrors()}
 
-              <a to='/signup'>
+              <Link to='/signup' className='login-link'>
                 Not a Member? Click to Sign Up!;
-              </a>
+              </Link>
             </div>
           </form>
         </div>
