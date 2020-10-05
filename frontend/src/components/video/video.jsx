@@ -1,5 +1,4 @@
 import React from "react";
-import video1 from "../../public/videos/Desserts & Drinks Logo.mp4";
 import ReactPlayer from 'react-player';
 
 

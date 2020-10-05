@@ -1,9 +1,6 @@
 import {
   connect
 } from 'react-redux';
-import {
-  signupUser
-} from '';
 import Splash from './splash';
 
 const mapStateToProps = state => {
@@ -13,10 +10,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    
-  }
-}
-
-export default connect(mapStateToProps, null)(Splash);
+export default connect(mapStateToProps)(Splash);
