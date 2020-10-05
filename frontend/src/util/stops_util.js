@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchAllSpots = () => axios.get("api/stops/");
+export const fetchStops = () => axios.get("api/stops/");
 
-export const fetchSpot = (stopId) => axios.get(`api/stops/${stopId}`);
+export const fetchStop = (stopId) => axios.get(`api/stops/${stopId}`);
 
