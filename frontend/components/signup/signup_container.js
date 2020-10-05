@@ -2,8 +2,8 @@ import {
   connect
 } from 'react-redux';
 import {
-  signupUser
-} from '';
+  signup
+} from '../../src/actions/session_actions.js';
 import Signup from './signup';
 
 const mapStateToProps = state => {
@@ -15,7 +15,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: user => dispatch(loginUser(user))
+    signupUser: user => dispatch(signup(user))
   }
 }
 
