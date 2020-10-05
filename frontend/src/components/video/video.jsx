@@ -7,11 +7,11 @@ class Video extends React.Component {
     return (
       <div>
         <ReactPlayer
-          className='react-player logo'
+          className='react-player-logo'
           url='videos/logo.MP4'
           width="500px"
           height="500px"
-          autoplay="true"
+          autoPlay={true}
         />
       </div>
     );
