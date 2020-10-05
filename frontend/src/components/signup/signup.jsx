@@ -4,12 +4,22 @@ import Video from "../video/video";
 export default class Signup extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
+
+    this.update = this.update.bind(this);
   }
+
+  update(field) {
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      });
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -26,18 +36,17 @@ export default class Signup extends React.Component {
     return (
       <div className="signup-wrapper">
         <div className="signup-container">
-          <div className='signup-logo-video'>
+          <div className="signup-logo-video">
             <Video />
           </div>
 
           <form onSubmit={this.handleSubmit} className="signup-form">
             <div className="signup-form-child">
-
               <label>
                 <input
                   type="text"
                   value={this.state.email}
-                  onChange={this.update('email')}
+                  onChange={this.update("email")}
                   placeholder="email"
                   className="signup-input"
                 />
@@ -47,19 +56,18 @@ export default class Signup extends React.Component {
                 <input
                   type="password"
                   value={this.state.password}
-                  onChange={this.update('password')}
+                  onChange={this.update("password")}
                   placeholder="password"
                   className="signup-input"
                 />
               </label>
 
               <div className="signup-submit">
-                <input type="submit" value='Signup' />
+                <input type="submit" value="Signup" />
               </div>
+            </div>
 
-              </div>
-
-              {this.renderErrors()}
+            {this.renderErrors()}
           </form>
         </div>
       </div>
