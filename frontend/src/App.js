@@ -20,7 +20,9 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <WebMap /> 
+      <div id="map">
+        <WebMap /> 
+      </div>
     </div>
   );
 }
