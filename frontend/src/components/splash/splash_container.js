@@ -11,4 +11,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Splash);
+export default connect(mapStateToProps, null)(Splash);

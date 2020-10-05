@@ -1,7 +1,8 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Navbar from '../nav/navbar_container';
 
-export default class Splash extends React.Component {
+class Splash extends React.Component {
 
   render() {
     return (
@@ -14,3 +15,5 @@ export default class Splash extends React.Component {
     );
   }
 }
+
+export default withRouter(Splash);
