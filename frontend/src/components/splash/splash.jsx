@@ -5,9 +5,12 @@ export default class Splash extends React.Component {
 
   render() {
     return (
-      <header>
-        <Navbar/>
-      </header>
+      <div>
+        <h1>hello from the splash page</h1>
+        <header>
+          <Navbar />
+        </header>
+      </div>
     );
   }
 }
