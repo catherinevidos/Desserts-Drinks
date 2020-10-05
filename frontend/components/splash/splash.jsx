@@ -1,6 +1,6 @@
 import React from 'react';
 
-extends default class Splash extends React.Component {
+export default class Splash extends React.Component {
   constructor(props){
     super(props)
   }
