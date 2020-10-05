@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
-import jwt_decode from 'jwt_decode';
+import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -13,11 +13,11 @@ export const receiveCurrentUser = currentUser => ({
 });
 
 export const loginNewUser = () => ({
-    type: LOGIN_NEW_USER,
+    type: LOGIN_NEW_USER
 });
 
 export const logoutCurrentUser = () => ({
-    type: LOGOUT_CURRENT_USER,
+    type: LOGOUT_CURRENT_USER
 });
 
 export const receiveErrors = errors => ({
@@ -31,8 +31,8 @@ export const clearErrors = () => ({
 
 export const signup = user => dispatch => (
     APIUtil.signup(user)
-        .then(user => dispatch(receiveCurrentUser(user))),
-        err => dispatch(receiveErrors(err.response.data))
+        .then(user => dispatch(receiveCurrentUser(user)),
+        err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const login = user => dispatch => (
