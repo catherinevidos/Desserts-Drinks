@@ -3,7 +3,7 @@ import {
 } from 'react-redux';
 import {
   signup
-} from '../../src/actions/session_actions.js';
+} from '../../actions/session_actions.js';
 import Signup from './signup';
 
 const mapStateToProps = state => {
