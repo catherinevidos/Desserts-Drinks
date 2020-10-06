@@ -26,29 +26,29 @@ export default class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user)
+    this.props.loginUser(user)
   }
 
   demoUser(e) {
     e.preventDefault();
-    this.props.login({
+    this.props.loginUser({
       email: 'demo@drinksdesserts.com',
       password: 'welcome1'
     })
   }
 
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li className="session-errors" key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   return (
+  //     <ul>
+  //       {this.props.errors.map((error, i) => (
+  //         <li className="session-errors" key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
@@ -92,8 +92,8 @@ export default class Login extends React.Component {
                   Demo User
                 </button>
               </div>
-
-              {this.renderErrors()}
+{/* 
+              {this.renderErrors()} */}
 
               <Link to="/signup" className="login-link">
                 Not a Member? Click to Sign Up!;

@@ -1,8 +1,29 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default class Navbar extends React.Component {
+  constructor(props){
+    super(props);
+    
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.logoutUser();
+  }
 
   render() {
-    return null;
+    const LogoutButton = (this.props.currentUser === undefined) ? <Link to='/login'> Login Here</Link> : null;
+
+    return (
+      <div>
+        <button className="logout button" onClick={this.props.logoutUser}>
+          Logout
+        </button>
+        {LogoutButton}
+      </div>
+    );
+
   }
 }
