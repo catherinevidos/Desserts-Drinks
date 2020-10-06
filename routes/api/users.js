@@ -35,7 +35,7 @@ router.post('/signup', (req, res) => {
                     username: req.body.username,
                     email: req.body.email,
                     password: req.body.password
-                })
+                });
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if (err) throw err;
@@ -49,14 +49,14 @@ router.post('/signup', (req, res) => {
                                         success: true,
                                         token: "Bearer " + token
                                     });
-                                }) 
+                                }); 
                             })
                             .catch(err => console.log(err));
-                    })
-                })
+                    });
+                });
             }
-        })
-})
+        });
+});
 
 router.post('/login', (req, res) => {
     debugger
@@ -71,7 +71,7 @@ router.post('/login', (req, res) => {
     User.findOne({ email })
         .then(user => {
             if(!user) {
-                errors.email = 'User not found'
+                errors.email = 'User not found';
                 return res.status(404).json(errors);
             }
             bcrypt.compare(password, user.password)
@@ -91,12 +91,12 @@ router.post('/login', (req, res) => {
 
                         );
                     } else {
-                        errors.password = 'Incorrect password'
+                        errors.password = 'Incorrect password';
                         return res.status(400).json(errors);
                     }
-                })
-        })
-})
+                });
+        });
+});
 
 
 module.exports = router;
