@@ -13,13 +13,19 @@ import SignupContainer from './signup/signup_container';
 import SplashContainer from './splash/splash_container';
 
 const App = () => (
+  <div>
 
-    <Switch>
-      <Route exact path="/" component={SplashContainer} />
-      <AuthRoute exact path="/login" component={LoginContainer} />
-      <AuthRoute exact path="/signup" component={SignupContainer} />
-    </Switch>
 
+
+
+    <div>
+      <Switch>
+        <Route exact path="/" component={SplashContainer} />
+        <AuthRoute exact path="/login" component={LoginContainer} />
+        <AuthRoute exact path="/signup" component={SignupContainer} />
+      </Switch>
+    </div>
+  </div>
 );
 
 export default App;
