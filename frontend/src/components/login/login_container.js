@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { login } from "../../actions/session_actions.js";
+import { login, clearErrors } from "../../actions/session_actions.js";
 import Login from './login';
 
 const mapStateToProps = state => {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginUser: user => dispatch(login(user))
+    loginUser: user => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors())
   }
 }
 
