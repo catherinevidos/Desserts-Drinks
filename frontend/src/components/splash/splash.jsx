@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Navbar from '../nav/navbar_container';
+import WebMap from '../map/map2';
 
 class Splash extends React.Component {
 
@@ -11,6 +12,9 @@ class Splash extends React.Component {
         <header>
           <Navbar />
         </header>
+        <div id="map">
+          <WebMap />
+        </div>
       </div>
     );
   }
