@@ -1,6 +1,7 @@
 import React from 'react';
 import Video from '../video/video';
 import {Link} from 'react-router-dom';
+import './login.scss';
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ export default class Login extends React.Component {
     return (
       <div className="login-wrapper">
         <div className="login-container">
-          <div>
+          <div className='login-video-container'>
             <Video />
           </div>
           <form onSubmit={this.handleSubmit} className="login-form">
@@ -96,7 +97,7 @@ export default class Login extends React.Component {
 
               {this.renderErrors()}
 
-              <Link to='/signup' className='login-link'>
+              <Link to="/signup" className="login-link">
                 Not a Member? Click to Sign Up!;
               </Link>
             </div>

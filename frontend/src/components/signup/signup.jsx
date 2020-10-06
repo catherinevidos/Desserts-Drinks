@@ -1,5 +1,5 @@
 import React from "react";
-import Video from "../video/video";
+import './signup.scss';
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -37,7 +37,7 @@ export default class Signup extends React.Component {
       <div className="signup-wrapper">
         <div className="signup-container">
           <div className="signup-logo-video">
-            <Video />
+            <video src="./logo.mp4"></video>
           </div>
 
           <form onSubmit={this.handleSubmit} className="signup-form">
