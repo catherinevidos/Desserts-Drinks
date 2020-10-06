@@ -8,7 +8,9 @@ export default class Signup extends React.Component {
 
     this.state = {
       email: "",
+      username: "",
       password: "",
+      password2: ""
     };
 
     this.update = this.update.bind(this);
@@ -34,6 +36,7 @@ export default class Signup extends React.Component {
   }
 
   render() {
+    
     return (
       <div className="signup-wrapper">
         <div className="signup-container">
@@ -45,25 +48,37 @@ export default class Signup extends React.Component {
 
           <form onSubmit={this.handleSubmit} className="signup-form">
             <div className="signup-form-child">
-              <label>
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  placeholder="email"
-                  className="signup-input"
-                />
-              </label>
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="email"
+                className="signup-input"
+              />
 
-              <label>
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  placeholder="password"
-                  className="signup-input"
-                />
-              </label>
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder="username"
+                className="signup-input"
+              />
+
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="password"
+                className="signup-input"
+              />
+
+              <input
+                type="password"
+                value={this.state.password2}
+                onChange={this.update("password2")}
+                placeholder="retype password"
+                className="signup-input"
+              />
 
               <div className="signup-submit">
                 <input type="submit" value="Signup" />
