@@ -10,10 +10,12 @@ export default class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
+      errors: {}
     };
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -26,29 +28,26 @@ export default class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.loginUser(user)
+    this.props.loginUser(user);
   }
 
   demoUser(e) {
     e.preventDefault();
     this.props.loginUser({
-      email: 'demo@drinksdesserts.com',
-      password: 'welcome1'
-    })
+      email: "demo@drinksdesserts.com",
+      password: "welcome1",
+    });
   }
 
-
-  // renderErrors() {
-  //   return (
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li className="session-errors" key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     return (
@@ -61,21 +60,21 @@ export default class Login extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit} className="login-form">
             <div className="login-form-child">
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  placeholder="email"
-                  className="login-input"
-                />
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="email"
+                className="login-input"
+              />
 
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  placeholder="password"
-                  className="login-input"
-                />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="password"
+                className="login-input"
+              />
 
               <div className="signup-submit">
                 <input type="submit" value="Login" />
@@ -92,8 +91,8 @@ export default class Login extends React.Component {
                   Demo User
                 </button>
               </div>
-{/* 
-              {this.renderErrors()} */}
+
+              {this.renderErrors()}
 
               <Link to="/signup" className="login-link">
                 Not a Member? Click to Sign Up!;

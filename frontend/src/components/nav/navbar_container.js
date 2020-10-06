@@ -6,9 +6,12 @@ import {
 } from '../../actions/session_actions.js';
 import Navbar from './navbar';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({
+    session,
+    entities
+  }) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: session && session.id && entities.users[session.id]
   }
 }
 
