@@ -1,5 +1,4 @@
 #root {
-
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -23,12 +22,14 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
 }
 
 .login-wrapper {
   background-image: url('./dessert.png');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -42,22 +43,15 @@
   margin: 0 auto;
   margin-top: 50px;
   width: 400px;
-  height: 650px;
-  background-color: white;
-  border: yellowgreen 3px dashed;
+  height: 600px;
+  background-color: #E4A8C9;
+  border: #F8EC6B 6px solid;
+  padding: 8px;
 }
 
-.login-video-container {
+.login-logo-container {
   width: 400px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-.login-video-container video {
-  width: 100%;
-  height: 100%;
+  height: 350px;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -67,27 +61,104 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 400px;
+  height: 350px;
 }
 
-// .login-form-child {
-//   width: 80%;
-//   height: 60%;
-// }
+.login-form-child {
+  width: 100%;
+  height: 100%;
+}
 
-input.login-input {
+.login-input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 18px;
-  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  text-indent: 5px;
+  padding: 13px;
+  width: 260px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+  background-color: white;
+  opacity: 92%;
   border-radius: 10px;
 }
 
-p {
+.login-submit {
+  align-items: center;
+}
+
+input[type=text]:focus {
+  background-color: lightblue;
+  border: 3px solid #555;
+}
+
+input[type=password]:focus {
+  background-color: lightblue;
+  border: 3px solid #555;
+}
+
+input[type=password] {
+  background-image: url('./key.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  padding-left: 35px;
+  background-position: left 5px center;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text] {
+   background-image: url('./envelope.png');
+   background-repeat: no-repeat;
+   background-size: 25px;
+   padding-left: 35px;
+   background-position: left 5px center;
+   transition: width 0.4s ease-in-out;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  border: none;
+  padding: 12px 28px;
+  text-decoration: none;
+  margin: 4px 2px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #F8EC6B;
+  cursor: pointer;
+}
+
+.login-submit-demo button {
+  border: none;
+  padding: 12px 28px;
+  text-decoration: none;
+  margin: 4px 2px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 200px;
+  background-color: #F8EC6B;
+  cursor: pointer;
+}
+
+
+.no-errors {
+  display: none;
+}
+
+.errors-present {
   height: 30px;
-  width: 100px;
+  width: 200px;
   color: black;
+  text-align: left;
+}
+
+.login-link {
+  // background-color: #F5D04B;
+  width: 100%;
 }
