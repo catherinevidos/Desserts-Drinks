@@ -19,7 +19,7 @@ export class WebMap extends React.Component {
     if (this.props.stops.length === 0) return null;
     const style = {
       width: "500px",
-      height: "1000px",
+      height: "1000px"
     };
     debugger
     const { google } = this.props;
