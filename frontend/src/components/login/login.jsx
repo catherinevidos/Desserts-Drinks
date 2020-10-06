@@ -1,5 +1,5 @@
 import React from 'react';
-import Video from "./logo.mp4";
+import Video from "./logo_2.mp4";
 import {Link} from 'react-router-dom';
 import './login.scss';
 
@@ -61,7 +61,6 @@ export default class Login extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit} className="login-form">
             <div className="login-form-child">
-              <label>
                 <input
                   type="text"
                   value={this.state.email}
@@ -69,9 +68,7 @@ export default class Login extends React.Component {
                   placeholder="email"
                   className="login-input"
                 />
-              </label>
 
-              <label>
                 <input
                   type="password"
                   value={this.state.password}
@@ -79,7 +76,6 @@ export default class Login extends React.Component {
                   placeholder="password"
                   className="login-input"
                 />
-              </label>
 
               <div className="signup-submit">
                 <input type="submit" value="Login" />

@@ -5,7 +5,7 @@ import {
 import {
   Switch
 } from 'react-router-dom';
-import WebMap from "./components/map2";
+// import WebMap from "./components/map2";
 
 
 import LoginContainer from './login/login_container';

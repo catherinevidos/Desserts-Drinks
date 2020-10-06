@@ -1,3 +1,12 @@
+.login-wrapper {
+  background-image: url('./dessert.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+}
+
+
 
 .login-container {
   display: flex;
@@ -5,15 +14,46 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  width: 400px;
+  height: 700px;
+  background-color: white;
+  border: yellowgreen 3px dashed;
 }
 
 .login-video-container {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 300px;
   display: flex;
   justify-content: center;
+  margin: 0;
+}
+
+.login-video-container video {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .login-form {
-  width: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 400px;
+}
+
+.login-form-child {
+
+}
+
+input.login-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 18px;
+  border: 1px solid black;
+  border-radius: 10px;
 }
