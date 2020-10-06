@@ -1,5 +1,6 @@
 import React from "react";
-import Video from "../video/video";
+import './signup.scss';
+import Video from "./logo.mp4";
 
 export default class Signup extends React.Component {
   constructor(props) {
@@ -37,7 +38,9 @@ export default class Signup extends React.Component {
       <div className="signup-wrapper">
         <div className="signup-container">
           <div className="signup-logo-video">
-            <Video />
+            <video autoPlay="autoplay" loop="loop" muted>
+              <source src={Video} type="video/mp4" />
+            </video>
           </div>
 
           <form onSubmit={this.handleSubmit} className="signup-form">
