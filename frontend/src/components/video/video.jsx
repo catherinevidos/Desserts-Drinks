@@ -5,15 +5,15 @@ import ReactPlayer from 'react-player';
 class Video extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <ReactPlayer
           className='react-player-logo'
-          url='videos/logo.MP4'
+          url='/logo.MP4'
           width="500px"
           height="500px"
           autoPlay={true}
         />
-      </div>
+      </>
     );
   }
 }
