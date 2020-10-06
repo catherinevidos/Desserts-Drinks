@@ -4,7 +4,8 @@ import {
   GoogleApiWrapper,
   Marker
 } from 'google-maps-react';
-const googleMapApiKey = require("../config/secret").googleMapApiKey;
+const googleMapApiKey = require("../../config/secret").googleMapApiKey;
+import './map.scss';
 
 export class WebMap extends React.Component {
    render() {
