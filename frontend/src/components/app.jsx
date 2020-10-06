@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 // import WebMap from "./components/map2";
 
-
 import LoginContainer from './login/login_container';
 import SignupContainer from './signup/signup_container';
 import SplashContainer from './splash/splash_container';
