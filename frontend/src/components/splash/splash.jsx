@@ -12,9 +12,9 @@ class Splash extends React.Component {
         <header>
           <Navbar />
         </header>
-        {/* <div id="map">
-          <WebMap />
-        </div> */}
+        <div id="map">
+          {/* <WebMap /> */}
+        </div>
       </div>
     );
   }
