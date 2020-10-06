@@ -3,6 +3,7 @@ import {
   AuthRoute
 } from '../util/route_util';
 import {
+  Route,
   Switch
 } from 'react-router-dom';
 // import WebMap from "./components/map2";
@@ -14,7 +15,7 @@ import SplashContainer from './splash/splash_container';
 const App = () => (
 
     <Switch>
-      <AuthRoute exact path="/" component={SplashContainer} />
+      <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer} />
     </Switch>
