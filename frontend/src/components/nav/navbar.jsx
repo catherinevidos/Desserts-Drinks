@@ -21,7 +21,7 @@ export default class Navbar extends React.Component {
 
     return (
       <div>
-        <button className="logout button" onClick={this.props.logoutUser}>
+        <button className="logout button" onClick={this.handleClick}>
           Logout
         </button>
         <button onClick={this.handleClick}>HELLO WORLD</button>
