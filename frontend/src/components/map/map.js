@@ -32,9 +32,7 @@ export class WebMap extends React.Component {
       width: "2000px",
       height: "800px",
     };
-    debugger;
     const { google } = this.props;
-    console.log(this.props);
     return (
       <div className="map-container-div">
         <Map
