@@ -44,7 +44,8 @@
   margin-top: 50px;
   width: 400px;
   height: 600px;
-  background-color: #E4A8C9;
+  background-color: #F0C2D1;
+  opacity: 97%;
   border: #F8EC6B 6px solid;
   padding: 8px;
 }
@@ -66,7 +67,9 @@
 
 .login-form-child {
   width: 100%;
-  height: 100%;
+  height: 300px;
+  margin-top: 10px;
+  position: relative;
 }
 
 .login-input {
@@ -90,14 +93,42 @@
   align-items: center;
 }
 
+a.login-link {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 400px;
+  bottom: 30px;
+  font-weight: bold;
+  margin-top: 12px;
+  text-overflow: clip;
+  transition: background-size 0.25s ease-in;
+  &:hover {
+    font-size: 18pt;
+    text-decoration: underline;
+  }
+}
+
+// a.login-link {
+//    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+//    background-repeat: no-repeat;
+//    background-size: 100% 0.2em;
+//    background-position: 0 88%;
+//    transition: background-size 0.25s ease-in;
+//    margin: 0 auto;
+//   &:hover {
+//     background-size: 100% 88%;
+//   }
+// }
+
 input[type=text]:focus {
   background-color: lightblue;
-  border: 3px solid #555;
+  border: 3px solid #F8EC6B
 }
 
 input[type=password]:focus {
   background-color: lightblue;
-  border: 3px solid #555;
+  border: 3px solid #F8EC6B
 }
 
 input[type=password] {
@@ -121,16 +152,29 @@ input[type=text] {
 input[type=button],
 input[type=submit],
 input[type=reset] {
-  border: none;
+  // border: 2px solid #F8EC6B;
   padding: 12px 28px;
   text-decoration: none;
   margin: 4px 2px;
   text-align: center;
   font-weight: bold;
   border-radius: 10px;
-  width: 200px;
+  width: 80px;
   background-color: #F8EC6B;
   cursor: pointer;
+  box-shadow: 0 6px #999;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
 }
 
 .login-submit-demo button {
@@ -141,9 +185,13 @@ input[type=reset] {
   text-align: center;
   font-weight: bold;
   border-radius: 10px;
-  width: 200px;
+  width: 80px;
   background-color: #F8EC6B;
   cursor: pointer;
+  box-shadow: 0 6px #999;
+  &:hover {
+    box-shadow: none;
+  }
 }
 
 
@@ -151,14 +199,13 @@ input[type=reset] {
   display: none;
 }
 
-.errors-present {
-  height: 30px;
-  width: 200px;
+.error-wrapper {
+  height: 18px;
+  width: 400px;
   color: black;
-  text-align: left;
+  text-align: center;
+  font-size: 12pt;
+  margin-top: 3px;
+  font-style: italic;
 }
 
-.login-link {
-  // background-color: #F5D04B;
-  width: 100%;
-}
