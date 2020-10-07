@@ -7,7 +7,7 @@ import {
   Switch
 } from 'react-router-dom';
 // import WebMap from "./components/map2";
-import FooterContainer from './footer/footer';
+// import FooterContainer from './footer/footer';
 
 import './reset.scss';
 import './app.scss';
@@ -28,9 +28,9 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupContainer} />
     </Switch>
 
-    <div className='splash-footer'>
+    {/* <div className='splash-footer'>
       <FooterContainer />
-    </div>
+    </div> */}
   </div>
 );
 
