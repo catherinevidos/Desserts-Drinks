@@ -15,10 +15,11 @@ import './app.scss';
 import LoginContainer from './login/login_container';
 import SignupContainer from './signup/signup_container';
 import SplashContainer from './splash/splash_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div className='app-container-div'>
-
+    <Modal />
 
 
 
