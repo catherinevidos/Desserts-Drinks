@@ -47,7 +47,6 @@ export default class Login extends React.Component {
   }
 
   demoUser(e) {
-    e.preventDefault();
     this.props.loginUser({
       email: "demo@drinksdesserts.com",
       password: "welcome1",
