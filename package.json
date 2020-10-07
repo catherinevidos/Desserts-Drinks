@@ -1,6 +1,10 @@
 {
   "name": "desserts-drinks",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.8.0",
+    "npm": "6.14.8"
+  },
   "description": "Web app for finding delicious desserts and drinks in NYC",
   "main": "app.js",
   "scripts": {
