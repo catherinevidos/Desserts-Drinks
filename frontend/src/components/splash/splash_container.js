@@ -12,6 +12,7 @@ const mapStateToProps = state => {
   };
 };
 
+<<<<<<< HEAD
 const mapDispatchToProps = dispatch => {
   return {
     openModal: modal => dispatch(openModal(modal))
@@ -21,3 +22,8 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
+=======
+
+
+export default connect(mapStateToProps, null)(Splash);
+>>>>>>> e8f53630202f0c07c0de5431b4f0e34d12fdb92f

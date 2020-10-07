@@ -13,8 +13,13 @@ const mapStateToProps = ({
   }) => {
   return {
     currentUser: session && session.id && entities.users[session.id]
+<<<<<<< HEAD
   };
 };
+=======
+  }
+}
+>>>>>>> e8f53630202f0c07c0de5431b4f0e34d12fdb92f
 
 const mapDispatchToProps = dispatch => {
   return {
