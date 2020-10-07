@@ -114,23 +114,27 @@ export default class Login extends React.Component {
                   className="login-input"
                 />
 
-                <div className="login-submit">
-                  <input type="submit" value="Login" />
-                </div>
+                <div className="button-container">
+                  <div className="login-submit">
+                    <input type="submit" value="Login" />
+                  </div>
 
-                <p className="login-or-message">OR</p>
-
-                <div className="login-submit-demo">
-                  <button
-                    onClick={(e) => {
-                      this.demoUser(e);
-                    }}
-                  >
-                    Demo User
-                  </button>
+                  <div className="login-submit-demo">
+                    <button
+                      onClick={(e) => {
+                        this.demoUser(e);
+                      }}
+                    >
+                      Demo
+                    </button>
+                  </div>
                 </div>
-                <p className={errorNameEmail}>{this.state.emailError}</p>
-                <p className={errorNamePassword}>{this.state.passwordError}</p>
+                <div className='error-wrapper'>
+                  <p className={errorNameEmail}>{this.state.emailError}</p>
+                  <p className={errorNamePassword}>
+                    {this.state.passwordError}
+                  </p>
+                </div>
 
                 <Link to="/signup" className="login-link">
                   Not a Member? Click to Sign Up!
