@@ -21,8 +21,8 @@ export class WebMap extends React.Component {
     this.setState({
       lat: e.position.lat,
       lng: e.position.lng,
-      openModal: true,
-    });
+      openModal: 'spot'
+    })
   }
 
   render() {
@@ -55,8 +55,8 @@ export class WebMap extends React.Component {
             />
           ))}
         </Map>
-        {this.state.openModal ? (
-          <YelpAPI lat={this.state.lat} lng={this.state.lng} />
+        {(this.state.openModal === 'spot') ? (
+          <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} />
         ) : null}
       </div>
     );
