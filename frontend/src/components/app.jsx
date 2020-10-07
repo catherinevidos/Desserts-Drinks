@@ -20,9 +20,6 @@ import Modal from './modal/modal';
 const App = () => (
   <div className='app-container-div'>
     <Modal />
-
-
-
     <Switch>
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
