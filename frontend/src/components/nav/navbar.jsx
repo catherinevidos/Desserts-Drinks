@@ -4,13 +4,16 @@ import {Link} from 'react-router-dom';
 export default class Navbar extends React.Component {
   constructor(props){
     super(props);
-    
+    this.state = this.props.stops;
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.props.logoutUser();
+    this.props.openModal({
+      modal: 'spot',
+      stopId: this.state.stops.data.id
+    });
   }
 
   render() {
@@ -21,7 +24,7 @@ export default class Navbar extends React.Component {
         <button className="logout button" onClick={this.props.logoutUser}>
           Logout
         </button>
-        <button onClick={this.props.openModal}>HELLO WORLD</button>
+        <button onClick={this.handleClick}>HELLO WORLD</button>
         {LogoutButton}
       </div>
     );
