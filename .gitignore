@@ -3,3 +3,4 @@
 /config/keys.js
 /node_modules
 /config/process.env
+/src/config
