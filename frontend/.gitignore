@@ -1,11 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-<<<<<<< HEAD
-
-/src/config/secret.js
-=======
 /src/config
 /config/secret.js
->>>>>>> ca68548a2af1d9d2b5fd8911e9473ced017c4a88
 # dependencies
 /node_modules
 /.pnp
