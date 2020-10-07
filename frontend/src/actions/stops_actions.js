@@ -13,8 +13,8 @@ const receiveStop = (stop) => ({
     stop
 });
 
-export const fetchStops = () => (dispatch) =>
+export const fetchAllStops = () => (dispatch) =>
   fetchStops().then((stops) => dispatch(receiveStops(stops)));
 
-export const fetchStop = (stopId) => (dispatch) =>
+export const fetchAStop = (stopId) => (dispatch) =>
   fetchStop(stopId).then((stop) => dispatch(receiveStop(stop)));
