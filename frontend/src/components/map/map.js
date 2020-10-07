@@ -29,8 +29,8 @@ export class WebMap extends React.Component {
     if (this.props.stops.length === 0) return null;
 
     const style = {
-      width: "2000px",
-      height: "800px",
+      width: "100vw",
+      height: "100vh",
     };
     const { google } = this.props;
     return (
