@@ -17,11 +17,7 @@ export default class Signup extends React.Component {
       email: "",
       username: "",
       password: "",
-<<<<<<< HEAD
       password2: "",
-=======
-      password2: ""
->>>>>>> e8f53630202f0c07c0de5431b4f0e34d12fdb92f
     };
 
     this.update = this.update.bind(this);
@@ -102,7 +98,6 @@ export default class Signup extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
     const errorNameEmail =
       this.state.emailError !== "" ? "errors-present" : "no-errors";
     const errorNamePassword =
@@ -147,51 +142,6 @@ export default class Signup extends React.Component {
                   placeholder="Confirm Password"
                   className="login-input"
                 />
-=======
-    
-    return (
-      <div className="signup-wrapper">
-        <div className="signup-container">
-          <div className="signup-logo-video">
-            <video autoPlay="autoplay" loop="loop" muted>
-              <source src={Video} type="video/mp4" />
-            </video>
-          </div>
-
-          <form onSubmit={this.handleSubmit} className="signup-form">
-            <div className="signup-form-child">
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="email"
-                className="signup-input"
-              />
-
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                placeholder="username"
-                className="signup-input"
-              />
-
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="password"
-                className="signup-input"
-              />
-
-              <input
-                type="password"
-                value={this.state.password2}
-                onChange={this.update("password2")}
-                placeholder="retype password"
-                className="signup-input"
-              />
->>>>>>> e8f53630202f0c07c0de5431b4f0e34d12fdb92f
 
                 <div className="button-container">
                   <div className="login-submit">

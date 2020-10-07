@@ -11,6 +11,9 @@ router.get("/", (req, res) => {
 
 router.get("/bounds/:lat-:lng", (req, res) => {
     const { lat, lng } = req.params;
+    const handleError = function (err) {
+        console.log(err);
+    };
     Stop.find({lat : {$gt : lat}, lng: {$lt: lng}} , function (err, stops) {
         if (err) return handleError(err);
         if (stops) {
@@ -22,10 +25,8 @@ router.get("/bounds/:lat-:lng", (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    debugger
     Stop.findById(req.params.id)
         .then(stop => {
-            debugger
             if (stop) {
                 res.json(stop);
             } else {
@@ -33,7 +34,6 @@ router.get('/:id', (req, res) => {
             }
         })
         .catch(err => {
-            debugger
             console.log(err)
         })
 });

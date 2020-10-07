@@ -1,50 +1,40 @@
-import React from 'react';
-import {
-  Map,
-  GoogleApiWrapper,
-  Marker
-} from 'google-maps-react';
-import YelpAPI from '../yelp/yelp_api';
-import './map.scss';
-
+import React from "react";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import YelpAPI from "../yelp/yelp_api";
+import "./map.scss";
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
-
 
 export class WebMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lat: '',
-      lng: '',
-      openModal: false
-    }
+      lat: "",
+      lng: "",
+      openModal: false,
+    };
     this.handleClick = this.handleClick.bind(this);
   }
-
   componentDidMount() {
     this.props.fetchAllStops();
   }
-
-  handleClick(e){
+  handleClick(e) {
     this.setState({
       lat: e.position.lat,
       lng: e.position.lng,
-      openModal: true
+      openModal: 'spot'
     })
   }
- 
+
   render() {
     if (this.props.stops.length === 0) return null;
-    
+
     const style = {
       width: "2000px",
-      height: "800px"
+      height: "800px",
     };
-    debugger
     const { google } = this.props;
-    console.log(this.props);
     return (
-      <div className='map-container-div'>
+      <div className="map-container-div">
         <Map
           google={this.props.google}
           style={style}
@@ -65,17 +55,13 @@ export class WebMap extends React.Component {
             />
           ))}
         </Map>
-        {this.state.openModal ? 
-          <YelpAPI 
-            lat={this.state.lat} 
-            lng={this.state.lng}
-          /> 
-        : null}
+        {(this.state.openModal === 'spot') ? (
+          <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} />
+        ) : null}
       </div>
     );
   }
 }
-
 export default GoogleApiWrapper({
   apiKey: googleMapApiKey,
 })(WebMap);

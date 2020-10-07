@@ -1,0 +1,9 @@
+.logout-button {
+  width: 100px;
+  height: 50px;
+  background-color: hotpink;
+  &:hover {
+    background-color: grey;
+    cursor: pointer;
+  }
+}

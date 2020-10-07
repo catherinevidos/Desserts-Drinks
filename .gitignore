@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 /node_modules
 /config/keys_dev.js
 /config/keys_prod.js
+=======
+/config/keys_dev.js
+/node_modules
+/config/process.env
+/frontend/src/config
+>>>>>>> ca68548a2af1d9d2b5fd8911e9473ced017c4a88

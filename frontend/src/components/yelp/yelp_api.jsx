@@ -1,4 +1,5 @@
 import React from 'react';
+import SpotFormContainer from '../spot/spot_form_container';
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 const API_BASE_URL = require("../../config/secret").API_BASE_URL;
 
@@ -13,6 +14,7 @@ export default class YelpAPI extends React.Component {
 
     componentDidMount(){
         this.getBusinessDetails();
+        this.props.openModal('spot');
     }
 
     getBusinessDetails() {
@@ -51,16 +53,9 @@ export default class YelpAPI extends React.Component {
     }
 
     render(){
-        debugger
-        console.log(this.props);
-        // console.log(this.state);
 
         return (
-            <div>
-                <div>Hello from yelp api</div>
-
-            </div>
-
+            <SpotFormContainer/>
         )
     }
 }

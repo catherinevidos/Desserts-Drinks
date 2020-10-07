@@ -2,9 +2,9 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   secretOrKey: process.env.SECRET_OR_KEY,
   aws: {
-    accessKeyId: "AKIA3LWHDXUQSM6LW54E",
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     uploadedFileURL: "https://dessertanddrinks-pro.s3.amazonaws.com/",
-    secretAccessKey: "r+QRQjPMBDCzLgThVyrEhn08SmJou4nNXlpy7RSg",
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     region: "us-west-1",
     bucketName: "dessertanddrinks-pro",
   },
