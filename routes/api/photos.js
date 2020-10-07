@@ -8,7 +8,7 @@ const multer = require("multer");
 var AWS = require("aws-sdk");
 
 AWS.config.update({
-  region: aws.region, // Put your aws region here
+  region: aws.region, 
   accessKeyId: aws.accessKeyId,
   secretAccessKey: aws.secretAccessKey,
 });
