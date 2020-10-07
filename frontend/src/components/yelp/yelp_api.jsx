@@ -20,6 +20,7 @@ export default class YelpAPI extends React.Component {
       let lng = this.props.lng;
       let xmlHTTP = new XMLHttpRequest();
       //https://api.yelp.com/v3/businesses/search?term=dessert&latitude=40.7678805&longitude=-73.97103059999999
+    //   https://cors-anywhere.herokuapp.com/
       let url =
         "https://api.yelp.com/v3/businesses/search?term=dessert";
       url = url + "&latitude=" + `${lat}`;
