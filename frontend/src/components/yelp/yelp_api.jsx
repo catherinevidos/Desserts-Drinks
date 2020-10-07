@@ -1,4 +1,5 @@
 import React from 'react';
+import SpotFormContainer from '../spot/spot_form_container';
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 const API_BASE_URL = require("../../config/secret").API_BASE_URL;
 
@@ -13,6 +14,7 @@ export default class YelpAPI extends React.Component {
 
     componentDidMount(){
         this.getBusinessDetails();
+        this.props.openModal('spot');
     }
 
     getBusinessDetails() {
@@ -20,9 +22,8 @@ export default class YelpAPI extends React.Component {
       let lng = this.props.lng;
       let xmlHTTP = new XMLHttpRequest();
       //https://api.yelp.com/v3/businesses/search?term=dessert&latitude=40.7678805&longitude=-73.97103059999999
-    //   https://cors-anywhere.herokuapp.com/
       let url =
-        "https://api.yelp.com/v3/businesses/search?term=dessert";
+        "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=dessert";
       url = url + "&latitude=" + `${lat}`;
       url = url + "&longitude=" + `${lng}`;
       xmlHTTP.onload = function () {
@@ -54,11 +55,7 @@ export default class YelpAPI extends React.Component {
     render(){
 
         return (
-            <div>
-                <div>Hello from yelp api</div>
-
-            </div>
-
+            <SpotFormContainer/>
         )
     }
 }

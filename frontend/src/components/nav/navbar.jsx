@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './navbar.scss';
 
 export default class Navbar extends React.Component {
   constructor(props){
@@ -8,12 +9,8 @@ export default class Navbar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    this.props.openModal({
-      modal: 'spot',
-      stopId: this.state.stops.data.id
-    });
+  handleClick() {
+    this.props.logoutUser();
   }
 
   render() {
@@ -21,7 +18,7 @@ export default class Navbar extends React.Component {
 
     return (
       <div>
-        <button className="logout button" onClick={this.handleClick}>
+        <button className="logout-button" onClick={() => {this.handleClick()}}>
           Logout
         </button>
         <button onClick={this.handleClick}>HELLO WORLD</button>
