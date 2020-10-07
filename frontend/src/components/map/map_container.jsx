@@ -3,7 +3,6 @@ import { fetchAllStops } from "../../actions/stops_actions";
 import WebMap from "./map";
 
 const mSTP = (state) => {
-  // debugger
   return {
     stops: Object.values(state.stops),
   };

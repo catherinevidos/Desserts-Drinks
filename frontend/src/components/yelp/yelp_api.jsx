@@ -51,9 +51,6 @@ export default class YelpAPI extends React.Component {
     }
 
     render(){
-        debugger
-        console.log(this.props);
-        // console.log(this.state);
 
         return (
             <div>

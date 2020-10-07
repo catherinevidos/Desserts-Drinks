@@ -63,7 +63,6 @@ router.post("/upload", upload.single("file"), function (req, res) {
     if (err) {
       res.status(500).json({ error: true, Message: err });
     } else {
-      debugger
       res.send({ data });
       var newFileUploaded = {
         description: req.body.description,
