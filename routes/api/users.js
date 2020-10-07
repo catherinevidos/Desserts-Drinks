@@ -9,7 +9,6 @@ const validateSignupInput = require('../../validation/signup');
 const validateLoginInput = require('../../validation/login');
 
 router.get("/current", passport.authenticate("jwt", { session: false }),(req, res) => {
-    debugger
     res.json({
       id: req.user.id,
       handle: req.user.handle,
@@ -59,7 +58,6 @@ router.post('/signup', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    debugger
     const { errors, isValid } = validateLoginInput(req.body);
     if(!isValid) {
         return res.status(400).json(errors);
@@ -97,6 +95,5 @@ router.post('/login', (req, res) => {
                 });
         });
 });
-
 
 module.exports = router;

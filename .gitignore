@@ -1,2 +1,5 @@
+/config/keys_dev.js
+/config/keys_prod.js
 /config/keys.js
 /node_modules
+/config/process.env

@@ -9,7 +9,8 @@
     "server": "nodemon app.js",
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,19 @@
   },
   "homepage": "https://github.com/catherinevidos/Desserts-Drinks#readme",
   "dependencies": {
+    "aws-sdk": "^2.768.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "file-type": "^15.0.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.7",
+    "mongoose-sequence": "^5.2.2",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "validator": "^13.1.17"
