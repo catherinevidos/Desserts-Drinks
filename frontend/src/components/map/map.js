@@ -5,6 +5,8 @@ import {
   Marker
 } from 'google-maps-react';
 import YelpAPI from '../yelp/yelp_api';
+import './map.scss';
+
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 
 
@@ -35,18 +37,18 @@ export class WebMap extends React.Component {
     if (this.props.stops.length === 0) return null;
     
     const style = {
-      width: "500px",
-      height: "1000px",
+      width: "2000px",
+      height: "800px"
     };
     debugger
     const { google } = this.props;
     console.log(this.props);
     return (
-      <div className='map'>
+      <div className='map-container-div'>
         <Map
           google={this.props.google}
           style={style}
-          zoom={13}
+          zoom={14}
           initialCenter={{ lat: 40.7678805, lng: -73.97103059999999 }}
         >
           {this.props.stops[0].map((stop, i) => (

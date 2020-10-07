@@ -10,20 +10,15 @@ router.get("/", (req, res) => {
 });
 
 router.get("/bounds/:lat-:lng", (req, res) => {
-    debugger;
     const { lat, lng } = req.params;
-    Stop.find({lat : {$gt : lat}}, function (err, stops) {
+    Stop.find({lat : {$gt : lat}, lng: {$lt: lng}} , function (err, stops) {
         if (err) return handleError(err);
         if (stops) {
-            debugger;
             res.json(stops);
         } else {
-            debugger;
             res.status(400).json({ stop: "No such stop" });
         }
     });
-    // Stop.find()
-    //     .where('lat').
 });
 
 router.get('/:id', (req, res) => {

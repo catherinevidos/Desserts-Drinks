@@ -1,9 +1,38 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  resize: none;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.login-top {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
 .login-wrapper {
   background-image: url('./dessert.png');
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
+  height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .login-container {
@@ -12,23 +41,18 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  margin-top: 50px;
   width: 400px;
-  height: 700px;
-  background-color: white;
-  border: yellowgreen 3px dashed;
+  height: 600px;
+  background-color: #F0C2D1;
+  opacity: 97%;
+  border: #F8EC6B 6px solid;
+  padding: 8px;
 }
 
-.login-video-container {
+.login-logo-container {
   width: 400px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-.login-video-container video {
-  width: 100%;
-  height: 100%;
+  height: 350px;
   display: flex;
   justify-content: center;
   margin: 0;
@@ -38,20 +62,150 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 400px;
+  height: 350px;
 }
 
 .login-form-child {
-
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  position: relative;
 }
 
-input.login-input {
+.login-input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 18px;
-  border: 1px solid black;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 auto;
+  text-align: left;
+  text-indent: 5px;
+  padding: 13px;
+  width: 260px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+  background-color: white;
+  opacity: 92%;
   border-radius: 10px;
 }
+
+.login-submit {
+  align-items: center;
+}
+
+a.login-link {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 400px;
+  bottom: 30px;
+  font-weight: bold;
+  margin-top: 12px;
+  text-overflow: clip;
+  transition: background-size 0.25s ease-in;
+  &:hover {
+    font-size: 18pt;
+    text-decoration: underline;
+  }
+}
+
+// a.login-link {
+//    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+//    background-repeat: no-repeat;
+//    background-size: 100% 0.2em;
+//    background-position: 0 88%;
+//    transition: background-size 0.25s ease-in;
+//    margin: 0 auto;
+//   &:hover {
+//     background-size: 100% 88%;
+//   }
+// }
+
+input[type=text]:focus {
+  background-color: lightblue;
+  border: 3px solid #F8EC6B
+}
+
+input[type=password]:focus {
+  background-color: lightblue;
+  border: 3px solid #F8EC6B
+}
+
+input[type=password] {
+  background-image: url('./key.png');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  padding-left: 35px;
+  background-position: left 5px center;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text] {
+   background-image: url('./envelope.png');
+   background-repeat: no-repeat;
+   background-size: 25px;
+   padding-left: 35px;
+   background-position: left 5px center;
+   transition: width 0.4s ease-in-out;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  // border: 2px solid #F8EC6B;
+  padding: 12px 28px;
+  text-decoration: none;
+  margin: 4px 2px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 80px;
+  background-color: #F8EC6B;
+  cursor: pointer;
+  box-shadow: 0 6px #999;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+.login-submit-demo button {
+  border: none;
+  padding: 12px 28px;
+  text-decoration: none;
+  margin: 4px 2px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 80px;
+  background-color: #F8EC6B;
+  cursor: pointer;
+  box-shadow: 0 6px #999;
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+
+.no-errors {
+  display: none;
+}
+
+.error-wrapper {
+  height: 18px;
+  width: 400px;
+  color: black;
+  text-align: center;
+  font-size: 12pt;
+  margin-top: 3px;
+  font-style: italic;
+}
+
