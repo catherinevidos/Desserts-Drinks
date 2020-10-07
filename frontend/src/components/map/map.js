@@ -5,7 +5,7 @@ import {
   Marker
 } from 'google-maps-react';
 import YelpAPI from '../yelp/yelp_api';
-import './map.scss';
+
 
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 
@@ -56,11 +56,18 @@ export class WebMap extends React.Component {
               key={`${i}-${stop.id}`}
               title={stop.name}
               position={{ lat: stop.lat, lng: stop.lng }}
+
               onClick={this.handleClick}
               icon={{
                 url:
                   "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
                 scaledSize: new google.maps.Size(30, 30),
+
+              icon={{
+                url:
+                  "https://bestfriend-treehouse-dev.s3.amazonaws.com/Marker_logo.png",
+                anchor: new google.maps.Point(32, 32),
+                scaledSize: new google.maps.Size(75, 75),
               }}
             />
           ))}
