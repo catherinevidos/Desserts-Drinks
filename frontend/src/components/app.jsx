@@ -7,7 +7,7 @@ import {
   Switch
 } from 'react-router-dom';
 // import WebMap from "./components/map2";
-import FooterContainer from './footer/footer';
+// import FooterContainer from './footer/footer';
 
 import './reset.scss';
 import './app.scss';
@@ -15,10 +15,11 @@ import './app.scss';
 import LoginContainer from './login/login_container';
 import SignupContainer from './signup/signup_container';
 import SplashContainer from './splash/splash_container';
+import Modal from './modal/modal';
 
 const App = () => (
   <div className='app-container-div'>
-
+    <Modal />
 
 
 
@@ -28,9 +29,9 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupContainer} />
     </Switch>
 
-    <div className='splash-footer'>
+    {/* <div className='splash-footer'>
       <FooterContainer />
-    </div>
+    </div> */}
   </div>
 );
 
