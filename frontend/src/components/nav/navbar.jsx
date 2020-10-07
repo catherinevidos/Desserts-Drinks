@@ -5,7 +5,7 @@ import './navbar.scss';
 export default class Navbar extends React.Component {
   constructor(props){
     super(props);
-    
+    this.state = this.props.stops;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -21,7 +21,7 @@ export default class Navbar extends React.Component {
         <button className="logout-button" onClick={() => {this.handleClick()}}>
           Logout
         </button>
-        <button onClick={this.props.openModal}>HELLO WORLD</button>
+        <button onClick={this.handleClick}>HELLO WORLD</button>
         {LogoutButton}
       </div>
     );
