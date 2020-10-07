@@ -1,10 +1,18 @@
 .map-container-div {
-    background-color: #F8EC6B;
+    // background-color: pink;
     margin-top: 50px;
-    padding: 15px;
-    // padding-right: 2015px;
-    // padding-bottom: 815px;
-    // border: solid 5px yellow;
+    // padding: 15px;
+    height: 70vh;
     border-radius: 25px;
-    position: absolute center !important;
+    // box-sizing: border-box;
+    border: 18px solid #F8EC6B;
+    // position: absolute center !important;
+}
+
+#map {
+    width: 100% !important;
+}
+
+.splash-map-container {
+    width: 100%;
 }
