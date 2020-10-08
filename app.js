@@ -8,10 +8,12 @@ const passport = require("passport");
 const users = require('./routes/api/users');
 const stops = require("./routes/api/stops");
 const photos = require('./routes/api/photos');
+const comments = require('./routes/api/comments');
 
 const User = require("./models/User");
 const Stop = require('./models/Stop');
 const Photo = require('./models/Photo');
+const Comment = require('./models/Comment');
 
 const cors = require("cors");
 app.use(cors());
@@ -38,6 +40,7 @@ app.use(bodyParser.json());
 app.use('/api/users', users);
 app.use('/api/stops', stops);
 app.use('/api/photos', photos);
+app.use('/api/comments', comments);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on ${port}`));

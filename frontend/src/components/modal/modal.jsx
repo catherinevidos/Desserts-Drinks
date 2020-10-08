@@ -14,7 +14,7 @@ function Modal({ modal, closeModal }) {
 
     switch (modal) {
         case "spot":
-            component = <SpotFormContainer/>;
+            component = <YelpAPI/>;
             break;
         default:
             return null;
@@ -22,7 +22,9 @@ function Modal({ modal, closeModal }) {
     return (
         <div className='modal-background' onClick={closeModal}>
             <div className='modal-child' onClick={e => e.stopPropagation()}>
-                { component }
+                <div>
+                    { component }
+                </div>
             </div>
         </div>
     )
