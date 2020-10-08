@@ -96,4 +96,15 @@ router.post('/login', (req, res) => {
         });
 });
 
+router.put('/:email' ,(req, res) => {
+    debugger
+    User.findById(req.params.email)
+      .update({
+        theme: req.body.theme,
+      })
+      .then((result) => {
+        res.json(result);
+      });
+});
+
 module.exports = router;
