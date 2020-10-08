@@ -90,7 +90,7 @@
 import React from 'react';
 import BusinessItems from './BusinessItems';
 import $ from 'jquery';
-import {allBusiness} from '../../reducers/selectors';
+
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
 export default class SpotForm extends React.Component {
@@ -110,6 +110,7 @@ export default class SpotForm extends React.Component {
 
   componentDidMount() {
       this.getBusinessDetails();
+      this.props.openModal('spot');
   }
 
     componentDidUpdate(prevProps) {
@@ -149,14 +150,16 @@ export default class SpotForm extends React.Component {
 
   render() {
       debugger
-      if (this.state.business === "") { return null;}
-      const selectedbusiness = allBusiness(this.state.business);
-      console.log(selectedbusiness);
-        const all = selectedbusiness.map((business) => {
-            debugger;
-            return <BusinessItems name={business[1]} key={business[0]} />;
-        });
 
+      if (this.state.business === "") { return null;}
+        const all = this.state.business.map((location) => {
+        debugger
+        return <BusinessItems 
+                    location={location} 
+                    key={location.id}
+                    openModal={this.props.openModal}
+                />;
+    })
     return (
       <div>
         <h1>Donuts around you</h1>

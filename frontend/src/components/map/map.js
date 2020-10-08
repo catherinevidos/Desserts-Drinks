@@ -32,7 +32,7 @@ export class WebMap extends React.Component {
       lng: e.position.lng,
       openModal: 'spot'
     })
-    this.props.openModal('spot');
+    // this.props.openModal('spot');
   }
 
   render() {
