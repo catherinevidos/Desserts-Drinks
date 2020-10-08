@@ -13,7 +13,6 @@ export class WebMap extends React.Component {
     this.state = {
       lat: "",
       lng: "",
-      openModal: true,
       loading: false
     };
     this.handleClick = this.handleClick.bind(this);
@@ -30,9 +29,8 @@ export class WebMap extends React.Component {
     this.setState({
       lat: e.position.lat,
       lng: e.position.lng,
-      openModal: 'spot'
     })
-    // this.props.openModal('spot');
+    this.props.openModal({modal: 'business', lat: this.state.lat, lng: this.state.lng});
   }
 
   render() {
@@ -73,7 +71,7 @@ export class WebMap extends React.Component {
         {/* {(this.state.openModal === 'spot') ? ( */}
         {/* <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} /> */}
         {/* ) : null} */}
-        <SpotFormContainer lat={this.state.lat} lng={this.state.lng} />
+        {/* <SpotForm /> */}
       </div>
     );
   }

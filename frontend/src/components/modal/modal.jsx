@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.scss';
 import SpotFormContainer from '../spot/spot_form_container';
+import BusinessContainer from '../spot/businesscontainer';
 
 function Modal({ modal, closeModal }) {
 
@@ -12,10 +13,13 @@ function Modal({ modal, closeModal }) {
 
     let component;
 
-    switch (modal) {
-      case "spot":
+    switch (modal.modal) {
+      case "business":
         debugger
-        component = <SpotFormContainer />;
+        component = (
+          <SpotFormContainer 
+            lat={modal.lat} lng={modal.lng} />
+        );
         break;
 
       default:
@@ -24,9 +28,7 @@ function Modal({ modal, closeModal }) {
     return (
         <div className='modal-background' onClick={closeModal}>
             <div className='modal-child' onClick={e => e.stopPropagation()}>
-                <div>
-                    { component }
-                </div>
+                { component }
             </div>
         </div>
     )

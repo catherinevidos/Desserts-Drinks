@@ -1,15 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-export default class BusinessItems extends React.Component{
+// export default class BusinessItems extends React.Component{
 
-    // componentDidMount(){
-    //     this.props.openModal('spot');
-    // }
+//     // componentDidMount(){
+//     //     this.props.openModal('business');
+//     // }
 
-    render(){
-        debugger
-        console.log(this.props);
-        const { location } = this.props;
-        return <li>{location.name}</li>;
-    }
-}
+    
