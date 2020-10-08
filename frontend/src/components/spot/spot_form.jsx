@@ -1,6 +1,7 @@
 import React from 'react';
-import BusinessItems from './BusinessItems';
 import $ from 'jquery';
+import SpotItem from './spot_item'
+import './spot.scss'
 
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
@@ -19,16 +20,15 @@ export default class SpotForm extends React.Component {
     this.props.closeModal();
   }
 
-  componentDidMount() {
+  componentDidMount(){
     this.getBusinessDetails();
   }
 
   getBusinessDetails() {
     let url =
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=dessert";
+      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=desserts";
     url = url + "&latitude=" + `${this.props.lat}`;
     url = url + "&longitude=" + `${this.props.lng}`;
-    debugger
     let that = this;
     $.ajax({
       url: url,
@@ -38,29 +38,35 @@ export default class SpotForm extends React.Component {
       method: "GET",
       dataType: "json",
       success: function (data) {
-            debugger
+        
             that.setState({ business: data.businesses });
-            debugger
+        
         }
     })
   }
 
   render() {
-      debugger
-      if (this.state.business.length === 0) return null;
-      debugger
-        return (
-          <div>
-            <h1>Donuts around you</h1>
-            {this.state.business.map((location) => (
-              <div>
-                <li>{location.name}</li>
+
+    if (this.state.business.length === 0) return null;
+
+    return (
+      <>
+        <div className="modal-header">
+          <h1 className="modal-title">Donuts around you</h1>
+        </div>
+        <div className="modal-body">
+          <div className="business-list">
+            {this.state.business.slice(0, 5).map((location) => (
+              <div className="businesses">
+                <SpotItem location={location} key={location.id} />
               </div>
             ))}
-            <div>
-              <button onClick={this.handleExit}>X</button>
-            </div>
           </div>
-        );
+        </div>
+        <div>
+          <button onClick={this.handleExit}>X</button>
+        </div>
+      </>
+    );
   }
 }

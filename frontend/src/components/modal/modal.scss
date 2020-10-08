@@ -13,8 +13,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: hotpink;
+  background-color: #FFC1D2;
   height: 600px;
   min-width: 500px;
   z-index: 15;
+  overflow: auto;
+  border: 12px solid rgb(253,231,178);
+  border-radius: 25px;
+  
 }
