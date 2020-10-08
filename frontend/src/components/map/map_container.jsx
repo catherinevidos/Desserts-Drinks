@@ -6,7 +6,8 @@ import WebMap from "./map";
 const mSTP = (state) => {
   return {
     stops: Object.values(state.stops),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    theme: state.ui.theme.theme
   };
 };
 

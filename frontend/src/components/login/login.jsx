@@ -36,13 +36,13 @@ export default class Login extends React.Component {
     e.preventDefault();
     const errors = this.renderErrors();
     if (errors) {
-      this.setState({intitialState})
+      this.setState({intitialState});
     }
     let user = {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.loginUser(user);
+    this.props.loginUser(user).then(() => this.props.history.push('/'));
   }
 
   demoUser(e) {
@@ -82,15 +82,15 @@ export default class Login extends React.Component {
     } else if (password.length < 6) {
       passwordError = 'Your password must be at least 6 characters. Please try again.';} 
     if ( passwordError || emailError) {
-      this.setState({ passwordError, emailError})
+      this.setState({ passwordError, emailError});
     return false;
     }
     return true;
-  };
+  }
     
 
   render() {
-    const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors'
+    const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors';
     const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
     
     return (

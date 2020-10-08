@@ -94,7 +94,7 @@ export default class Signup extends React.Component {
       password2: this.state.password2,
       username: this.state.username,
     };
-    this.props.signupUser(user);
+    this.props.signupUser(user).then(() => this.props.history.push('/'));
   }
 
   render() {
