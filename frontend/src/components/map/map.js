@@ -10,7 +10,7 @@ export class WebMap extends React.Component {
     this.state = {
       lat: "",
       lng: "",
-      openModal: false,
+      openModal: true,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -55,9 +55,9 @@ export class WebMap extends React.Component {
             />
           ))}
         </Map>
-        {(this.state.openModal === 'spot') ? (
+        {/* {(this.state.openModal === 'spot') ? ( */}
           <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} />
-        ) : null}
+        {/* ) : null} */}
       </div>
     );
   }

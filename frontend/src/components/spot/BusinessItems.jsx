@@ -6,20 +6,17 @@ export default class BusinessItems extends React.Component{
     }
 
     render(){
-        const { name } = this.props.location;
         return(
             <div>
-                {name}
+                <li>PLEASE WORK</li>
+                {/* <li>
+                     {location.image_url}
+                     {location.name}
+                     {location.price}
+                     {location.display_phone}
+                     {location.rating}
+                </li> */}
             </div>
         )
     }
 }
-
-            // <li>PLEASE WORK</li>
-            // <li>
-            //     {location.image_url}
-
-            //     {location.price}
-            //     {location.display_phone}
-            //     {location.rating}
-            // </li>

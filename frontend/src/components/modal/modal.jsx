@@ -15,7 +15,7 @@ function Modal({ modal, closeModal }) {
 
     switch (modal) {
         case "spot":
-            component = <SpotFormContainer/>;
+            component = <YelpAPI/>;
             break;
         default:
             return null;
