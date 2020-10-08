@@ -7,6 +7,7 @@ import SpotForm from './spot_form';
 const mSTP = (state, ownProps) => ({
   lng: state.ui.modal.lng,
   lat: state.ui.modal.lat,
+  theme: state.ui.theme.theme
 });
 
 const mDTP = dispatch => ({

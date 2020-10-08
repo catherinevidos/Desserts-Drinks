@@ -7,16 +7,8 @@ import './splash.scss';
 class Splash extends React.Component {
 
   render() {
-
-    let backgroundImg;
-    if (this.props.currentUser.theme === 'dessert') {
-    backgroundImg = {'https://pxelation-seeds.s3.amazonaws.com/193973.png'}} else {
-    backgroundImg = {}
-    }
-  
     return (
-      <div className="top-level-div">
-        <img src={backgroundImg} alt=""/>
+      <div id='background-div' className={this.props.theme !== "Desserts" ? "background-drinks" : "background-desserts"}>
         <div className="main-splash-container">
           <header className="splash-header">
             <Navbar />

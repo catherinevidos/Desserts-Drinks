@@ -1,13 +1,13 @@
-.top-level-div {
-    // width: 100%;
-    // height: 100%;
-    // background-image: url('https://pxelation-seeds.s3.amazonaws.com/193973.png');
+.background-desserts {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://pxelation-seeds.s3.amazonaws.com/193973.png');
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    opacity: 90%;
+    opacity: .90;
 
 
     .main-splash-container {
@@ -52,3 +52,55 @@
 }
 
 
+
+.background-drinks {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://pxelation-seeds.s3.amazonaws.com/cocktail_no_background_for_action+(1).jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    opacity: .90;
+
+        .main-splash-container {
+        // padding: 50px;
+        padding-top: 0px;
+        width: 100%;
+        height: 1200px;
+        // border: 5px solid yellow;
+        // background-color: yellow;
+
+        .splash-header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            
+            .title-h1 {
+                font-size: 28px;
+                font-weight: bolder;
+            }
+        
+            .navbar {
+                font-size: 28px;
+                font-weight: bolder;
+            }
+
+        }
+        
+        // .splash-map-container {
+        //     display: flex;
+        //     justify-content: center;
+        //     height: 100%;
+        // }
+    }
+
+    // .splash-footer {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     // background-color: white;
+    //     // border: solid 2px white;
+    //     color: blue;
+    // }
+}

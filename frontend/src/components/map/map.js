@@ -5,6 +5,7 @@ import "./map.scss";
 import LoadingIcon from '../../components/loading/loading';
 import SpotFormContainer from '../spot/spot_form_container';
 import $ from "jquery";
+
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
@@ -17,8 +18,8 @@ export class WebMap extends React.Component {
       loading: false
     };
     this.handleClick = this.handleClick.bind(this);
-    this.getBusinessDetails = this.getBusinessDetails.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchAllStops().then(() => {
       this.setState({
@@ -27,38 +28,16 @@ export class WebMap extends React.Component {
     });
   }
 
-  getBusinessDetails(lat, lng) {
-    //https://api.yelp.com/v3/businesses/search?term=dessert&latitude=40.7678805&longitude=-73.97103059999999
-    let url =
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=dessert";
-    url = url + "&latitude=" + `${lat}`;
-    url = url + "&longitude=" + `${lng}`;
-    debugger;
-    let that = this;
-    $.ajax({
-      url: url,
-      headers: {
-        Authorization: `Bearer ${yelpApiKey}`,
-      },
-      method: "GET",
-      dataType: "json",
-      success: function (data) {
-        debugger;
-        that.setState({ business: data.businesses });
-      },
-    });
-  }
-
   handleClick(e) {
-    debugger
     this.setState({
       lat: e.position.lat,
       lng: e.position.lng,
-    })
+    });
     this.props.openModal({modal: 'business', lat: this.state.lat, lng: this.state.lng});
   }
 
   render() {
+
     if (this.props.stops.length === 0) return null;
     if (this.state.loading) {
       return <LoadingIcon />;
@@ -70,21 +49,22 @@ export class WebMap extends React.Component {
       height: "70vh",
     };
 
+    const { google } = this.props;
+
 
     let renderIcon;
-    if (this.props.currentUser.theme === 'dessert') {
+    if (this.props.theme === 'Desserts') {
       renderIcon = {
         url: "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
         scaledSize: new google.maps.Size(30, 30),
       };
     } else {
       renderIcon = {
-        url: "https://pxelation-seeds.s3.amazonaws.com/1.png",
+        url: "https://pxelation-seeds.s3.amazonaws.com/1+(1).png",
         scaledSize: new google.maps.Size(30, 30),
       };
     }
 
-    const { google } = this.props;
 
     const westSide1 = [{
         lat: 40.702068,

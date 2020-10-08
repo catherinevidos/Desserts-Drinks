@@ -18,7 +18,7 @@ const UserSchema = new Schema(
         theme: {
             type: String,
             required: true,
-            default: 'Dessert'
+            default: 'Desserts'
 
         }
     },

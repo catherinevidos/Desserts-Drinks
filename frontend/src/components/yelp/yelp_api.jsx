@@ -20,10 +20,6 @@ export default class YelpAPI extends React.Component {
       }
     }
 
-    componentWillUnmount(){
-      console.log('unmounted');
-    }
-
     getBusinessDetails() {
       let lat = this.props.lat;
       let lng = this.props.lng;
@@ -46,7 +42,6 @@ export default class YelpAPI extends React.Component {
             xmlHTTP.readyState === XMLHttpRequest.DONE
         )   {
             const data = JSON.parse(xmlHTTP.responseText);
-            console.log(data);
             const business = Object.values(data)[0];
             this.setState({ business: business });
             }

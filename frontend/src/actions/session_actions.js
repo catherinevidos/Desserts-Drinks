@@ -32,7 +32,7 @@ export const clearErrors = () => ({
 
 export const updateUserTheme = () => ({
     type: UPDATE_USER_THEME
-})
+});
 
 export const signup = user => dispatch => (
     APIUtil.signup(user)
