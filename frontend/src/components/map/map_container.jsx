@@ -5,7 +5,8 @@ import WebMap from "./map";
 
 const mSTP = (state) => {
   return {
-    stops: Object.values(state.stops)
+    stops: Object.values(state.stops),
+    currentUser: state.session.currentUser
   };
 };
 

@@ -7,7 +7,7 @@ import Splash from './splash';
 
 const mapStateToProps = state => {
   return {
-    currentUser: state.session.currentUser,
+    currentUser: state.session.user,
     errors: state.session.errors
   };
 };

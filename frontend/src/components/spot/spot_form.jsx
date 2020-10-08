@@ -141,6 +141,7 @@ export default class SpotForm extends React.Component {
             that.setState({ business: data.businesses });
         }
     })
+
   }
 
   render() {

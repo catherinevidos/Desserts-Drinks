@@ -122,7 +122,7 @@ export default class Signup extends React.Component {
                 <p className={errorNameUsername}>{this.state.usernameError}</p>
               </div>
               <div className="signup-logo-container">
-                <img src={Pic} alt="" />
+                <img src="https://pxelation-seeds.s3.amazonaws.com/logo4.png" alt="" />
               </div>
               <form onSubmit={this.handleSubmit} className="signup-form">
                 <div className="signup-form-child">
