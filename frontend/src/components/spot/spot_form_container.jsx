@@ -4,15 +4,16 @@ import { openModal, closeModal} from '../../actions/modal_actions';
 import SpotForm from './spot_form';
 
 
-// const mSTP = (state) => {
-//     return {
-//         business: null
-//     };
-// };
+const mSTP = (state, ownProps) => {
+    console.log(ownProps);
+    return {
+        business: null
+    };
+};
 
 const mDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(null, mDTP)(SpotForm);
+export default connect(mSTP, mDTP)(SpotForm);

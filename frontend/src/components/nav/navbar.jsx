@@ -43,10 +43,10 @@ export default class Navbar extends React.Component {
           {/* <img className='nav-logo' src={LogoSmall} alt='' /> */}
           <div className="buttons-container">
             <div className="profile-button">
-              <Link to="/">profile</Link>
+              <Link to="/profile">profile</Link>
             </div>
             <div className="login-button">
-              <Link to="/login">login</Link>
+              <Link to="/">theme</Link>
             </div>
             <button
               className="logout-button"
@@ -58,5 +58,7 @@ export default class Navbar extends React.Component {
             </button>
           </div>
         </div>
+      </div>
+      )
   }
 }

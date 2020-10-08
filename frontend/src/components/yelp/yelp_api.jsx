@@ -13,10 +13,11 @@ export default class YelpAPI extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-      console.log('Mounted');
-      if (prevProps.lat && prevProps.lng)
+      // if (prevProps.lat && prevProps.lng)
+      //   this.getBusinessDetails();
+      if (prevProps.lat !== this.props.lat) {
         this.getBusinessDetails();
-        // this.props.openModal('spot');
+      }
     }
 
     componentWillUnmount(){

@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import YelpAPI from "../yelp/yelp_api";
 import "./map.scss";
 import LoadingIcon from '../../components/loading/loading';
-
+import SpotFormContainer from '../spot/spot_form_container';
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 
 
@@ -32,6 +32,7 @@ export class WebMap extends React.Component {
       lng: e.position.lng,
       openModal: 'spot'
     })
+    // this.props.openModal('spot');
   }
 
   render() {
@@ -60,7 +61,7 @@ export class WebMap extends React.Component {
               key={`${i}-${stop.id}`}
               title={stop.name}
               position={{ lat: stop.lat, lng: stop.lng }}
-              onClick={this.handleClick}
+              onClick={(e) => this.handleClick(e)}
               icon={{
                 url:
                   "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
@@ -70,8 +71,9 @@ export class WebMap extends React.Component {
           ))}
         </Map>
         {/* {(this.state.openModal === 'spot') ? ( */}
-          <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} />
+        {/* <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} /> */}
         {/* ) : null} */}
+        <SpotFormContainer lat={this.state.lat} lng={this.state.lng} />
       </div>
     );
   }
