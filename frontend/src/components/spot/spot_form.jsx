@@ -97,7 +97,7 @@ export default class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      business: "",
+      business: [],
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
@@ -109,29 +109,28 @@ export default class SpotForm extends React.Component {
   }
 
   componentDidMount() {
-      this.getBusinessDetails();
-      this.props.openModal('spot');
+    this.getBusinessDetails();
   }
 
-    componentDidUpdate(prevProps) {
-      // if (prevProps.lat && prevProps.lng)
-      //   this.getBusinessDetails();
-      if (prevProps.lat !== this.props.lat || prevProps.lng !== this.props.lng) {
-          this.getBusinessDetails();
-        //     this.getBusinessDetails().then(business => {
-        //         this.setState({ business: business });
-        // })
-      }
-    }
+    // componentDidUpdate(prevProps) {
+    //   // if (prevProps.lat && prevProps.lng)
+    //   //   this.getBusinessDetails();
+    //   if (prevProps.lat !== this.props.lat || prevProps.lng !== this.props.lng) {
+    //       this.getBusinessDetails()
+    //     //     this.getBusinessDetails().then(business => {
+    //     //         this.setState({ business: business });
+    //     // })
+    //   }
+    // }
 
   getBusinessDetails() {
-    let lat = this.props.lat;
-    let lng = this.props.lng;
+    // let lat = this.props.modal.lat;
+    // let lng = this.props.modal.lng;
     //https://api.yelp.com/v3/businesses/search?term=dessert&latitude=40.7678805&longitude=-73.97103059999999
     let url =
       "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=dessert";
-    url = url + "&latitude=" + `${lat}`;
-    url = url + "&longitude=" + `${lng}`;
+    url = url + "&latitude=" + `${this.props.lat}`;
+    url = url + "&longitude=" + `${this.props.lng}`;
     debugger
     let that = this;
     $.ajax({
@@ -143,30 +142,29 @@ export default class SpotForm extends React.Component {
       dataType: "json",
       success: function (data) {
             debugger
-            that.setState({ business: data.businesses });
+            this.setState = ({ business: data.businesses });
+            debugger
         }
     })
   }
 
   render() {
       debugger
-
-      if (this.state.business === "") { return null;}
-        const all = this.state.business.map((location) => {
-        debugger
-        return <BusinessItems 
-                    location={location} 
-                    key={location.id}
-                    openModal={this.props.openModal}
-                />;
-    })
-    return (
-      <div>
-        <h1>Donuts around you</h1>
-        <button onClick={this.handleExit}>X</button>
-        {this.state.business === "" ? <p>No business yet</p> : <ul>{all}</ul>}
-        {/* <ul>{all}</ul> */}
-      </div>
-    );
+      if (this.state.business === []) return null;
+      debugger
+        return (
+           (this.state.business !== []) ?
+          <div>
+            {this.state.business.map((location) => (
+              <div>
+                <h1>Donuts around you</h1>
+                <li>{location.name}</li>
+                <button onClick={this.handleExit}>X</button>
+              </div>
+            ))}
+          </div>
+      : 
+      console.log("you suck")
+    )
   }
 }
