@@ -51,11 +51,10 @@ export default class YelpAPI extends React.Component {
       //     weather: xmlHTTP.response,
       // });
     }
-
+    
     render(){
-
-        return (
-            <SpotFormContainer/>
-        )
+      debugger
+  
+      return ( <SpotFormContainer business={this.state.business} />)
     }
 }
