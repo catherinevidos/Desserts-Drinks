@@ -40,7 +40,7 @@ export class WebMap extends React.Component {
        return <LoadingIcon/> ;
      }
 
-    let dynamicWidth = 'calc(100% - 136.5px)';
+    let dynamicWidth = 'calc(100% - 126px)';
     const style = {
       width: dynamicWidth,
       height: "70vh",

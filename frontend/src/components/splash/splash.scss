@@ -1,23 +1,27 @@
 .top-level-div {
     // width: 100%;
     // height: 100%;
-    background-image: url(https://pxelation-seeds.s3.amazonaws.com/Slice+1-10.png);
+    background-image: url('./193973.png');
     background-size: cover;
     background-repeat: no-repeat;
-    // overflow: hidden;
+    overflow: hidden;
     display: flex;
     justify-content: center;
+    opacity: 90%;
 
 
     .main-splash-container {
-        padding: 50px;
+        // padding: 50px;
+        padding-top: 0px;
         width: 100%;
         height: 1200px;
+        // border: 5px solid yellow;
         // background-color: yellow;
 
         .splash-header {
             display: flex;
             justify-content: space-between;
+            width: 100%;
             
             .title-h1 {
                 font-size: 28px;
@@ -28,6 +32,7 @@
                 font-size: 28px;
                 font-weight: bolder;
             }
+
         }
         
         // .splash-map-container {
@@ -45,4 +50,5 @@
     //     color: blue;
     // }
 }
+
 

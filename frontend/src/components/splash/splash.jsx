@@ -8,20 +8,17 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <div className='top-level-div'>
-        <div className='main-splash-container'>
-
-          <header className='splash-header'>
-            <span className='title-h1'><h1>DESSERT AND DRINKS (placeholder)</h1></span>
-            <span className='navbar'><Navbar /></span>
+      <div className="top-level-div">
+        <div className="main-splash-container">
+          <header className="splash-header">
+            <Navbar />
           </header>
 
-          <div className='splash-map-container'>
+          <div className="splash-map-container">
             <div id="map">
-              <WebMapContainer className=''/>
+              <WebMapContainer className="" />
             </div>
           </div>
-
         </div>
       </div>
     );
