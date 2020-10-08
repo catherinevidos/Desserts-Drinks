@@ -8,8 +8,8 @@ const StopSchema = new Schema(
       required: true,
     },
     color: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     lat: {
       type: Number,
@@ -19,7 +19,21 @@ const StopSchema = new Schema(
       type: Number,
       required: true,
     },
+    postedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    comments: [
+      {
+        text: String,
+        postedBy: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      },
+    ],
   },
+
   {
     timestamps: true,
   }

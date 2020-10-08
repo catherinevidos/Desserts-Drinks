@@ -2,7 +2,10 @@ import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import YelpAPI from "../yelp/yelp_api";
 import "./map.scss";
+import LoadingIcon from '../../components/loading/loading';
+
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
+
 
 export class WebMap extends React.Component {
   constructor(props) {
@@ -11,12 +14,18 @@ export class WebMap extends React.Component {
       lat: "",
       lng: "",
       openModal: true,
+      loading: false
     };
     this.handleClick = this.handleClick.bind(this);
   }
-  componentDidMount() {
-    this.props.fetchAllStops();
-  }
+   componentDidMount() {
+     this.props.fetchAllStops().then(() => {
+       this.setState({
+         loading: false
+       });
+     });
+   }
+
   handleClick(e) {
     this.setState({
       lat: e.position.lat,
@@ -27,11 +36,16 @@ export class WebMap extends React.Component {
 
   render() {
     if (this.props.stops.length === 0) return null;
+     if (this.state.loading) {
+       return <LoadingIcon/> ;
+     }
 
+    let dynamicWidth = 'calc(100% - 136.5px)';
     const style = {
-      width: "2000px",
-      height: "800px",
+      width: dynamicWidth,
+      height: "70vh",
     };
+
     const { google } = this.props;
     return (
       <div className="map-container-div">
@@ -65,3 +79,4 @@ export class WebMap extends React.Component {
 export default GoogleApiWrapper({
   apiKey: googleMapApiKey,
 })(WebMap);
+

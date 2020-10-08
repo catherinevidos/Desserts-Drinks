@@ -48,10 +48,14 @@ export default class Login extends React.Component {
 
   demoUser(e) {
     e.preventDefault();
-    this.props.loginUser({
-      email: "demo@drinksdesserts.com",
-      password: "welcome1",
-    });
+    this.props
+      .loginUser({
+        email: "demo@drinksdesserts.com",
+        password: "welcome1",
+      })
+      .then(() => {
+        this.props.history.push("/");
+      });
   }
 
   componentWillUnmount() {
@@ -94,53 +98,55 @@ export default class Login extends React.Component {
       <div className="login-top">
         <div className="login-wrapper">
           <div className="login-container">
-            <div className="login-logo-container">
-              <img src={Pic} alt="" />
-            </div>
-            <form onSubmit={this.handleSubmit} className="login-form">
-              <div className="login-form-child">
-                <input
-                  type="text"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  placeholder="Email"
-                  className="login-input"
-                />
-                <input
-                  type="password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  placeholder="Password"
-                  className="login-input"
-                />
-
-                <div className="button-container">
-                  <div className="login-submit">
-                    <input type="submit" value="Login" />
-                  </div>
-
-                  <div className="login-submit-demo">
-                    <button
-                      onClick={(e) => {
-                        this.demoUser(e);
-                      }}
-                    >
-                      Demo
-                    </button>
-                  </div>
-                </div>
-                <div className='error-wrapper'>
-                  <p className={errorNameEmail}>{this.state.emailError}</p>
-                  <p className={errorNamePassword}>
-                    {this.state.passwordError}
-                  </p>
-                </div>
-
-                <Link to="/signup" className="login-link">
-                  Not a Member? Click to Sign Up!
-                </Link>
+            <div>
+              <div className="login-logo-container">
+                <img src={Pic} alt="" />
               </div>
-            </form>
+              <form onSubmit={this.handleSubmit} className="login-form">
+                <div className="login-form-child">
+                  <input
+                    type="text"
+                    value={this.state.email}
+                    onChange={this.update("email")}
+                    placeholder="Email"
+                    className="login-input"
+                  />
+                  <input
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update("password")}
+                    placeholder="Password"
+                    className="login-input"
+                  />
+
+                  <div className="button-container">
+                    <div className="login-submit">
+                      <input type="submit" value="Login" />
+                    </div>
+
+                    <div className="login-submit-demo">
+                      <button
+                        onClick={(e) => {
+                          this.demoUser(e);
+                        }}
+                      >
+                        Demo
+                      </button>
+                    </div>
+                  </div>
+                  <div className="login-error-wrapper">
+                    <p className={errorNameEmail}>{this.state.emailError}</p>
+                    <p className={errorNamePassword}>
+                      {this.state.passwordError}
+                    </p>
+                  </div>
+
+                  <Link to="/signup" className="login-link">
+                    Not a Member? Click to Sign Up!
+                  </Link>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

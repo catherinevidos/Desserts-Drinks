@@ -1,5 +1,4 @@
 import { fetchStops, fetchStop } from "../util/stops_util";
-
 export const RECEIVE_STOPS = "RECEIVE_STOPS";
 export const RECEIVE_STOP = "RECEIVE_STOP";
 
@@ -13,8 +12,16 @@ const receiveStop = (stop) => ({
     stop
 });
 
-export const fetchAllStops = () => (dispatch) =>
-  fetchStops().then((stops) => dispatch(receiveStops(stops)));
+export const fetchAllStops = () => (dispatch) => {
+  return fetchStops().then((stops) => {
+    return dispatch(receiveStops(stops))
+  });
+}
+  
 
-export const fetchAStop = (stopId) => (dispatch) =>
-  fetchStop(stopId).then((stop) => dispatch(receiveStop(stop)));
+export const fetchAStop = (stopId) => (dispatch) => {
+  return fetchStop(stopId).then((stop) => {
+    return dispatch(receiveStop(stop))
+  })
+}
+  
