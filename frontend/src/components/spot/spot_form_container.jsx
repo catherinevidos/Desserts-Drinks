@@ -4,12 +4,10 @@ import { openModal, closeModal} from '../../actions/modal_actions';
 import SpotForm from './spot_form';
 
 
-const mSTP = (state, ownProps) => {
-    console.log(ownProps);
-    // return {
-    //     business: null
-    // };
-};
+const mSTP = (state, ownProps) => ({
+  lng: state.ui.modal.lng,
+  lat: state.ui.modal.lat,
+});
 
 const mDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
