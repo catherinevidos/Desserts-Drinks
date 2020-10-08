@@ -79,3 +79,4 @@ export class WebMap extends React.Component {
 export default GoogleApiWrapper({
   apiKey: googleMapApiKey,
 })(WebMap);
+
