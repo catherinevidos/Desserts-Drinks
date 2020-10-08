@@ -23,7 +23,6 @@
 //   componentDidUpdate(prevProps) {
 //     // if (prevProps.lat && prevProps.lng)
 //     //   this.getBusinessDetails();
-//     debugger
 //     if (prevProps.lat !== this.props.lat || prevProps.lng !== this.props.lng) {
 //       this.getBusinessDetails();
 //     }
@@ -69,7 +68,6 @@
 //     this.props.closeModal();
 //   }
 //   render() {
-//       debugger
 //     if (!this.state.business) { return null; } 
 //     const allBusiness = this.state.business.map((location) => {
 //             return <BusinessItems 
@@ -131,7 +129,6 @@ export default class SpotForm extends React.Component {
       "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=dessert";
     url = url + "&latitude=" + `${this.props.lat}`;
     url = url + "&longitude=" + `${this.props.lng}`;
-    debugger
     let that = this;
     $.ajax({
       url: url,
@@ -141,17 +138,13 @@ export default class SpotForm extends React.Component {
       method: "GET",
       dataType: "json",
       success: function (data) {
-            debugger
             that.setState({ business: data.businesses });
-            debugger
         }
     })
   }
 
   render() {
-      debugger
       if (this.state.business.length === 0) return null;
-      debugger
         return (
           <div>
             <h1>Donuts around you</h1>
