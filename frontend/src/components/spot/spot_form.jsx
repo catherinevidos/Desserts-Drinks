@@ -146,6 +146,7 @@ export default class SpotForm extends React.Component {
             debugger
         }
     })
+
   }
 
   render() {
