@@ -18,6 +18,7 @@ export default class Navbar extends React.Component {
     // const LogoutButton = (this.props.currentUser === undefined) ? <Link to='/login'> Login Here</Link> : null;
     return this.props.loggedIn ? (
       <div>
+        <Link className="fav-spots" to="/profile">profile</Link>
         <button
           className="logout-button"
           onClick={() => {

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 // import WebMap from "./components/map2";
 // import FooterContainer from './footer/footer';
-
+import FavSpotsContainer from './user_profile/favspots_container';
 import './reset.scss';
 import './app.scss';
 
@@ -20,6 +20,7 @@ const App = () => (
     <Modal />
     <Switch>
       <ProtectedRoute exact path="/" component={SplashContainer} />
+      <ProtectedRoute exact path="/profile" component={FavSpotsContainer} />
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer} />
     </Switch>
