@@ -1,20 +1,26 @@
 import React from 'react';
 import SpotFormContainer from '../spot/spot_form_container';
 const yelpApiKey = require("../../config/secret").yelpApiKey;
-const API_BASE_URL = require("../../config/secret").API_BASE_URL;
+// const API_BASE_URL = require("../../config/secret").API_BASE_URL;
 
 export default class YelpAPI extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            business: "",
+            business: [],
         };
         this.getBusinessDetails = this.getBusinessDetails.bind(this);
     }
 
-    componentDidMount(){
+    componentDidUpdate(prevProps){
+      console.log('Mounted');
+      if (prevProps.lat && prevProps.lng)
         this.getBusinessDetails();
-        this.props.openModal('spot');
+        // this.props.openModal('spot');
+    }
+
+    componentWillUnmount(){
+      console.log('unmounted');
     }
 
     getBusinessDetails() {
@@ -51,11 +57,8 @@ export default class YelpAPI extends React.Component {
       //     weather: xmlHTTP.response,
       // });
     }
-
-    render(){
-
-        return (
-            <SpotFormContainer/>
-        )
+    
+    render(){ 
+      return ( <SpotFormContainer business={this.state.business} />)
     }
 }
