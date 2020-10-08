@@ -96,9 +96,9 @@ const yelpApiKey = require("../../config/secret").yelpApiKey;
 export default class SpotForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      business: "",
-    };
+    // this.state = {
+    //   business: "",
+    // };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
   }
@@ -108,16 +108,16 @@ export default class SpotForm extends React.Component {
     this.props.closeModal();
   }
 
-  componentDidMount() {
-      this.getBusinessDetails();
-      this.props.openModal('spot');
-  }
+//   componentDidMount() {
+//       this.getBusinessDetails();
+//     //   this.props.openModal('spot');
+//   }
 
     componentDidUpdate(prevProps) {
       // if (prevProps.lat && prevProps.lng)
       //   this.getBusinessDetails();
       if (prevProps.lat !== this.props.lat || prevProps.lng !== this.props.lng) {
-          this.getBusinessDetails();
+        //   this.getBusinessDetails();
         //     this.getBusinessDetails().then(business => {
         //         this.setState({ business: business });
         // })
@@ -146,26 +146,35 @@ export default class SpotForm extends React.Component {
             that.setState({ business: data.businesses });
         }
     })
+
   }
 
   render() {
-      debugger
-
-      if (this.state.business === "") { return null;}
-        const all = this.state.business.map((location) => {
         debugger
-        return <BusinessItems 
-                    location={location} 
-                    key={location.id}
-                    openModal={this.props.openModal}
-                />;
-    })
+        let all;
+        console.log(this.props);
+        if (this.props.business === "") { return null;}
+         all = this.props.business.map((location) => {
+            return <BusinessItems 
+                        location={location} 
+                        key={location.id}
+                        openModal={this.props.openModal}
+                    />;
+            })
+        // if (this.state.business === "") { return null;}
+        // all = this.state.business.map((location) => {
+        //     return <BusinessItems 
+        //                 location={location} 
+        //                 key={location.id}
+        //                 openModal={this.props.openModal}
+        //             />;
+        //     })
     return (
       <div>
         <h1>Donuts around you</h1>
         <button onClick={this.handleExit}>X</button>
-        {this.state.business === "" ? <p>No business yet</p> : <ul>{all}</ul>}
-        {/* <ul>{all}</ul> */}
+        {/* {this.state.business === "" ? <p>No business yet</p> : <ul>{all}</ul>} */}
+        <ul>{all}</ul>
       </div>
     );
   }

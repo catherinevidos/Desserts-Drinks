@@ -6,9 +6,9 @@ import SpotForm from './spot_form';
 
 const mSTP = (state, ownProps) => {
     console.log(ownProps);
-    return {
-        business: null
-    };
+    // return {
+    //     business: null
+    // };
 };
 
 const mDTP = dispatch => ({
