@@ -2,6 +2,7 @@ import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import YelpAPI from "../yelp/yelp_api";
 import "./map.scss";
+
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 
 export class WebMap extends React.Component {
@@ -15,7 +16,7 @@ export class WebMap extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-    this.props.fetchAllStops();
+    this.props.fetchAllStops()
   }
   handleClick(e) {
     this.setState({

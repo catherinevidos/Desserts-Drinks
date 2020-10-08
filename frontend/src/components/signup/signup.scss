@@ -2,3 +2,24 @@
   height: 500px;
   width: 500px;
 }
+
+.signup-form-child {
+  height: 500px;
+}
+
+.signup-container {
+  // height: 100%;
+  justify-content: flex-start;
+}
+.signup-logo-container {
+  position: relative;
+    top: -79px;
+    img {
+      z-index: -1;
+    }
+}
+
+.signup-form {
+    position: relative;
+    top: -110px;
+}

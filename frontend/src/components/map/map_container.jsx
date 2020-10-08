@@ -4,8 +4,9 @@ import { openModal } from '../../actions/modal_actions';
 import WebMap from "./map";
 
 const mSTP = (state) => {
+  // debugger
   return {
-    stops: Object.values(state.stops),
+    stops: Object.values(state.stops)
   };
 };
 

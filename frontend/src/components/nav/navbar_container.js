@@ -12,7 +12,8 @@ const mapStateToProps = ({
     entities
   }) => {
   return {
-    currentUser: session && session.id && entities.users[session.id]
+    currentUser: session && session.id && entities.users[session.id],
+    loggedIn: session.isAuthenticated
   };
 };
 
