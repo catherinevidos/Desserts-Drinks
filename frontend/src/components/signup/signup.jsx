@@ -169,7 +169,6 @@ export default class Signup extends React.Component {
                       {this.state.usernameError}
                     </p>
                   </div> */}
-
                   <Link to="/login" className="login-link">
                     Have an account? Click to Log in!
                   </Link>
