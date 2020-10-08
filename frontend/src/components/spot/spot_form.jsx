@@ -142,7 +142,7 @@ export default class SpotForm extends React.Component {
       dataType: "json",
       success: function (data) {
             debugger
-            this.setState = ({ business: data.businesses });
+            that.setState({ business: data.businesses });
             debugger
         }
     })
@@ -150,21 +150,20 @@ export default class SpotForm extends React.Component {
 
   render() {
       debugger
-      if (this.state.business === []) return null;
+      if (this.state.business.length === 0) return null;
       debugger
         return (
-           (this.state.business !== []) ?
           <div>
+            <h1>Donuts around you</h1>
             {this.state.business.map((location) => (
               <div>
-                <h1>Donuts around you</h1>
                 <li>{location.name}</li>
-                <button onClick={this.handleExit}>X</button>
               </div>
             ))}
+            <div>
+              <button onClick={this.handleExit}>X</button>
+            </div>
           </div>
-      : 
-      console.log("you suck")
-    )
+        );
   }
 }
