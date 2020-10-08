@@ -13,11 +13,13 @@ function Modal({ modal, closeModal }) {
     let component;
 
     switch (modal) {
-        case "spot":
-            component = <YelpAPI/>;
-            break;
-        default:
-            return null;
+      case "spot":
+        debugger
+        component = <SpotFormContainer />;
+        break;
+
+      default:
+        return null;
     }
     return (
         <div className='modal-background' onClick={closeModal}>
