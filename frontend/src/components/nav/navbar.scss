@@ -1,9 +1,84 @@
-.logout-button {
-  width: 100px;
-  height: 50px;
-  background-color: hotpink;
-  &:hover {
-    background-color: grey;
-    cursor: pointer;
-  }
+
+// @font-face {
+//   font-family: bukhari;
+//   src: url("")
+// }
+
+
+@font-face {
+  font-family: sacramento-regular;
+  src: url('./fonts/Sacramento-Regular.ttf')
 }
+
+.splash-header {
+  height: 80px;
+  margin-bottom: 10px;
+  // border: 5px solid yellow;
+  box-sizing: border-box;
+}
+
+.nav-wrapper {
+  width: 100%;
+  height: 100%;
+  font-family: Sacramento-Regular;
+  font-size: 28pt;
+}
+
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-container h1 {
+  margin-left: 20px;
+  background-color: papayawhip;
+  letter-spacing: 2px;
+  line-height: 38px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   &.lined.thick {
+     border: solid 7px #41403E;
+   }
+}
+
+// .nav-logo {
+//   height: 100%;
+//   width: 200px;
+// }
+
+.buttons-container {
+  display: flex;
+  margin-right: 15px;
+  letter-spacing: 2px;
+  line-height: 38px;
+}
+
+.logout-button {
+  background-color: #A8D79C;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-button {
+  background-color: #FDE5AA;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-button {
+  background-color: #FFC7D6;
+  margin-left: 8px;
+  margin-right: 8px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
