@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './login.scss';
 import '../reset.scss';
-import Pic from './logo4.png';
 
 
 const intitialState = {
@@ -92,15 +91,15 @@ export default class Login extends React.Component {
 
   render() {
     const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors'
-    const errorNamePassword =
-      this.state.passwordError !== "" ? "errors-present" : "no-errors";
+    const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
+    
     return (
       <div className="login-top">
         <div className="login-wrapper">
           <div className="login-container">
             <div>
               <div className="login-logo-container">
-                <img src={Pic} alt="" />
+                <img src="https://pxelation-seeds.s3.amazonaws.com/logo4.png" alt="" />
               </div>
               <form onSubmit={this.handleSubmit} className="login-form">
                 <div className="login-form-child">
