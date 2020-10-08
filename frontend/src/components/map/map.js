@@ -254,7 +254,7 @@ export class WebMap extends React.Component {
         <Map
           google={this.props.google}
           style={style}
-          zoom={14}
+          zoom={12}
           initialCenter={{ lat: 40.7678805, lng: -73.97103059999999 }}
         >
           <Polyline
