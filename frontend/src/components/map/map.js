@@ -45,6 +45,20 @@ export class WebMap extends React.Component {
       height: "70vh",
     };
 
+
+    let renderIcon;
+    if (this.props.currentUser.theme === 'dessert') {
+      renderIcon = {
+        url: "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
+        scaledSize: new google.maps.Size(30, 30),
+      };
+    } else {
+      renderIcon = {
+        url: "https://pxelation-seeds.s3.amazonaws.com/1.png",
+        scaledSize: new google.maps.Size(30, 30),
+      };
+    }
+
     const { google } = this.props;
 
     const westSide1 = [{
@@ -311,15 +325,9 @@ export class WebMap extends React.Component {
               title={stop.name}
               position={{ lat: stop.lat, lng: stop.lng }}
               onClick={(e) => this.handleClick(e)}
-              icon={{
-                url:
-                  "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
-                scaledSize: new google.maps.Size(30, 30),
-              }}
+              icon={renderIcon}
             />
           ))}
-
-          
         </Map>
         {/* {(this.state.openModal === 'spot') ? ( */}
         {/* <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} /> */}
