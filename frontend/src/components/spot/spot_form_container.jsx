@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { openModal, closeModal} from '../../actions/modal_actions';
 import SpotForm from './spot_form';
 

@@ -35,9 +35,7 @@ export default class SpotForm extends React.Component {
       searchTerm = "drinks";
     }
 
-    let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}`;
-    url = url + "&latitude=" + `${this.props.lat}`;
-    url = url + "&longitude=" + `${this.props.lng}`;
+    let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${this.props.lat}&longitude=${this.props.lng}`;
     let that = this;
     $.ajax({
       url: url,
@@ -47,10 +45,8 @@ export default class SpotForm extends React.Component {
       method: "GET",
       dataType: "json",
       success: function (data) {
-
-      that.setState({ business: data.businesses, loading: false });
-          
-        }
+        that.setState({ business: data.businesses, loading: false }); 
+      }
     });
 
   }

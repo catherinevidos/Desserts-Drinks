@@ -10,14 +10,11 @@ router.get('/comments', (req, res) => {
 });
 
 router.get("/all", (req, res) => {
-  debugger;
   Comment.find({ stop_id: ObjectId(req.params.stopId) })
     .then((comments) => {
-      debugger;
       res.json(comments);
     })
     .catch((err) => {
-      debugger;
       console.log(err);
     });
 });
@@ -32,7 +29,7 @@ router.post('/:stopId/comments', passport.authenticate('jwt', {session: false}),
         });
     newComment.save()
         .then(comment => res.json(comment))
-        .catch(err => console.log(err))
-})
+        .catch(err => console.log(err));
+});
 
 module.exports = router;
