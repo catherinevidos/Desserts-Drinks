@@ -45,15 +45,15 @@ export default class Navbar extends React.Component {
   render() {
     let commentLine;
     if (this.props.theme === "Desserts") {
-      commentLine = "click a donut to get started..."
+      commentLine = <h1 className='dessert-header'>click on a donut to get started...</h1>;
     } else {
-      commentLine = "click on a martini to get started..."
+      commentLine = <h1 className='martini-header'>click on a martini to get started...</h1>
     }
 
     return (
       <div className="nav-wrapper">
         <div className="nav-container">
-          <h1>{commentLine}</h1>
+          {commentLine}
           <div className="buttons-container">
             <div className="profile-button">
               <Link to="/profile">profile</Link>

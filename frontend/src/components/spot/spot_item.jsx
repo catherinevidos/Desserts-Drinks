@@ -15,10 +15,10 @@ class SpotItem extends React.Component {
   }
 
   getBusinessDetails() {
+    //https:cors-anywhere.herokuapp.com/
 
-      const locationId = this.props.location.id
-    let url =
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${locationId}/reviews`;
+    const locationId = this.props.location.id;
+    let url = `https://api.yelp.com/v3/businesses/${locationId}/reviews`;
     let that = this;
     $.ajax({
       url: url,
