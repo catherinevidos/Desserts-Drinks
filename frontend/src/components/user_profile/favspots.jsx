@@ -63,7 +63,7 @@ export default class FavSpots extends React.Component {
               <div className="profile-form">
                 <h1>My Favorites</h1>
                 <ol className='stops-list'>
-                  {['86th st', 'astor place', '96th st', 'bleecker st', 'houseton st'].map((stop) => (
+                  {['86th st', 'astor place', '96th st', 'bleecker st', 'houston st'].map((stop) => (
                     <li>{stop}</li>
                   ))}
                 </ol>
