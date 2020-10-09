@@ -1,5 +1,4 @@
 import React from 'react';
-import BusinessItems from './BusinessItems';
 import $ from 'jquery';
 import LoadingIcon from '../loading/loading';
 

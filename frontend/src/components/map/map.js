@@ -1,10 +1,7 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
-import YelpAPI from "../yelp/yelp_api";
 import "./map.scss";
 import LoadingIcon from '../../components/loading/loading';
-import SpotFormContainer from '../spot/spot_form_container';
-import $ from "jquery";
 
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 const yelpApiKey = require("../../config/secret").yelpApiKey;
@@ -334,10 +331,6 @@ export class WebMap extends React.Component {
             />
           ))}
         </Map>
-        {/* {(this.state.openModal === 'spot') ? ( */}
-        {/* <YelpAPI lat={this.state.lat} lng={this.state.lng} openModal={this.props.openModal} /> */}
-        {/* ) : null} */}
-        {/* <SpotForm /> */}
       </div>
     );
   }
