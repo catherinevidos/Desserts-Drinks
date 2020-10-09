@@ -10,9 +10,8 @@ const receiveAllBusinesses = businessess => {
 }
 
 export const fetchAllBusinessess = (lat, lng, searchTerm) => dispatch => {
-    
     return fetchBusiness(lat, lng, searchTerm).then(businessess => {
-        return dispatch(receiveAllBusinesses(businessess.data));
+            return dispatch(receiveAllBusinesses(businessess.data));
     })
 }
 
