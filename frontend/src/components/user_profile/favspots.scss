@@ -1,14 +1,180 @@
+// @font-face {
+//     font-family: sacramento-regular;
+//     src: url('./fonts/Sacramento-Regular.ttf')
+// }
+
 .fav-spots {
     background-image: url(./bk2.jpg);
     height: 100vh;
 }
 
-// .fun-div h1 {
-//     margin-top: 50px;
+.profile-container {
+    width: 100%;
+    height: 80px;
+    font-family: Sacramento-Regular;
+    font-size: 28pt;
+    padding-top: 20px;
+}
+
+.profile-navbar {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buttons-container {
+}
+
+.profile-buttons-right {
+    display: flex;
+    margin-right: 15px;
+    letter-spacing: 2px;
+    line-height: 38px;
+}
+
+.go-home-button {
+    background-color: #FFC7D6;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    &:hover {
+        box-shadow: none;
+        cursor: pointer;
+        transition: all ease .3s;
+    }
+
+}
+
+.about-button {
+    background-color: #FDE5AA;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:hover {
+    box-shadow: none;
+    cursor: pointer;
+    transition: all ease .3s;
+    }
+}
+
+.logout-button-profile {
+    background-color: #A8D79C;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    &:hover {
+        box-shadow: none;
+        cursor: pointer;
+        transition: all ease .3s;
+    }
+}
+
+.my-favorites {
+    margin-left: 20px;
+    background-color: #B5B9FF;
+    letter-spacing: 2px;
+    line-height: 40px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.profile-body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-sidebar {
+    height: 600px;
+    width: 250px;
+    background-color: lightblue;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 4px solid white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-image: url('./macaron.jpeg');
+    background-position: center center;
+    background-size: cover;
+    border: 1px solid white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+ul.desserts-list li{
+    font-size: 18pt;
+    text-indent: 5px;
+}
+
+ul.drinks-list li {
+    font-size: 18pt;
+    text-indent: 5px;
+}
+
+.username-text {
+    background-color: lightsalmon;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.drinks-list-parent {
+    margin-top: 20px;
+}
+
+.profile-form {
+    height: 600px;
+    width: 600px;
+    background-color: lightblue;
+    margin: 20px;
+    border-radius: 20px;
+    border: 4px solid white;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.profile-form h1 {
+    background-color: lightsalmon;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    font-size: 32pt;
+    text-align: center;
+    letter-spacing: 2px;
+
+}
+
+// .favorites-list-container {
+//     width: 80%;
+//     height: 80%;
 // }
 
-.cool-div{
+.stops-list li {
+    padding-left: 10px;
+}
 
+ol.stops-list {
+    margin-left: 20px;
 }
 
 

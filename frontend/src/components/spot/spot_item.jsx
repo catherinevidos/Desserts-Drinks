@@ -7,45 +7,40 @@ const yelpApiKey = require("../../config/secret").yelpApiKey;
 class SpotItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      reviews: [],
-    };
 
-    // this.getBusinessDetails = this.getBusinessDetails.bind(this);
+    this.openInNewTab = this.openInNewTab.bind(this);
   }
 
-  // getBusinessDetails() {
-  //   //https:cors-anywhere.herokuapp.com/
-
-  //   const locationId = this.props.location.id;
-  //   let url = `https://api.yelp.com/v3/businesses/${locationId}/reviews`;
-  //   let that = this;
-  //   $.ajax({
-  //     url: url,
-  //     headers: {
-  //       Authorization: `Bearer ${yelpApiKey}`,
-  //     },
-  //     method: "GET",
-  //     dataType: "json",
-  //     success: function (data) {
-  //       that.setState({ reviews: data.reviews.text });
-  //     },
-  //   });
-  // }
+  componentDidMount() {
+    debugger
+      this.props.fetchAllReviews(this.props.location.id);
+  }
+  
+  openInNewTab(href) {
+    Object.assign(document.createElement("a"), {
+      target: "_blank",
+      href,
+    }).click();
+  }
 
   render() {
     // this.getBusinessDetails();
+    console.log(this.props)
     const { name, image_url, location, display_phone } = this.props.location;
     return (
       <div className="spot-index-item">
         <div className="index-item-image">
-          <img src={image_url} alt="" />
+          <img
+            src={image_url}
+            alt=""
+            onClick={() => this.openInNewTab(this.props.location.url)}
+          />
         </div>
         <div className="index-item-info">
           <p className="index-item-name">{name}</p>
           <p className="index-item-address">{location.display_address}</p>
           <p className="index-item-phone">{display_phone}</p>
-          {/* <p className="index-item-address">{this.state.reviews[0]}</p> */}
+          {/* <p className="index-item-address">{this.props.reviews.text[0]}</p> */}
         </div>
       </div>
     );

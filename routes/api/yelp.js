@@ -59,10 +59,6 @@ router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
     });
 })
 
-// https://api.yelp.com/v3/businesses/WHRHK3S1mQc3PmhwsGRvbw/reviews
-
-// /api/yelp/businessReviews/${WHRHK3S1mQc3PmhwsGRvbw}/reviews
-
 router.get('/businessReviews/:businessId', (req, res) => {
   debugger
   const { businessId } = req.params;
