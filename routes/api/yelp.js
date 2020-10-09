@@ -41,5 +41,25 @@ const fetchAll = async (req, res) => {
 }
 router.post('/', fetchAll);
 
+router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
+  debugger
+  const { lat, lng, searchTerm } = req.params; 
+  let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${lat}&longitude=${lng}`;
+  return axios({
+    method: "GET",
+    url: url,
+    headers: {
+      Authorization: `Bearer ${yelpApiKey}`,
+      dataType: "json",
+    },
+  })
+    .then((response) => {
+      res.json(response.data.businesses);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+})
+
 module.exports = router;
 

@@ -3,12 +3,16 @@ import { openModal, closeModal} from '../../actions/modal_actions';
 import SpotForm from './spot_form';
 import { fetchAllBusinessess } from '../../actions/yelp_actions';
 
-const mSTP = (state, ownProps) => ({
-  lng: state.ui.modal.lng,
-  lat: state.ui.modal.lat,
-  theme: state.ui.theme.theme,
-  businessess: state.businessess,
-});
+const mSTP = (state, ownProps) => {
+  debugger 
+  return {
+    lng: state.ui.modal.lng,
+    lat: state.ui.modal.lat,
+    theme: state.ui.theme.theme,
+    businessess: Object.values(state.businessess),
+  }
+ 
+};
 
 const mDTP = dispatch => ({
     fetchAllBusinessess: (lat, lng, searchTerm) => dispatch(fetchAllBusinessess(lat, lng, searchTerm)),

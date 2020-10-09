@@ -24,12 +24,13 @@ export default class SpotForm extends React.Component {
   }
 
   componentDidMount(){
-    // this.getBusinessDetails();
     this.props.fetchAllBusinessess(
       this.props.lat,
       this.props.lng,
       this.props.theme
-    );
+    ).then(() => {
+      this.setState({ loading: false })
+    });
   }
 
   getBusinessDetails() {
@@ -39,31 +40,11 @@ export default class SpotForm extends React.Component {
     } else {
       searchTerm = "drinks";
     }
-
-    // https://cors-anywhere.herokuapp.com/
-
-    let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${this.props.lat}&longitude=${this.props.lng}`;
-    let that = this;
-    $.ajax({
-      url: url,
-      headers: {
-        Authorization: `Bearer ${yelpApiKey}`,
-      },
-      method: "GET",
-      dataType: "json",
-      success: function (data) {
-        that.setState({ business: data.businesses, loading: false }); 
-      }
-    });
-
   }
 
   render() {
-    if (this.state.loading) {
-      return <LoadingIcon />;
-    }
-
-    // if (this.state.business.length === 0) return null;
+    if (this.state.loading) { return <LoadingIcon/> }
+    console.log(this.props);
     if (this.props.businessess.length === 0) return null;
       return (
         <>
