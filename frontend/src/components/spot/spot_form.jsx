@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import SpotItem from './spot_item'
 import './spot.scss'
+import LoadingIcon from "../loading/loading";
 
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
@@ -25,8 +26,14 @@ export default class SpotForm extends React.Component {
   }
 
   getBusinessDetails() {
-    let url =
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=desserts";
+    let searchTerm;
+    if (this.props.theme === "Desserts") {
+      searchTerm = "desserts";
+    } else {
+      searchTerm = "drinks";
+    }
+
+    let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}`;
     url = url + "&latitude=" + `${this.props.lat}`;
     url = url + "&longitude=" + `${this.props.lng}`;
     let that = this;
@@ -46,6 +53,10 @@ export default class SpotForm extends React.Component {
   }
 
   render() {
+
+    if (this.state.loading) {
+      return <LoadingIcon />;
+    }
 
     if (this.state.business.length === 0) return null;
 
