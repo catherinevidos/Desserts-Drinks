@@ -4,6 +4,7 @@ import SpotItem from './spot_item'
 import './spot.scss'
 import LoadingIcon from "../loading/loading";
 
+
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
 export default class SpotForm extends React.Component {
@@ -11,6 +12,7 @@ export default class SpotForm extends React.Component {
     super(props);
     this.state = {
       business: [],
+      loading: true
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
@@ -45,15 +47,15 @@ export default class SpotForm extends React.Component {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        
-            that.setState({ business: data.businesses });
-        
+
+      that.setState({ business: data.businesses, loading: false });
+          
         }
-    })
+    });
+
   }
 
   render() {
-
     if (this.state.loading) {
       return <LoadingIcon />;
     }

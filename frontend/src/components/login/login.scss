@@ -27,7 +27,7 @@
 }
 
 .login-wrapper {
-  background-image: url('./dessert.png');
+  background-image: url('https://pxelation-seeds.s3.amazonaws.com/dessert.png');
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -45,7 +45,7 @@
   width: 400px;
   height: 600px;
   background-color: #F0C2D1;
-  opacity: 97%;
+  opacity: .97;
   border: #F8EC6B 6px solid;
   padding: 8px;
 }
@@ -86,7 +86,7 @@
   margin-bottom: 10px;
   border: 2px solid white;
   background-color: white;
-  opacity: 92%;
+  opacity: .92;
   border-radius: 10px;
 }
 
@@ -133,7 +133,7 @@ input[type=password]:focus {
 }
 
 input[type=password] {
-  background-image: url('./key.png');
+  background-image: url('https://pxelation-seeds.s3.amazonaws.com/key.png');
   background-repeat: no-repeat;
   background-size: 25px;
   padding-left: 35px;
@@ -142,7 +142,7 @@ input[type=password] {
 }
 
 input[type=text] {
-   background-image: url('./envelope.png');
+   background-image: url('https://pxelation-seeds.s3.amazonaws.com/envelope.png');
    background-repeat: no-repeat;
    background-size: 25px;
    padding-left: 35px;

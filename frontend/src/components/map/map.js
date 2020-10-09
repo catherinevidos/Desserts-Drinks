@@ -1,9 +1,12 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker, Polyline } from "google-maps-react";
 import "./map.scss";
-import LoadingIcon from "../../components/loading/loading";
+import LoadingIcon from '../../components/loading/loading';
+
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
 const yelpApiKey = require("../../config/secret").yelpApiKey;
+
+
 export class WebMap extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +17,7 @@ export class WebMap extends React.Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchAllStops().then(() => {
       this.setState({
@@ -21,33 +25,38 @@ export class WebMap extends React.Component {
       });
     });
   }
+  
   handleClick(e) {
     this.setState({
       lat: e.position.lat,
       lng: e.position.lng,
     });
+    
     this.props.openModal({
       modal: "business",
       lat: this.state.lat,
       lng: this.state.lng,
     });
+
   }
   render() {
+
     if (this.props.stops.length === 0) return null;
     if (this.state.loading) {
       return <LoadingIcon />;
     }
+
     let dynamicWidth = "calc(100% - 126px)";
     const style = {
       width: dynamicWidth,
       height: "70vh",
     };
     const { google } = this.props;
+
     let renderIcon;
-    if (this.props.theme === "Desserts") {
+    if (this.props.theme === 'Desserts') {
       renderIcon = {
-        url:
-          "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
+        url: "https://bestfriend-treehouse-dev.s3.amazonaws.com/Untitled+design.png",
         scaledSize: new google.maps.Size(30, 30),
       };
     } else {
@@ -56,8 +65,8 @@ export class WebMap extends React.Component {
         scaledSize: new google.maps.Size(30, 30),
       };
     }
-    const westSide1 = [
-      {
+
+    const westSide1 = [{
         lat: 40.702068,
         lng: -74.013664,
       },

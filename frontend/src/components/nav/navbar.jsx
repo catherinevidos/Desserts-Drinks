@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './navbar.scss';
-import LogoSmall from './logo_small.png';
 
 export default class Navbar extends React.Component {
   constructor(props){
     super(props);
-    this.state = this.props.stops;
+
     this.handleClick = this.handleClick.bind(this);
     this.getLink = this.getLink.bind(this);
+    this.handleTheme = this.handleTheme.bind(this);
   }
 
   handleClick() {
@@ -16,7 +16,6 @@ export default class Navbar extends React.Component {
   }
 
   getLink(){
-    // const LogoutButton = (this.props.currentUser === undefined) ? <Link to='/login'> Login Here</Link> : null;
     return this.props.loggedIn ? (
       <div>
         <Link className="fav-spots" to="/profile">profile</Link>
@@ -34,19 +33,34 @@ export default class Navbar extends React.Component {
     );
   }
 
+  handleTheme(e){
+    e.preventDefault();
+    debugger
+    if (this.props.theme == 'Desserts') {
+      this.props.drinksTheme();
+    } else {
+      this.props.dessertTheme();
+    }
+  }
+
   render() {
-//      {this.getLink()}
+    let commentLine;
+    if (this.props.theme === "Desserts") {
+      commentLine = "click a donut to get started..."
+    } else {
+      commentLine = "click on a martini to get started..."
+    }
+
     return (
       <div className="nav-wrapper">
         <div className="nav-container">
-          <h1>click a donut to get started...</h1>
-          {/* <img className='nav-logo' src={LogoSmall} alt='' /> */}
+          <h1>{commentLine}</h1>
           <div className="buttons-container">
             <div className="profile-button">
               <Link to="/profile">profile</Link>
             </div>
             <div className="login-button">
-              <Link to="/">theme</Link>
+              <button to="/" onClick={this.handleTheme}>theme</button>
             </div>
             <button
               className="logout-button"

@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './login.scss';
 import '../reset.scss';
-import Pic from './logo4.png';
 
 
 const intitialState = {
@@ -37,13 +36,13 @@ export default class Login extends React.Component {
     e.preventDefault();
     const errors = this.renderErrors();
     if (errors) {
-      this.setState({intitialState})
+      this.setState({intitialState});
     }
     let user = {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.loginUser(user);
+    this.props.loginUser(user).then(() => this.props.history.push('/'));
   }
 
   demoUser(e) {
@@ -83,24 +82,24 @@ export default class Login extends React.Component {
     } else if (password.length < 6) {
       passwordError = 'Your password must be at least 6 characters. Please try again.';} 
     if ( passwordError || emailError) {
-      this.setState({ passwordError, emailError})
+      this.setState({ passwordError, emailError});
     return false;
     }
     return true;
-  };
+  }
     
 
   render() {
-    const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors'
-    const errorNamePassword =
-      this.state.passwordError !== "" ? "errors-present" : "no-errors";
+    const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors';
+    const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
+    
     return (
       <div className="login-top">
         <div className="login-wrapper">
           <div className="login-container">
             <div>
               <div className="login-logo-container">
-                <img src={Pic} alt="" />
+                <img src="https://pxelation-seeds.s3.amazonaws.com/logo4.png" alt="" />
               </div>
               <form onSubmit={this.handleSubmit} className="login-form">
                 <div className="login-form-child">

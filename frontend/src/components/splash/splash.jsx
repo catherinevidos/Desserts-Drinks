@@ -8,7 +8,7 @@ class Splash extends React.Component {
 
   render() {
     return (
-      <div className="top-level-div">
+      <div id='background-div' className={this.props.theme !== "Desserts" ? "background-drinks" : "background-desserts"}>
         <div className="main-splash-container">
           <header className="splash-header">
             <Navbar />

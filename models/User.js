@@ -15,6 +15,12 @@ const UserSchema = new Schema(
             type: String,
             required: true,
         },
+        theme: {
+            type: String,
+            required: true,
+            default: 'Desserts'
+
+        }
     },
     {
         timestamps: true,
