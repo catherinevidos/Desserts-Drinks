@@ -9,13 +9,30 @@ router.get('/comments', (req, res) => {
     Comment.find().then(comments => res.json(comments));
 });
 
-router.post('/:spotId/comments', passport.authenticate('jwt', {session: false}),
-    (req, res) => {
-    const newComment = new Comment({
-        body: req.body.body,
-        rating: req.body.rating
+router.get("/all", (req, res) => {
+  debugger;
+  Comment.find({ stop_id: ObjectId(req.params.stopId) })
+    .then((comments) => {
+      debugger;
+      res.json(comments);
+    })
+    .catch((err) => {
+      debugger;
+      console.log(err);
     });
-    newComment.save().then(comment => res.json(comment));
+});
+
+router.post('/:stopId/comments', passport.authenticate('jwt', {session: false}),
+    (req, res) => {
+        const newComment = new Comment({
+          body: req.body.body,
+          rating: req.body.rating,
+          stop_id: req.params.stopId,
+          user_id: req.user.id
+        });
+    newComment.save()
+        .then(comment => res.json(comment))
+        .catch(err => console.log(err))
 })
 
 module.exports = router;

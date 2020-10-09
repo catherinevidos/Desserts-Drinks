@@ -19,19 +19,6 @@ const StopSchema = new Schema(
       type: Number,
       required: true,
     },
-    postedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-    },
-    comments: [
-      {
-        text: String,
-        postedBy: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      },
-    ],
   },
 
   {
