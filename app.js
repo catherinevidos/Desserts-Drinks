@@ -9,6 +9,7 @@ const users = require('./routes/api/users');
 const stops = require("./routes/api/stops");
 const photos = require('./routes/api/photos');
 const comments = require('./routes/api/comments');
+const yelp = require('./routes/api/yelp');
 
 const User = require("./models/User");
 const Stop = require('./models/Stop');
@@ -47,6 +48,7 @@ app.use('/api/users', users);
 app.use('/api/stops', stops);
 app.use('/api/photos', photos);
 app.use('/api/comments', comments);
+app.use('/api/yelp', yelp);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on ${port}`));
