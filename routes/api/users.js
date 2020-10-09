@@ -41,7 +41,7 @@ router.post('/signup', (req, res) => {
                         newUser.password = hash;
                         newUser.save()
                             .then(user => {
-                                const payload = { id:user.id, username: user.username };
+                                const payload = { id:user.id, username: user.username, theme: user.theme };
 
                                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                     res.json({
@@ -96,15 +96,12 @@ router.post('/login', (req, res) => {
         });
 });
 
-router.put('/:email' ,(req, res) => {
-    debugger
-    User.findById(req.params.email)
-      .update({
-        theme: req.body.theme,
-      })
-      .then((result) => {
-        res.json(result);
-      });
+router.patch('/edit_profile', passport.authenticate('jwt', {session: false}),(req, res) => {
+    const user = req.user;
+    user.theme = req.body.theme;
+    user.save()
+        .then(user => res.json(user))
+        .catch(err => console.log(err))
 });
 
 module.exports = router;

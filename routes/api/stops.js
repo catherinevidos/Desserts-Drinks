@@ -47,23 +47,21 @@ router.post('/register', (req, res) => {
 
     Stop.findOne({name: req.body.name})
         .then(stop => {
-            if (stop) {
-                if (stop._doc.color === req.body.color) {
-                    errors.name = "Stop already exists";
-                    return res.status(400).json(errors);
-                } 
+            if (stop && stop._doc.color === req.body.color) {
+                errors.name = "Stop already exists";
+                return res.status(400).json(errors);
             } else {
-                const newStop = new Stop({
-                    name: req.body.name,
-                    lat: req.body.lat,
-                    lng: req.body.lng,
-                    color: req.body.color
-                });
-                newStop
-                    .save()
-                    .then((stop) => res.json(stop))
-                    .catch((err) => console.log(err));
-                }
+              const newStop = new Stop({
+                name: req.body.name,
+                lat: req.body.lat,
+                lng: req.body.lng,
+                color: req.body.color,
+              });
+              newStop
+                .save()
+                .then((stop) => res.json(stop))
+                .catch((err) => console.log(err));
+            }
         })
 })
 
