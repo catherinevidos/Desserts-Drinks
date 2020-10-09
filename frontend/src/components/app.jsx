@@ -1,11 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import {
-  Route,
-  Switch
-} from 'react-router-dom';
-// import WebMap from "./components/map2";
-// import FooterContainer from './footer/footer';
+import { Switch } from 'react-router-dom';
 import FavSpotsContainer from './user_profile/favspots_container';
 import './reset.scss';
 import './app.scss';
@@ -24,10 +19,6 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginContainer} />
       <AuthRoute exact path="/signup" component={SignupContainer} />
     </Switch>
-
-    {/* <div className='splash-footer'>
-      <FooterContainer />
-    </div> */}
   </div>
 );
 

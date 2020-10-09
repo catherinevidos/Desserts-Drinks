@@ -35,8 +35,7 @@ export default class Navbar extends React.Component {
 
   handleTheme(e){
     e.preventDefault();
-    debugger
-    if (this.props.theme == 'Desserts') {
+    if (this.props.theme === 'Desserts') {
       this.props.drinksTheme();
     } else {
       this.props.dessertTheme();

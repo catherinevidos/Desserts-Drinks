@@ -1,7 +1,6 @@
 import React from "react";
 import './signup.scss';
-import {Link} from 'react-router-dom'
-import Pic from './logo4.png';
+import {Link} from 'react-router-dom';
 
 const intitialState = {
   emailError: "",

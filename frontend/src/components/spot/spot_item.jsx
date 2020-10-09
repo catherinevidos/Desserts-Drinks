@@ -18,7 +18,6 @@ class SpotItem extends React.Component {
       const locationId = this.props.location.id
     let url =
       `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${locationId}/reviews`;
-    debugger;
     let that = this;
     $.ajax({
       url: url,
@@ -28,9 +27,7 @@ class SpotItem extends React.Component {
       method: "GET",
       dataType: "json",
       success: function (data) {
-        debugger;
         that.setState({ reviews: data.reviews.text });
-        debugger;
       },
     });
   }
@@ -41,7 +38,7 @@ class SpotItem extends React.Component {
     return (
       <div className="spot-index-item">
         <div className="index-item-image">
-          <img src={image_url} />
+          <img src={image_url} alt=''/>
         </div>
         <div className="index-item-info">
           <p className="index-item-name">{name}</p>
