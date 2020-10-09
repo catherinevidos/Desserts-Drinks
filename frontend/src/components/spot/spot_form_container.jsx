@@ -4,7 +4,7 @@ import SpotForm from './spot_form';
 import { fetchAllBusinessess } from '../../actions/yelp_actions';
 
 const mSTP = (state, ownProps) => {
-  debugger 
+   
   return {
     lng: state.ui.modal.lng,
     lat: state.ui.modal.lat,
