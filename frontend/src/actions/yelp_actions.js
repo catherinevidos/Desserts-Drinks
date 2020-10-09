@@ -24,9 +24,7 @@ export const fetchAllBusinessess = (lat, lng, searchTerm) => dispatch => {
 }
 
 export const fetchAllReviews = (businessId) => (dispatch) => {
-  debugger;
   return fetchReviews(businessId).then((reviews) => {
-    debugger;
     return dispatch(receiveAllReviews(reviews.data));
   });
 };

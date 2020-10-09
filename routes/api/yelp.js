@@ -60,10 +60,8 @@ router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
 })
 
 router.get('/businessReviews/:businessId', (req, res) => {
-  debugger
   const { businessId } = req.params;
   let url = `https://api.yelp.com/v3/businesses/${businessId}/reviews`;
-  debugger
   return axios({
     method: "GET",
     url: url,

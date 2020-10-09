@@ -5,7 +5,6 @@ const Favorite = require('../../models/Favorite');
 const ObjectId = require('mongodb').ObjectID;
 
 router.get('/allFavorites',passport.authenticate('jwt', { session: false }), (req, res) => { 
-    debugger
     const user_id = ObjectId(req.user.id);
     Favorite.find({ user_id: user_id })
       .then((allFavs) => {
@@ -15,7 +14,6 @@ router.get('/allFavorites',passport.authenticate('jwt', { session: false }), (re
 })
 
 router.post('/add_favorite/:stopId', passport.authenticate('jwt', { session: false }), (req, res) => {
-    debugger
     const stop_id = ObjectId(req.params.stopId);
     const addFav = new Favorite({
         isFavorite: true,
@@ -28,7 +26,6 @@ router.post('/add_favorite/:stopId', passport.authenticate('jwt', { session: fal
 });
 
 router.patch('/remove_favorite/:stopId', passport.authenticate('jwt', { session: false }), (req, res) => {
-    debugger
     const stop_id = ObjectId(req.params.stopId);
     Favorite.find({ stop_id: stop_id })
         .update({

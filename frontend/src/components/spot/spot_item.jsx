@@ -11,10 +11,9 @@ class SpotItem extends React.Component {
     this.openInNewTab = this.openInNewTab.bind(this);
   }
 
-  componentDidMount() {
-    debugger
-      this.props.fetchAllReviews(this.props.location.id);
-  }
+  // componentDidMount() {
+  //     this.props.fetchAllReviews(this.props.location.id);
+  // }
   
   openInNewTab(href) {
     Object.assign(document.createElement("a"), {
@@ -25,7 +24,6 @@ class SpotItem extends React.Component {
 
   render() {
     // this.getBusinessDetails();
-    console.log(this.props)
     const { name, image_url, location, display_phone } = this.props.location;
     return (
       <div className="spot-index-item">
