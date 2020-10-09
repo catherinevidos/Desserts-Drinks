@@ -59,5 +59,29 @@ router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
     });
 })
 
+// https://api.yelp.com/v3/businesses/WHRHK3S1mQc3PmhwsGRvbw/reviews
+
+
+router.get('/businessReviews/:businessId', (req, res) => {
+  debugger
+  const { businessId } = req.params;
+  let url = `https://api.yelp.com/v3/businesses/${businessId}/reviews`;
+  debugger
+  return axios({
+    method: "GET",
+    url: url,
+    headers: {
+      Authorization: `Bearer ${yelpApiKey}`,
+      dataType: "json",
+    },
+  })
+    .then((response) => {
+      res.json(response.data.reviews);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+})
+
 module.exports = router;
 

@@ -9,7 +9,7 @@ export default (state = {}, action) =>{
         case RECEIVE_ALL_BUSINESSES:
             return Object.assign({}, state, action.businessess);
 
-            default:
-                return state;
+        default:
+            return state;
     }
 }
