@@ -4,8 +4,6 @@ import "./map.scss";
 import LoadingIcon from '../../components/loading/loading';
 
 const googleMapApiKey = require("../../config/secret").googleMapApiKey;
-const yelpApiKey = require("../../config/secret").yelpApiKey;
-
 
 export class WebMap extends React.Component {
   constructor(props) {

@@ -3,13 +3,6 @@ import NavbarContainer from '../nav/navbar_container';
 import './favspots.scss';
 
 export default class FavSpots extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
-    componentDidMount(){
-
-    }
 
     render() {
         return (
