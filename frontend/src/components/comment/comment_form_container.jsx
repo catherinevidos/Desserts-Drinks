@@ -3,17 +3,19 @@ import CommentForm from './comment_form';
 import { createComment } from '../../actions/comment_actions';
 
 
-const mSTP = state => ({
+const mSTP = (state, ownProps) => ({
     comment: {
         body: '',
-        rating: null,
-        stop_id: state.stops.id,
-        user_id: state.session.user.id
-    }
+        rating: undefined,
+        stop_id: ownProps.location,
+        user_id: state.session.currentUser.id,
+        username: state.session.currentUser.username
+    },
 });
 
 const mDTP = dispatch => ({
-    createComment: comment => dispatch(createComment(comment))
+    createComment: comment => dispatch(createComment(comment)),
+
 });
 
 export default connect(mSTP, mDTP)(CommentForm);

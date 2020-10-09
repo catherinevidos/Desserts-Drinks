@@ -29,12 +29,13 @@ export class WebMap extends React.Component {
       lat: e.position.lat,
       lng: e.position.lng,
     });
-    
+    debugger
     this.props.openModal({
       modal: "business",
       lat: this.state.lat,
       lng: this.state.lng,
     });
+
 
   }
   render() {
@@ -270,9 +271,9 @@ export class WebMap extends React.Component {
 
     let mapColor;
     if (this.props.theme === "Desserts") {
-      mapColor = 'map-container-div'
+      mapColor = 'map-container-div';
     } else {
-      mapColor = 'martini-map-color'
+      mapColor = 'martini-map-color';
     }
     
     return (

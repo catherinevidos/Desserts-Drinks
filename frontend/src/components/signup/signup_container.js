@@ -11,14 +11,14 @@ const mapStateToProps = state => {
   return {
     currentUser: state.session.currentUser,
     errors: state.errors.session
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     signupUser: user => dispatch(signup(user)),
     clearErrors: () => dispatch(clearErrors())
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

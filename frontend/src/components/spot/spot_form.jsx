@@ -3,6 +3,7 @@ import $ from 'jquery';
 import SpotItem from './spot_item';
 import './spot.scss';
 import LoadingIcon from "../loading/loading";
+import CommentFormContainer from '../comment/comment_form_container';
 
 const yelpApiKey = require("../../config/secret").yelpApiKey;
 
@@ -28,7 +29,7 @@ export default class SpotForm extends React.Component {
       this.props.lng,
       this.props.theme
     ).then(() => {
-      this.setState({ loading: false })
+      this.setState({ loading: false });
     });
   }
 
@@ -77,6 +78,7 @@ export default class SpotForm extends React.Component {
                 </div>
               ))}
             </div>
+            <CommentFormContainer location={this.props.stopId} />
           </div>
         </>
       );

@@ -14,14 +14,14 @@ const receiveStop = (stop) => ({
 
 export const fetchAllStops = () => (dispatch) => {
   return fetchStops().then((stops) => {
-    return dispatch(receiveStops(stops))
+    return dispatch(receiveStops(stops));
   });
-}
+};
   
 
 export const fetchAStop = (stopId) => (dispatch) => {
   return fetchStop(stopId).then((stop) => {
-    return dispatch(receiveStop(stop))
-  })
-}
+    return dispatch(receiveStop(stop));
+  });
+};
   

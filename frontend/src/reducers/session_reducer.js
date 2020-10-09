@@ -2,7 +2,7 @@ import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER, LOGIN_NEW_USER} from '../act
 
 const initialState = {
     isAuthenticated: false,
-    user: {}
+    currentUser: {}
 };
 
 export const sessionReducer = (state = initialState, action) => {
@@ -11,12 +11,12 @@ export const sessionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
-                user: action.currentUser
+                currentUser: action.currentUser
             };
         case LOGOUT_CURRENT_USER:
             return {
                 isAuthenticated: false,
-                user: undefined
+                currentUser: {}
             };
         case LOGIN_NEW_USER:
             return {

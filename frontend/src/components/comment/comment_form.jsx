@@ -16,8 +16,9 @@ export default class CommentForm extends React.Component {
         let comment = {
             body: this.state.body,
             rating: this.state.rating,
-            stop_id: this.state.stop_id,
-            user_id: this.state.user_id
+            stop_id: this.props.stopId,
+            user_id: this.state.user_id,
+            username: this.state.username
         };
         this.props.createComment(comment);
     }
@@ -31,6 +32,8 @@ export default class CommentForm extends React.Component {
                 </div>
                 <br/><br/>
                 <form onSubmit={this.handleSubmit}>
+                    <label>{this.state.username}</label>
+                    <br/><br/>
                     <label>Comment:
                         <textarea 
                             cols="40" 
