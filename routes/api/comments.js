@@ -4,6 +4,7 @@ const passport = require('passport');
 const router = express.Router();
 const ObjectId = require('mongodb').ObjectID;
 const Comment = require('../../models/Comment');
+const validateCommentInput = require('../../validation/comment');
 
 router.get('/comments', (req, res) => {
     Comment.find().then(comments => res.json(comments));
@@ -25,6 +26,14 @@ router.get("/all/", (req, res) => {
 
 router.post('/:stopId/comments', passport.authenticate('jwt', {session: false}),
     (req, res) => {
+        const { errors, isValid } = validateCommentInput(req.body);
+        if (req.params.stopId === undefined) {
+          errors.stop_id = 'Please select a stop';
+          return res.status(400).json(errors);
+        }
+        if (!isValid) {
+          return res.status(400).json(errors);
+        }
         const newComment = new Comment({
           body: req.body.body,
           rating: req.body.rating,
