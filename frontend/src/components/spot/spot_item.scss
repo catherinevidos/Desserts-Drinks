@@ -12,16 +12,24 @@
         }
 
         .index-item-name {
-            width: 300px;
+            width: 280px;
             font-family: Sacramento-Regular;
             font-size: 35px;
             max-height: 105px;
         }
 
         .index-item-address {
-            width: 300px;
+            width: 280px;
             font-family: Sacramento-Regular;
             font-size: 15px;
+        }
+
+        .index-item-phone {
+            width: 280px;
+            font-family: Sacramento-Regular;
+            font-size: 15px;
+            display: flex;
+            justify-content: flex-end;
         }
 
 }
