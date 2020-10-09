@@ -1,0 +1,23 @@
+.spot-index-item {
+    display: flex;
+    // margin-bottom: 20px;
+    width: 200px;
+    height: 200px; 
+        img {
+            width: 200px;
+            height: 200px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+        .index-item-name {
+            width: 300px;
+            font-family: Sacramento-Regular;
+            font-size: 35px;
+            max-height: 105px;
+        }
+        .index-item-address {
+            width: 300px;
+            font-family: Sacramento-Regular;
+            font-size: 15px;
+        }
+}

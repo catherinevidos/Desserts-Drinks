@@ -3,7 +3,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.scss';
 import SpotFormContainer from '../spot/spot_form_container';
-import BusinessContainer from '../spot/businesscontainer';
 
 function Modal({ modal, closeModal }) {
 
