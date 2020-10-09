@@ -24,7 +24,12 @@ export default class SpotForm extends React.Component {
   }
 
   componentDidMount(){
-    this.getBusinessDetails();
+    // this.getBusinessDetails();
+    this.props.fetchAllBusinessess(
+      this.props.lat,
+      this.props.lng,
+      this.props.theme
+    );
   }
 
   getBusinessDetails() {
@@ -58,26 +63,26 @@ export default class SpotForm extends React.Component {
       return <LoadingIcon />;
     }
 
-    if (this.state.business.length === 0) return null;
-
-    return (
-      <>
-        <div className="modal-header">
-          <h1 className="modal-title">Donuts around you</h1>
-        </div>
-        <div className="modal-body">
-          <div className="business-list">
-            {this.state.business.slice(0, 5).map((location) => (
-              <div className="businesses">
-                <SpotItem location={location} key={location.id} />
-              </div>
-            ))}
+    // if (this.state.business.length === 0) return null;
+    if (this.props.businessess.length === 0) return null;
+      return (
+        <>
+          <div className="modal-header">
+            <h1 className="modal-title">Donuts around you</h1>
           </div>
-        </div>
-        <div>
-          <button onClick={this.handleExit}>X</button>
-        </div>
-      </>
-    );
+          <div className="modal-body">
+            <div className="business-list">
+              {this.props.businessess.slice(0, 5).map((location) => (
+                <div className="businesses">
+                  <SpotItem location={location} key={location.id} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <button onClick={this.handleExit}>X</button>
+          </div>
+        </>
+      );
   }
 }

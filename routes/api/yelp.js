@@ -10,7 +10,6 @@ const {
 
 const allBusinesses = async (lat, lng, searchTerm) => {
   let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${lat}&longitude=${lng}`;
-  
   return axios({
       method: "GET",
       url: url,
@@ -20,7 +19,8 @@ const allBusinesses = async (lat, lng, searchTerm) => {
       },
     })
     .then((response) => {
-      return response.businesses;
+      // res.json(response);
+      return response.data.businesses;
     })
     .catch((err) => {
       console.log(err);
@@ -28,17 +28,18 @@ const allBusinesses = async (lat, lng, searchTerm) => {
 };
 
 const fetchAll = async (req, res) => {
-  const {lat, lng, searchTerm} = req.params 
-  
-  await Promise.allSettled([
-    allBusinesses(lng, lat, searchTerm)
-    .then((resp) => {
-      res.json(resp);
-    })
-  ]).catch((err) => 
-  console.log(err));
+  const {lat, lng, searchTerm} = req.query; 
+  let businesses = [];
+  await Promise.all([
+    allBusinesses(lat, lng, searchTerm).then((resp) => {
+      debugger
+      businesses = resp;
+    }),
+  ]).catch((err) => console.log(err));
+  debugger
+  res.json(businesses);
 }
-router.get('/', fetchAll);
+router.post('/', fetchAll);
 
 module.exports = router;
 
