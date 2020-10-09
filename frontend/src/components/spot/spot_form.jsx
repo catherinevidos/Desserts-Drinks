@@ -35,7 +35,9 @@ export default class SpotForm extends React.Component {
       searchTerm = "drinks";
     }
 
-    let url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${this.props.lat}&longitude=${this.props.lng}`;
+    // https://cors-anywhere.herokuapp.com/
+
+    let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${this.props.lat}&longitude=${this.props.lng}`;
     let that = this;
     $.ajax({
       url: url,

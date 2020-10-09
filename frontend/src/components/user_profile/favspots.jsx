@@ -7,8 +7,10 @@ export default class FavSpots extends React.Component {
     render() {
         return (
           <div className="fav-spots">
-            <NavbarContainer />
-            <h1 className="fav-spots-header">Your favorite spots</h1>
+            <div className='fun-div'>
+              <NavbarContainer />
+            </div>
+            <h1 className="logout-button">Your favorite spots coming soon...</h1>
           </div>
         );
     }

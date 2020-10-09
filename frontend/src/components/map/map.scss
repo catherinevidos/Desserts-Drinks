@@ -11,6 +11,14 @@
     // position: absolute center !important;
 }
 
+.martini-map-color {
+     height: 70vh;
+     border-radius: 25px;
+     border: 12px solid #62D0BD;
+     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #map {
     width: 100% !important;
 }

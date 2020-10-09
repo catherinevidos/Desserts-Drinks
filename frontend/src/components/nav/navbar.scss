@@ -28,7 +28,7 @@
   height: 100%;
 }
 
-.nav-container h1 {
+.dessert-header {
   margin-left: 20px;
   background-color: papayawhip;
   letter-spacing: 2px;
@@ -38,6 +38,15 @@
    &.lined.thick {
      border: solid 7px #41403E;
    }
+}
+
+.martini-header {
+  margin-left: 20px;
+  background-color: #62D0BD;
+  letter-spacing: 2px;
+  line-height: 38px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 // .nav-logo {

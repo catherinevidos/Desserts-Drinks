@@ -44,7 +44,7 @@ export class WebMap extends React.Component {
       return <LoadingIcon />;
     }
 
-    let dynamicWidth = "calc(100% - 126px)";
+    let dynamicWidth = "calc(100% - 124px)";
     const style = {
       width: dynamicWidth,
       height: "70vh",
@@ -267,8 +267,16 @@ export class WebMap extends React.Component {
         lng: -73.937594,
       },
     ];
+
+    let mapColor;
+    if (this.props.theme === "Desserts") {
+      mapColor = 'map-container-div'
+    } else {
+      mapColor = 'martini-map-color'
+    }
+    
     return (
-      <div className="map-container-div">
+      <div className={mapColor}>
         <Map
           google={this.props.google}
           style={style}
