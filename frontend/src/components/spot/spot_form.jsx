@@ -43,14 +43,32 @@ export default class SpotForm extends React.Component {
 
   render() {
     if (this.state.loading) { return <LoadingIcon/> }
+  
+    let modalBackground;
+    let commentLine;
+    if (this.props.theme === "Desserts") {
+      commentLine = (
+        <h1 className="index-dessert">Desserts around you</h1>
+      );
+      modalBackground = 'modal-header'
+    } else {
+      commentLine = (
+        <h1 className="index-drink">Drinks around you</h1>
+      );
+      modalBackground = 'modal-header-drink'
+    }
+
     if (this.props.businessess.length === 0) return null;
       return (
         <>
+
           <div className="modal-header">
             <h1 className="modal-title">Donuts around you</h1>
             <div className='x'>
               <button onClick={this.handleExit}>X</button>
             </div>
+          <div className='modal-header'>
+            {commentLine}
           </div>
           <div className="modal-body">
             <div className="business-list">

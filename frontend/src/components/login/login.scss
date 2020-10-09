@@ -107,6 +107,7 @@ a.login-link {
   &:hover {
     font-size: 18pt;
     text-decoration: underline;
+    transition: all ease .3s;
   }
 }
 
@@ -166,6 +167,7 @@ input[type=reset] {
   box-shadow: 0 6px #999;
   &:hover {
     box-shadow: none;
+    transition: all ease .3s;
   }
 }
 
@@ -192,6 +194,7 @@ input[type=reset] {
   box-shadow: 0 6px #999;
   &:hover {
     box-shadow: none;
+    transition: all ease .3s;
   }
 }
 
