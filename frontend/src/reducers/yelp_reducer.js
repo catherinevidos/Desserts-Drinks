@@ -10,7 +10,7 @@ export default (state = {}, action) =>{
             debugger
             return Object.assign({}, state, action.businessess);
 
-            default:
-                return state;
+        default:
+            return state;
     }
 }
