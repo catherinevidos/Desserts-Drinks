@@ -10,8 +10,7 @@ const mSTP = (state, ownProps) => {
     lat: state.ui.modal.lat,
     theme: state.ui.theme.theme,
     businessess: Object.values(state.businessess),
-  }
- 
+  };
 };
 
 const mDTP = dispatch => ({

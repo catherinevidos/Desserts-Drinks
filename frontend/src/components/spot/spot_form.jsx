@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
-import SpotItem from './spot_item'
-import './spot.scss'
+import SpotItem from './spot_item';
+import './spot.scss';
 import LoadingIcon from "../loading/loading";
 
 const yelpApiKey = require("../../config/secret").yelpApiKey;
