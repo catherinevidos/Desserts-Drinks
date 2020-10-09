@@ -50,6 +50,8 @@ export default class Navbar extends React.Component {
       commentLine = <h1 className='martini-header'>click on a martini to get started...</h1>
     }
 
+    
+
     return (
       <div className="nav-wrapper">
         <div className="nav-container">
