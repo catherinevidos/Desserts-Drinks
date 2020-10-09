@@ -2,15 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const router = express.Router();
-
+const ObjectId = require('mongodb').ObjectID;
 const Comment = require('../../models/Comment');
 
 router.get('/comments', (req, res) => {
     Comment.find().then(comments => res.json(comments));
 });
 
-router.get("/all", (req, res) => {
-  Comment.find({ stop_id: ObjectId(req.params.stopId) })
+// pass stopId as params to fetch comments for stop: http://localhost:5000/api/comments/all?5f7b45dcc6fc5b4512037023
+
+router.get("/all/", (req, res) => {
+  stopId = req.originalUrl.split('?')[1];
+  const id = ObjectId(stopId)
+  Comment.find({ stop_id: id })
     .then((comments) => {
       res.json(comments);
     })
