@@ -61,14 +61,13 @@ export default class SpotForm extends React.Component {
     if (this.props.businessess.length === 0) return null;
       return (
         <>
-
           <div className="modal-header">
-            <h1 className="modal-title">Donuts around you</h1>
-            <div className='x'>
-              <button onClick={this.handleExit}>X</button>
-            </div>
-          <div className='modal-header'>
             {commentLine}
+            <div className="x-close-modal">
+              <button className="x-close-button" onClick={this.handleExit}>
+                X
+              </button>
+            </div>
           </div>
           <div className="modal-body">
             <div className="business-list">

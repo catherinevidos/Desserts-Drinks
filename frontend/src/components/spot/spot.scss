@@ -27,17 +27,23 @@
 
 .x-close-modal:hover{
     border-radius: 50%;
-    margin: 0px;
+    margin-top: 3px;
     background-color: rgb(206,122,144);
-
-    button {
-        height: 50px;
-        margin: 5px;
-        width: 50px;
-        display: flex;
-        justify-content: center;
-    }
+    opacity: .90;
 }
+
+ button.x-close-button {
+    font-family: monospace;
+    font-size: 18pt;
+     height: 40px;
+     margin: 5px;
+     width: 40px;
+     display: flex;
+     align-items: center;
+     text-align: center;
+     justify-content: center;
+     transition: background 0.5s;
+ }
 
 // .modal-header-drink {
 //     position: sticky;
