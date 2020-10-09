@@ -44,7 +44,6 @@ export default class SpotForm extends React.Component {
 
   render() {
     if (this.state.loading) { return <LoadingIcon/> }
-    console.log(this.props);
     if (this.props.businessess.length === 0) return null;
       return (
         <>

@@ -32,17 +32,15 @@ const fetchAll = async (req, res) => {
   let businesses = [];
   await Promise.all([
     allBusinesses(lat, lng, searchTerm).then((resp) => {
-      debugger
       businesses = resp;
     }),
   ]).catch((err) => console.log(err));
-  debugger
+  
   res.json(businesses);
 }
 router.post('/', fetchAll);
 
 router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
-  debugger
   const { lat, lng, searchTerm } = req.params; 
   let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${lat}&longitude=${lng}`;
   return axios({

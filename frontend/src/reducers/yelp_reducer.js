@@ -7,7 +7,6 @@ export default (state = {}, action) =>{
 
     switch(action.type) {
         case RECEIVE_ALL_BUSINESSES:
-            debugger
             return Object.assign({}, state, action.businessess);
 
         default:
