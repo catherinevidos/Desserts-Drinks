@@ -3,7 +3,20 @@ const Schema = mongoose.Schema;
 
 const FavoriteSchema = new Schema(
   {
-    isFavorite: Boolean,
+    isFavorite: {
+      type: Boolean,
+      required: true,
+    },
+    stop_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Stop",
+      required: true,
+    },
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,
