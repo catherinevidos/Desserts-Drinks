@@ -8,13 +8,14 @@ class SpotItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       reviews: []
+      reviews: [],
     };
 
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
   }
 
   getBusinessDetails() {
+
       const locationId = this.props.location.id
     let url =
       `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${locationId}/reviews`;
@@ -33,7 +34,7 @@ class SpotItem extends React.Component {
   }
 
   render() {
-      this.getBusinessDetails();
+    this.getBusinessDetails();
     const { name, image_url, location } = this.props.location;
     return (
       <div className="spot-index-item">
