@@ -14,7 +14,7 @@ router.get('/comments', (req, res) => {
 
 router.get("/all/", (req, res) => {
   stopId = req.originalUrl.split('?')[1];
-  const id = ObjectId(stopId)
+  const id = ObjectId(stopId);
   Comment.find({ stop_id: id })
     .then((comments) => {
       res.json(comments);

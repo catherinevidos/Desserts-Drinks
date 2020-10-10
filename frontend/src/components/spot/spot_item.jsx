@@ -23,7 +23,6 @@ class SpotItem extends React.Component {
   }
 
   render() {
-    // this.getBusinessDetails();
     const { name, image_url, location, display_phone } = this.props.location;
     return (
       <div className="spot-index-item">
@@ -38,7 +37,6 @@ class SpotItem extends React.Component {
           <p className="index-item-name">{name}</p>
           <p className="index-item-address">{location.display_address}</p>
           <p className="index-item-phone">{display_phone}</p>
-          {/* <p className="index-item-address">{this.props.reviews.text[0]}</p> */}
         </div>
       </div>
     );

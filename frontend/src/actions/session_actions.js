@@ -40,11 +40,6 @@ export const signup = user => dispatch => (
         err => dispatch(receiveErrors(err.response.data)))
 );
 
-// export const theme = user => dispatch => (
-//     APIUtil.theme(user)
-//     .then(user => dispatch(updateUserTheme))
-// )
-
 export const login = user => dispatch => (
     APIUtil.login(user)
         .then(res => {

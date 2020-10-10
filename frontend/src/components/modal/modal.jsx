@@ -19,7 +19,7 @@ function Modal({ modal, closeModal }) {
             lat={modal.lat} lng={modal.lng} />
         );
         break;
-
+            
       default:
         return null;
     }
