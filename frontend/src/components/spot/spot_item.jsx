@@ -7,9 +7,19 @@ const yelpApiKey = require("../../config/secret").yelpApiKey;
 class SpotItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      reviews: [],
-    };
+
+    this.openInNewTab = this.openInNewTab.bind(this);
+  }
+
+  // componentDidMount() {
+  //     this.props.fetchAllReviews(this.props.location.id);
+  // }
+  
+  openInNewTab(href) {
+    Object.assign(document.createElement("a"), {
+      target: "_blank",
+      href,
+    }).click();
   }
 
   render() {
@@ -17,7 +27,11 @@ class SpotItem extends React.Component {
     return (
       <div className="spot-index-item">
         <div className="index-item-image">
-          <img src={image_url} alt="" />
+          <img
+            src={image_url}
+            alt=""
+            onClick={() => this.openInNewTab(this.props.location.url)}
+          />
         </div>
         <div className="index-item-info">
           <p className="index-item-name">{name}</p>

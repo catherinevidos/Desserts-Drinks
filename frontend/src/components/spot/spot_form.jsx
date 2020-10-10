@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import SpotItem from './spot_item';
 import './spot.scss';
+
 import LoadingIcon from "../loading/loading";
 import CommentFormContainer from '../comment/comment_form_container';
 
@@ -11,7 +12,6 @@ export default class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      business: [],
       loading: true
     };
     this.handleExit = this.handleExit.bind(this);

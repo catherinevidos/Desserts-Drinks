@@ -3,7 +3,7 @@ import FavSpots from './favspots';
 
 const mSTP = state => {
     return {
-
+        currentUser: state.session.user
     };
 };
 
