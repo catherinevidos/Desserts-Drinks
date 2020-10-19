@@ -10,9 +10,9 @@ module.exports = function validateCommentInput(data) {
         errors.body = 'Body can\'t be blank';
     }
 
-    if (Validator.isEmpty(data.rating)) {
-        errors.rating = 'Rating can\'t be blank';
-    }
+    // if (Validator.isEmpty(data.rating)) {
+    //     errors.rating = 'Rating can\'t be blank';
+    // }
 
     return {
         errors,
