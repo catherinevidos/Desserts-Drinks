@@ -16,8 +16,12 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
+  // debugger
   return {
-    signupUser: user => dispatch(signup(user)),
+    signupUser: user => {
+      debugger
+      return dispatch(signup(user));
+    },
     clearErrors: () => dispatch(clearErrors())
   };
 };
