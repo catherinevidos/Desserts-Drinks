@@ -12,7 +12,6 @@ export default class CommentForm extends React.Component {
     }
 
     handleSubmit(event){
-        debugger
         event.preventDefault();
         let comment = {
             body: this.state.body,

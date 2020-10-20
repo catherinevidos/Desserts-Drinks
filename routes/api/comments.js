@@ -12,7 +12,8 @@ router.get('/comments', (req, res) => {
 
 // pass stopId as params to fetch comments for stop: http://localhost:5000/api/comments/all?5f7b45dcc6fc5b4512037023
 
-router.get("/all/", (req, res) => {
+router.get('/all', (req, res) => {
+  debugger
   stopId = req.originalUrl.split('?')[1];
   const id = ObjectId(stopId);
   Comment.find({ stop_id: id })

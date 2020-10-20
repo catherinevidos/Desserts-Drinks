@@ -6,6 +6,6 @@ export const createComment = (data) => {
   return axios.post(`api/comments/add`, data);
 };
 
-export const fetchComments = (data) => {
-    return axios.get(`api/stops/all`, data.comments);
+export const fetchComments = (stopId) => {
+    return axios.get(`api/stops/all?${stopId}`);
 };
