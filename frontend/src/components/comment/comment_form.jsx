@@ -6,6 +6,7 @@ export default class CommentForm extends React.Component {
         super(props);
         this.state = this.props.comment;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRating = this.handleRating.bind(this);
     }
 
     update(field){
@@ -36,6 +37,22 @@ export default class CommentForm extends React.Component {
         this.props.fetchComments(stopId);
     }
 
+    handleRating(ratingNum) {
+        if (ratingNum === 1) {
+            return '★ ';
+        } else if (ratingNum === 2) {
+            return '★★ ';
+        } else if (ratingNum === 3) {
+            return '★★★ ';
+        } else if (ratingNum === 4) {
+            return '★★★★ ';
+        } else if (ratingNum === 5) {
+            return '★★★★★ ';
+        } else {
+            return '★★★★★ ';
+        }
+    }
+
     render(){
         const { comments } = this.props;
         if (comments === undefined) {
@@ -58,11 +75,11 @@ export default class CommentForm extends React.Component {
                     <br></br>
                       <fieldset className="rating">
                         <legend>Rating:</legend>
-                        <input type="radio" id="star5" name="rating" value="5" onChange={this.update('rating')} /><label for="star5" title="Rocks!">5 stars</label>
-                        <input type="radio" id="star4" name="rating" value="4" onChange={this.update('rating')} /><label for="star4" title="Pretty good">4 stars</label>
-                        <input type="radio" id="star3" name="rating" value="3" onChange={this.update('rating')} /><label for="star3" title="Meh">3 stars</label>
-                        <input type="radio" id="star2" name="rating" value="2" onChange={this.update('rating')} /><label for="star2" title="Kinda bad">2 stars</label>
-                        <input type="radio" id="star1" name="rating" value="1" onChange={this.update('rating')} /><label for="star1" title="Sucks big time">1 star</label>
+                        <input type="radio" id="star5" name="rating" value="5" onChange={this.update('rating')} /><label for="star5" title="Amazing!">5 stars</label>
+                        <input type="radio" id="star4" name="rating" value="4" onChange={this.update('rating')} /><label for="star4" title="love it">4 stars</label>
+                        <input type="radio" id="star3" name="rating" value="3" onChange={this.update('rating')} /><label for="star3" title="its ok..">3 stars</label>
+                        <input type="radio" id="star2" name="rating" value="2" onChange={this.update('rating')} /><label for="star2" title="eke">2 stars</label>
+                        <input type="radio" id="star1" name="rating" value="1" onChange={this.update('rating')} /><label for="star1" title="TERRIBLE">1 star</label>
                         </fieldset>
                         <br></br>
                         {/* <input 
@@ -92,19 +109,25 @@ export default class CommentForm extends React.Component {
                     'comment-submit' type='submit'>Submit Comment</button>
                 </form>
                 <div className='show-comments-wrapper'>
-                <ul>
-                    {Object.values(comments).map(comment => {
-                        return(
-                            <li key={comment._id}>
-                                {comment.username}
-                                <br/>
-                                {comment.body}
-                                <br/>
-                                {comment.rating}
-                            </li>
-                        );
-                    })}
-                </ul>
+                    <div className='comments-header'>
+                        <h1>Our Users Say...</h1>
+                    </div>
+                    <ul>
+                        {Object.values(comments).map(comment => {
+                            return(
+                                <>
+                                    <div className='comment-delete-wrapper'>
+                                        <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
+                                        <button className='comment-delete-button'>X</button>
+                                    </div>
+                                    <li className='body-comments'> {comment.body} </li>
+                                    <br></br>
+                                    {/* <li> {this.handleRating(comment.rating)} </li> */}
+                                </>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }
