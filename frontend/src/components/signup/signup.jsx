@@ -32,6 +32,11 @@ class Signup extends React.Component {
       });
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+
   // renderErrors() {
   //   let emailError = "";
   //   let passwordError = "";
@@ -95,7 +100,13 @@ class Signup extends React.Component {
       password2: this.state.password2,
       username: this.state.username,
     }
-    
+
+    // if (this.props.signupUser(user)) {
+    //   this.props.history.push('/');
+    // } else {
+    //   this.props.clearErrors();
+    // }
+
     this.props.signupUser(user).then(() => this.props.history.push('/'));
     // this.props.signupUser(user).then(() => this.props.history.push('/'));
   }
