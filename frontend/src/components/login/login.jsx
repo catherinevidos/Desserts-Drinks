@@ -3,21 +3,13 @@ import {Link} from 'react-router-dom';
 import './login.scss';
 import '../reset.scss';
 
-
-// const intitialState = {
-//   emailError: '',
-//   passwordError: ''
-// };
-
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
-      password: "",
-      emailError: "",
-      passwordError: ""
+      password: ""
     };
 
     this.update = this.update.bind(this);
@@ -34,10 +26,7 @@ export default class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const errors = this.renderErrors();
-    // if (errors) {
-    //   this.setState({intitialState});
-    // }
+
     let user = {
       email: this.state.email,
       password: this.state.password
@@ -58,38 +47,11 @@ export default class Login extends React.Component {
       });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.clearErrors();
   }
 
-  // renderErrors() {
-  //   let emailError = "";
-  //   let passwordError = "";
-  //   let password = this.state.password;
-  //   let email = this.state.email;
-  //   const splitOnAt = email.split("@");
-  //   const splitOnDot = email.split(".");
-
-  //   if (
-  //     !email.includes("@") ||
-  //     !email.includes(".") ||
-  //     splitOnAt.length > 2 ||
-  //     splitOnDot[splitOnDot.length - 1].length < 2 ||
-  //     email === ""
-  //   ) {emailError = "Enter a valid email.";} 
-    
-  //   if (password.length === 0) { 
-  //     passwordError = 'Password is required';
-  //   } else if (password.length < 6) {
-  //     passwordError = 'Your password must be at least 6 characters. Please try again.';} 
-  //   if ( passwordError || emailError) {
-  //     this.setState({ passwordError, emailError});
-  //   return false;
-  //   }
-  //   return true;
-  // }
-
-   renderErrors() {
+  renderErrors() {
      const { errors } = this.props;
     return (
       <ul>
@@ -101,10 +63,7 @@ export default class Login extends React.Component {
   }
     
 
-  render() {
-    // const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors';
-    // const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
-    
+  render() { 
     return (
       <div className="login-top">
         <div className="login-wrapper">
@@ -147,10 +106,6 @@ export default class Login extends React.Component {
                   </div>
                     <div className=   {'error-wrapper'}>
                         {this.renderErrors()}
-                    {/* <p className={errorNameEmail}>{this.state.emailError}</p>
-                    <p className={errorNamePassword}>
-                      {this.state.passwordError}
-                    </p> */}
                   </div>
 
                   <Link to="/signup" className="login-link">
