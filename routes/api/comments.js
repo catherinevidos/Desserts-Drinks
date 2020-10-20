@@ -41,7 +41,7 @@ router.post(
     const stopId = ObjectId(req.body.stop_id);
     const newComment = new Comment({
       body: req.body.body,
-      rating: req.body.rating || 0,
+      rating: req.body.rating,
       stop_id: stopId,
       user_id: userid,
       username: req.body.username,

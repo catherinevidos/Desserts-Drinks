@@ -29,7 +29,6 @@ export default class CommentForm extends React.Component {
             user_id: this.state.user_id,
             username: this.state.username
         };
-        debugger
         let stopId = this.props.comment.stop_id;
         this.props.createComment(comment);
         this.props.fetchComments(stopId);
@@ -89,20 +88,21 @@ export default class CommentForm extends React.Component {
                     <button className=
                     'comment-submit' type='submit'>Submit Comment</button>
                 </form>
-
-                <ul>
-                    {Object.values(comments).map(comment => {
-                        return(
-                            <li key={comment._id}>
-                                {comment.username}
-                                <br/>
-                                {comment.body}
-                                <br/>
-                                {comment.rating}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div className='show-comments-wrapper'>
+                    <ul>
+                        {Object.values(comments).map(comment => {
+                            return(
+                                <li key={comment._id}>
+                                    {comment.username}
+                                    <br/>
+                                    {comment.body}
+                                    <br/>
+                                    {comment.rating}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }

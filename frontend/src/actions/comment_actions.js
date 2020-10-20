@@ -21,12 +21,14 @@ const removeComment = commentId => ({
 
 export const fetchComments = stopId => dispatch =>
   APIUtil.fetchComments(stopId).then((comments) =>
-    dispatch(receiveComments(comments))
+    dispatch(receiveComments(comments.data))
   );
 
 export const createComment = comment => dispatch => {
-    return APIUtil.createComment(comment)
-        .then(comment => dispatch(receiveComment(comment)));
+    debugger
+    return APIUtil.createComment(comment).then(comment => {
+      debugger
+          return dispatch(receiveComment(comment.data))});
 };
 
 export const deleteComment = commentId => dispatch => (

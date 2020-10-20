@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
             user_id: state.session.currentUser.id,
             username: state.session.currentUser.username
         },
-        comments: state.comments.data
+        comments: state.comments
     };
 };
 
