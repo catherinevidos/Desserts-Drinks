@@ -3,6 +3,7 @@ import { openModal, closeModal} from '../../actions/modal_actions';
 import SpotForm from './spot_form';
 import { fetchAllBusinessess } from '../../actions/yelp_actions';
 import { findStopId } from '../../reducers/selectors';
+import { fetchAllReviews } from '../../actions/yelp_actions';
 
 const mSTP = (state, ownProps) => {
   const lng =  state.ui.modal.lng;
@@ -21,7 +22,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
     fetchAllBusinessess: (lat, lng, searchTerm) => dispatch(fetchAllBusinessess(lat, lng, searchTerm)),
     openModal: modal => dispatch(openModal(modal)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    fetchAllReviews: businessId => dispatch(fetchAllReviews(businessId))
 });
 
 export default connect(mSTP, mDTP)(SpotForm);
