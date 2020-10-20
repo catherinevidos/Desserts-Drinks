@@ -71,6 +71,7 @@
   // height: 100%;
   margin-top: 10px;
   position: relative;
+  top: -20px;
 }
 
 .login-input {
@@ -207,8 +208,7 @@ input[type=reset] {
   margin-bottom: 10px;
 }
 
-.error-wrapper, .login-error-wrapper {
-  height: 18px;
+.error-wrapper {
   width: 400px;
   color: black;
   text-align: center;
@@ -216,6 +216,7 @@ input[type=reset] {
   margin-top: 3px;
   font-style: italic;
   font-weight: bold;
+  margin-bottom: 4px;
 }
 
 

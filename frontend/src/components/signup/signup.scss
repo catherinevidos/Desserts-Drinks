@@ -4,16 +4,19 @@
 }
 
 .signup-form-child {
-  height: 500px;
+  height: 400px;
+  top: -60px;
 }
 
 .signup-container {
   // height: 100%;
   justify-content: flex-start;
 }
+
 .signup-logo-container {
   position: relative;
-    top: -79px;
+  transform: scale(.9);
+    top: -86px;
     img {
       z-index: -1;
     }
@@ -22,4 +25,5 @@
 .signup-form {
     position: relative;
     top: -110px;
+    transform: scale(.9);
 }

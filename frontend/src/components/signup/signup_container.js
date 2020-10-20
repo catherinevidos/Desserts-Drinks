@@ -5,6 +5,7 @@ import {
   clearErrors,
   signup
 } from '../../actions/session_actions.js';
+import {withRouter} from 'react-router-dom';
 import Signup from './signup';
 
 const mapStateToProps = state => {
@@ -21,4 +22,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Signup));

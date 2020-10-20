@@ -4,10 +4,10 @@ import './login.scss';
 import '../reset.scss';
 
 
-const intitialState = {
-  emailError: '',
-  passwordError: ''
-};
+// const intitialState = {
+//   emailError: '',
+//   passwordError: ''
+// };
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -34,10 +34,10 @@ export default class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const errors = this.renderErrors();
-    if (errors) {
-      this.setState({intitialState});
-    }
+    // const errors = this.renderErrors();
+    // if (errors) {
+    //   this.setState({intitialState});
+    // }
     let user = {
       email: this.state.email,
       password: this.state.password
@@ -57,41 +57,51 @@ export default class Login extends React.Component {
       });
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  // }
 
-  renderErrors() {
-    let emailError = "";
-    let passwordError = "";
-    let password = this.state.password;
-    let email = this.state.email;
-    const splitOnAt = email.split("@");
-    const splitOnDot = email.split(".");
+  // renderErrors() {
+  //   let emailError = "";
+  //   let passwordError = "";
+  //   let password = this.state.password;
+  //   let email = this.state.email;
+  //   const splitOnAt = email.split("@");
+  //   const splitOnDot = email.split(".");
 
-    if (
-      !email.includes("@") ||
-      !email.includes(".") ||
-      splitOnAt.length > 2 ||
-      splitOnDot[splitOnDot.length - 1].length < 2 ||
-      email === ""
-    ) {emailError = "Enter a valid email.";} 
+  //   if (
+  //     !email.includes("@") ||
+  //     !email.includes(".") ||
+  //     splitOnAt.length > 2 ||
+  //     splitOnDot[splitOnDot.length - 1].length < 2 ||
+  //     email === ""
+  //   ) {emailError = "Enter a valid email.";} 
     
-    if (password.length === 0) { 
-      passwordError = 'Password is required';
-    } else if (password.length < 6) {
-      passwordError = 'Your password must be at least 6 characters. Please try again.';} 
-    if ( passwordError || emailError) {
-      this.setState({ passwordError, emailError});
-    return false;
-    }
-    return true;
+  //   if (password.length === 0) { 
+  //     passwordError = 'Password is required';
+  //   } else if (password.length < 6) {
+  //     passwordError = 'Your password must be at least 6 characters. Please try again.';} 
+  //   if ( passwordError || emailError) {
+  //     this.setState({ passwordError, emailError});
+  //   return false;
+  //   }
+  //   return true;
+  // }
+
+   renderErrors() {
+    return (
+      <ul>
+        {Object.keys(this.props.errors).map((key, i) => (
+          <li key={`error-${i}`}>{this.props.errors[key]}</li>
+        ))}
+      </ul>
+    );
   }
     
 
   render() {
-    const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors';
-    const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
+    // const errorNameEmail = (this.state.emailError !== '') ? 'errors-present' : 'no-errors';
+    // const errorNamePassword = this.state.passwordError !== "" ? "errors-present" : "no-errors";
     
     return (
       <div className="login-top">
@@ -133,11 +143,12 @@ export default class Login extends React.Component {
                       </button>
                     </div>
                   </div>
-                  <div className="login-error-wrapper">
-                    <p className={errorNameEmail}>{this.state.emailError}</p>
+                    <div className=   {'error-wrapper'}>
+                        {this.renderErrors()}
+                    {/* <p className={errorNameEmail}>{this.state.emailError}</p>
                     <p className={errorNamePassword}>
                       {this.state.passwordError}
-                    </p>
+                    </p> */}
                   </div>
 
                   <Link to="/signup" className="login-link">
