@@ -1,4 +1,5 @@
 import React from 'react';
+import './comments.scss';
 
 export default class CommentForm extends React.Component {
     constructor(props){
@@ -26,14 +27,12 @@ export default class CommentForm extends React.Component {
     render(){
 
         return(
-            <div>
+            <div className='comments-wrapper'>
                 <div>
                     <h1>Add a Comment!</h1>
                 </div>
-                <br/><br/>
                 <form onSubmit={this.handleSubmit}>
-                    <label>{this.state.username}</label>
-                    <br/><br/>
+                    Username: <label>{this.state.username}</label>
                     <label>Comment:
                         <textarea 
                             cols="40" 
@@ -44,16 +43,15 @@ export default class CommentForm extends React.Component {
                             required
                         />
                     </label>
-                    <br/><br/>
                     <label>Rating:
                         <input 
                             type="number"
                             value={this.state.rating}
                             onChange={this.update('rating')}
                             required
+                            max='5'
                         />
                     </label>
-                    <br/><br/>
                     <button type='submit'>Create Comment</button>
                 </form>
             </div>
