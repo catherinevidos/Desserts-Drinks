@@ -83,9 +83,9 @@ class Signup extends React.Component {
   //   return true;
   // }
 
-  // componentDidMount() {
-  //   this.props.clearErrors();
-  // }
+  componentDidMount() {
+    this.props.clearErrors();
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -99,15 +99,10 @@ class Signup extends React.Component {
       password: this.state.password,
       password2: this.state.password2,
       username: this.state.username,
-    }
+    };
+    
+    this.props.signupUser(user).then(() => this.props.history.push('/signup'), console.log("this should not appear at all"));
 
-    // if (this.props.signupUser(user)) {
-    //   this.props.history.push('/');
-    // } else {
-    //   this.props.clearErrors();
-    // }
-
-    this.props.signupUser(user).then(() => this.props.history.push('/'));
     // this.props.signupUser(user).then(() => this.props.history.push('/'));
   }
 
@@ -118,10 +113,11 @@ class Signup extends React.Component {
   // }
 
   renderErrors() {
+    const { errors } = this.props;
     return (
       <ul>
-        {Object.keys(this.props.errors).map((key, i) => (
-          <li key={`error-${i}`}>{this.props.errors[key]}</li>
+        {Object.keys(errors).map((key, i) => (
+          <li key={`error-${i}`}>{errors[key]}</li>
         ))}
       </ul>
     );

@@ -41,10 +41,10 @@ export default class Login extends React.Component {
     let user = {
       email: this.state.email,
       password: this.state.password
-    }
-    if (this.props.loginUser(user)) {
-      this.props.history.push('/');
-    } 
+    };
+
+    this.props.loginUser(user).then(() => this.props.history.push('/login'));
+
   }
 
   demoUser(e) {
@@ -95,10 +95,11 @@ export default class Login extends React.Component {
   // }
 
    renderErrors() {
+     const { errors } = this.props;
     return (
       <ul>
-        {Object.keys(this.props.errors).map((key, i) => (
-          <li key={`error-${i}`}>{this.props.errors[key]}</li>
+        {Object.keys(errors).map((key, i) => (
+          <li key={`error-${i}`}>{errors[key]}</li>
         ))}
       </ul>
     );
