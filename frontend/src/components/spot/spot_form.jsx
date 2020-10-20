@@ -12,7 +12,8 @@ export default class SpotForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
+      loading: true,
+      reviews: {}
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
@@ -29,6 +30,13 @@ export default class SpotForm extends React.Component {
       this.props.lng,
       this.props.theme
     ).then(() => {
+        this.props.businessess.slice(0, 5).map((location) => {
+          this.props.fetchAllReviews(location.id).then((review) => {
+            const reviews = this.state.reviews;
+            reviews[location.id] = review.reviews[0].text;
+            this.setState({ reviews: reviews });
+          });
+      });
       this.setState({ loading: false });
     });
   }
@@ -59,7 +67,7 @@ export default class SpotForm extends React.Component {
       modalBackground = 'modal-header-drink'
     }
 
-    if (this.props.businessess.length === 0) return null;
+    if (this.props.businessess.length === 0 || this.state.reviews.length === 0) return null;
       return (
         <>
           <div className="modal-header">
@@ -72,11 +80,17 @@ export default class SpotForm extends React.Component {
           </div>
           <div className="modal-body">
             <div className="business-list">
-              {this.props.businessess.slice(0, 5).map((location) => (
-                <div className="businesses">
-                  <SpotItemContainer location={location} key={location.id} />
-                </div>
-              ))}
+              {this.props.businessess.slice(0, 5).map((location, i) => {
+                return (
+                  <div className="businesses">
+                    <SpotItemContainer
+                      location={location}
+                      key={location.id}
+                      review={this.state.reviews[location.id]}
+                    />
+                  </div>
+                );
+              })}
             </div>
             <CommentFormContainer location={this.props.stopId} key={this.props.stopId}/>
           </div>
