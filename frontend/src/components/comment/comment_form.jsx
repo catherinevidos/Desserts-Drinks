@@ -29,7 +29,6 @@ export default class CommentForm extends React.Component {
             user_id: this.state.user_id,
             username: this.state.username
         };
-        debugger
         let stopId = this.props.comment.stop_id;
         this.props.createComment(comment);
         this.props.fetchComments(stopId);
@@ -55,7 +54,7 @@ export default class CommentForm extends React.Component {
                     <label>{this.state.username}</label>
                     </div>
                     <br></br>
-                      <fieldset class="rating">
+                      <fieldset className="rating">
                         <legend>Rating:</legend>
                         <input type="radio" id="star5" name="rating" value="5" onChange={this.update('rating')} /><label for="star5" title="Rocks!">5 stars</label>
                         <input type="radio" id="star4" name="rating" value="4" onChange={this.update('rating')} /><label for="star4" title="Pretty good">4 stars</label>
@@ -90,20 +89,21 @@ export default class CommentForm extends React.Component {
                     <button className=
                     'comment-submit' type='submit'>Submit Comment</button>
                 </form>
-
-                <ul>
-                    {Object.values(comments).map(comment => {
-                        return(
-                            <li key={comment._id}>
-                                {comment.username}
-                                <br/>
-                                {comment.body}
-                                <br/>
-                                {comment.rating}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div className='show-comments-wrapper'>
+                    <ul>
+                        {Object.values(comments).map(comment => {
+                            return(
+                                <li key={comment._id}>
+                                    {comment.username}
+                                    <br/>
+                                    {comment.body}
+                                    <br/>
+                                    {comment.rating}
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
         )
     }
