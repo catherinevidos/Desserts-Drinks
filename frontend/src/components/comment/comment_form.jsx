@@ -29,9 +29,10 @@ export default class CommentForm extends React.Component {
             user_id: this.state.user_id,
             username: this.state.username
         };
-        debugger
         let stopId = this.props.comment.stop_id;
-        this.props.createComment(comment);
+        this.props.createComment(comment).then(() => {
+            this.setState( this.props.comment );
+        });
         this.props.fetchComments(stopId);
     }
 
