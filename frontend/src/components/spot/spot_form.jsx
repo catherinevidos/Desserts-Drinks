@@ -1,6 +1,6 @@
 import React from 'react';
-import $ from 'jquery';
-import SpotItem from './spot_item';
+// import SpotItem from './spot_item';
+import SpotItemContainer from './spot_item_container';
 import './spot.scss';
 
 import LoadingIcon from "../loading/loading";
@@ -74,11 +74,11 @@ export default class SpotForm extends React.Component {
             <div className="business-list">
               {this.props.businessess.slice(0, 5).map((location) => (
                 <div className="businesses">
-                  <SpotItem location={location} key={location.id} />
+                  <SpotItemContainer location={location} key={location.id} />
                 </div>
               ))}
             </div>
-            <CommentFormContainer location={this.props.stopId} />
+            <CommentFormContainer location={this.props.stopId} key={this.props.stopId}/>
           </div>
         </>
       );

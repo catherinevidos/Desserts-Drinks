@@ -29,7 +29,6 @@ export class WebMap extends React.Component {
       lat: e.position.lat,
       lng: e.position.lng,
     });
-    debugger
     this.props.openModal({
       modal: "business",
       lat: this.state.lat,
