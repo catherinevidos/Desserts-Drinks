@@ -25,10 +25,11 @@ export const fetchComments = () => dispatch => (
         .then(comments => dispatch(receiveComments()))
 );
 
-export const createComment = comment => dispatch => (
-    APIUtil.createComment(comment)
+export const createComment = comment => dispatch => {
+    debugger 
+    return APIUtil.createComment(comment)
         .then(comment => dispatch(receiveComment(comment)))
-);
+};
 
 // export const deleteComment = commentId => dispatch => (
 //     APIUtil.deleteComment(commentId)

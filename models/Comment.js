@@ -9,7 +9,7 @@ const CommentSchema = new Schema(
     },
     rating: {
       type: Number,
-      required: true,
+      // required: true,
     },
     stop_id: {
       type: Schema.Types.ObjectId,
@@ -22,10 +22,9 @@ const CommentSchema = new Schema(
       ref: "User",
       required: true,
     },
-
     username: {
       type: String,
-      required: true
+      // required: true
     },
   },
   {

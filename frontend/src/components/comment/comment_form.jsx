@@ -15,8 +15,8 @@ export default class CommentForm extends React.Component {
         event.preventDefault();
         let comment = {
             body: this.state.body,
-            rating: this.state.rating,
-            stop_id: this.props.stopId,
+            rating: parseInt(this.state.rating),
+            stop_id: this.props.comment.stop_id,
             user_id: this.state.user_id,
             username: this.state.username
         };
