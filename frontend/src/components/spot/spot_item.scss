@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 .spot-index-item {
     display: flex;
     // margin-bottom: 20px;
-    width: 200px;
-    height: 200px; 
+    // width: 200px;
+    // height: 200px; 
     
 
 
@@ -29,12 +31,23 @@
              max-height: 105px;
          }
 
+         .index-item-name {
+            font-family: 'Montserrat',
+            sans-serif;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12pt;
+            font-weight: bold;
+         }
+
         .index-item-address {
             width: 250px;
             font-family: Sacramento-Regular;
             font-size: 15px;
             margin-left: 3px;
             margin-right: 3px;
+            letter-spacing: 1px;
         }
 
         .index-item-phone {
@@ -45,12 +58,15 @@
             justify-content: flex-end;
             margin-left: 3px;
             margin-right: 3px;
+            letter-spacing: 1px;
         }
 
         .index-item-review {
             font-size: 12pt;
             margin-left: 3px;
             margin-right: 3px;
+            font-family: 'Montserrat',
+            sans-serif;
         }
 
 }
