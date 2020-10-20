@@ -44,6 +44,7 @@ export default class Login extends React.Component {
     };
 
     this.props.loginUser(user).then(() => this.props.history.push('/login'));
+
   }
 
   demoUser(e) {
@@ -58,9 +59,13 @@ export default class Login extends React.Component {
       });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.clearErrors();
   }
+
+  // componentWillUnmount() {
+  //   this.props.clearErrors();
+  // }
 
   // renderErrors() {
   //   let emailError = "";

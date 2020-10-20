@@ -32,6 +32,11 @@ class Signup extends React.Component {
       });
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+
   // renderErrors() {
   //   let emailError = "";
   //   let passwordError = "";
@@ -97,6 +102,7 @@ class Signup extends React.Component {
     };
     
     this.props.signupUser(user).then(() => this.props.history.push('/signup'), console.log("this should not appear at all"));
+
     // this.props.signupUser(user).then(() => this.props.history.push('/'));
   }
 
