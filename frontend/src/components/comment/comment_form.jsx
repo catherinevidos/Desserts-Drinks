@@ -28,8 +28,10 @@ export default class CommentForm extends React.Component {
 
         return(
             <div className='comments-wrapper'>
-                <div className='comments-header'>
-                    <h1>Leave a Comment</h1>
+                <div className='comments-header-wrapper'>
+                    <div className='comments-header'>
+                        <h1>Leave a Comment</h1>
+                    </div>
                 </div>
                 <form  className=
                 'comment-form' onSubmit={this.handleSubmit}>

@@ -3,10 +3,11 @@
   sans-serif;
   font-size: 12pt;
   margin: 15px;
-  max-width: 480px;
+  min-width: 480px;
   letter-spacing: 1px;
   display:inline-block;
   white-space:nowrap;
+  align-items: center;
   // overflow: scroll;
   // scroll-behavior: smooth;
 }
@@ -15,19 +16,25 @@
   font-size: 26pt;
   background-color: rgb(253, 231, 178);
   text-align: center;
+  margin: auto;
   margin-bottom: 15px;
-  width: 480px;
+  min-width: 480px;
   font-family: Sacramento-Regular;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2),
   0 6px 6px 0 rgba(0, 0, 0, 0.19);
 }
 
+.comments-header-wrapper {
+  min-width: 480px;
+  align-items: center;
+}
+
 .comment-form {
-  width: 480px;
+  min-width: 480px;
 }
 
 .username-field {
-  width: 480px;
+  min-width: 480px;
 }
 
 .username-field label {
@@ -38,11 +45,11 @@
   float: left;
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 480px;
+  min-width: 480px;
 }
 
 .comment-textarea {
-  width: 400px;
+  min-width: 400px;
   background-color: #ff8ead;
   border: 1px solid #ff759a;
   text-indent: 5px;
