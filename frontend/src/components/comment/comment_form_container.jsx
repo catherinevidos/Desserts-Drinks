@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, deleteComment } from '../../actions/comment_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
             user_id: state.session.currentUser.id,
             username: state.session.currentUser.username
         },
-    }
+    };
 };
 
 const mDTP = dispatch => ({

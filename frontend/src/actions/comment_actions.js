@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
-// export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComments = comments => ({
     type: RECEIVE_COMMENTS,
@@ -15,10 +15,10 @@ const receiveComment = comment  => ({
     comment
 });
 
-// const removeComment = commentId => ({
-//     type: REMOVE_COMMENT,
-//     commentId
-// });
+const removeComment = commentId => ({
+    type: REMOVE_COMMENT,
+    commentId
+});
 
 export const fetchComments = () => (dispatch) =>
   APIUtil.fetchComments().then((comments) =>
@@ -27,7 +27,7 @@ export const fetchComments = () => (dispatch) =>
 
 export const createComment = comment => dispatch => {
     return APIUtil.createComment(comment)
-        .then(comment => dispatch(receiveComment(comment)))
+        .then(comment => dispatch(receiveComment(comment)));
 };
 
 // export const deleteComment = commentId => dispatch => (
