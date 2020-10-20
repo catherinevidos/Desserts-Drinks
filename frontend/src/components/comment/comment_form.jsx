@@ -12,6 +12,14 @@ export default class CommentForm extends React.Component {
         return event => this.setState({[field]: event.currentTarget.value});
     }
 
+    componentDidMount(){
+        this.props.fetchComments(this.props.comment.stop_id);
+    }
+
+    componentWillMount(){
+        this.props.fetchComments(this.props.comment.stop_id);
+    }
+
     handleSubmit(event){
         event.preventDefault();
         let comment = {
@@ -21,10 +29,17 @@ export default class CommentForm extends React.Component {
             user_id: this.state.user_id,
             username: this.state.username
         };
-        this.props.createComment(comment).then(() => this.setState(this.props.comment))
+        debugger
+        let stopId = this.props.comment.stop_id;
+        this.props.createComment(comment);
+        this.props.fetchComments(stopId);
     }
 
     render(){
+        const { comments } = this.props;
+        if (comments === undefined) {
+            return [];
+        }
 
         return(
             <div className='comments-wrapper'>
@@ -73,6 +88,20 @@ export default class CommentForm extends React.Component {
                     <button className=
                     'comment-submit' type='submit'>Submit Comment</button>
                 </form>
+
+                <ul>
+                    {Object.values(comments).map(comment => {
+                        return(
+                            <li key={comment._id}>
+                                {comment.username}
+                                <br/>
+                                {comment.body}
+                                <br/>
+                                {comment.rating}
+                            </li>
+                        );
+                    })}
+                </ul>
             </div>
         )
     }
