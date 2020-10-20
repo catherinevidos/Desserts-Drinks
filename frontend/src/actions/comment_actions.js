@@ -20,13 +20,12 @@ const receiveComment = comment  => ({
 //     commentId
 // });
 
-export const fetchComments = () => dispatch => (
-    APIUtil.fetchComments()
-        .then(comments => dispatch(receiveComments()))
-);
+export const fetchComments = () => (dispatch) =>
+  APIUtil.fetchComments().then((comments) =>
+    dispatch(receiveComments(comments))
+  );
 
 export const createComment = comment => dispatch => {
-    debugger 
     return APIUtil.createComment(comment)
         .then(comment => dispatch(receiveComment(comment)))
 };
