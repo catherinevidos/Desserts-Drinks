@@ -3,6 +3,8 @@
     // margin-bottom: 20px;
     width: 200px;
     height: 200px; 
+    
+
 
         img {
             width: 200px;
@@ -12,31 +14,43 @@
         }
 
         .index-dessert {
-            width: 280px;
+            width: 100%;
             font-family: Sacramento-Regular;
             font-size: 35px;
             max-height: 105px;
+            margin-left: 3px;
+            margin-right: 3px;
         }
 
          .index-drink {
-             width: 300px;
+             width: 250px;
              font-family: Sacramento-Regular;
              font-size: 35px;
              max-height: 105px;
          }
 
         .index-item-address {
-            width: 280px;
+            width: 250px;
             font-family: Sacramento-Regular;
             font-size: 15px;
+            margin-left: 3px;
+            margin-right: 3px;
         }
 
         .index-item-phone {
-            width: 280px;
+            width: 240px;
             font-family: Sacramento-Regular;
             font-size: 15px;
             display: flex;
             justify-content: flex-end;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+
+        .index-item-review {
+            font-size: 12pt;
+            margin-left: 3px;
+            margin-right: 3px;
         }
 
 }

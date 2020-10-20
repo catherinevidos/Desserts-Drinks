@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const preloadedState = {
           session: {
             isAuthenticated: true,
-            user: decodedUser
+            currentUser: decodedUser
           }
         };
         store = configureStore(preloadedState);
