@@ -42,7 +42,9 @@ export default class Login extends React.Component {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.loginUser(user).then(() => this.props.history.push('/'));
+    if (this.props.loginUser(user)) {
+      this.props.history.push('/');
+    } 
   }
 
   demoUser(e) {
@@ -55,6 +57,10 @@ export default class Login extends React.Component {
       .then(() => {
         this.props.history.push("/");
       });
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   // componentWillUnmount() {
