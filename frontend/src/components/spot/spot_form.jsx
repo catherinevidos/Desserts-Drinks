@@ -1,12 +1,9 @@
 import React from 'react';
-// import SpotItem from './spot_item';
 import SpotItemContainer from './spot_item_container';
 import './spot.scss';
 
 import LoadingIcon from "../loading/loading";
 import CommentFormContainer from '../comment/comment_form_container';
-
-const yelpApiKey = require("../../config/secret").yelpApiKey;
 
 export default class SpotForm extends React.Component {
   constructor(props) {

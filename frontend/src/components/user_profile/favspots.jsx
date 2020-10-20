@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarContainer from '../nav/navbar_container';
 import './favspots.scss';
 import {Link} from 'react-router-dom';
 

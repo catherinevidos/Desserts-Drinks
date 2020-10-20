@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/comments_util';
-import jwt_decode from 'jwt-decode';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
@@ -30,7 +29,7 @@ export const createComment = comment => dispatch => {
         .then(comment => dispatch(receiveComment(comment)));
 };
 
-// export const deleteComment = commentId => dispatch => (
-//     APIUtil.deleteComment(commentId)
-//         .then(commentId => dispatch(removeComment(commentId)))
-// );
+export const deleteComment = commentId => dispatch => (
+    APIUtil.deleteComment(commentId)
+        .then(commentId => dispatch(removeComment(commentId)))
+);
