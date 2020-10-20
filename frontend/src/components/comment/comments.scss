@@ -2,12 +2,13 @@
   font-family: 'Montserrat',
   sans-serif;
   font-size: 12pt;
-  margin: 15px;
-  min-width: 480px;
   letter-spacing: 1px;
   display:inline-block;
   white-space:nowrap;
   align-items: center;
+  box-sizing: border-box;
+  overflow: auto;
+  width: 100%;
   // overflow: scroll;
   // scroll-behavior: smooth;
 }
@@ -25,12 +26,18 @@
 }
 
 .comments-header-wrapper {
-  min-width: 480px;
+  max-width: 480px;
   align-items: center;
+  margin: auto;
 }
 
 .comment-form {
   min-width: 480px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  max-width: 480px;
+  margin: auto;
 }
 
 .username-field {
@@ -75,6 +82,7 @@
   border-radius: 10px;
   padding: 2px;
   cursor: pointer;
+  box-sizing: content-box;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2),
   0 3px 4px 0 rgba(0, 0, 0, 0.19);
   &:focus {
@@ -91,6 +99,8 @@
 
 .rating {
   float: left;
+  box-sizing: content-box;
+  margin-bottom: 10px;
 }
 
 .rating:not(:checked)>input {
@@ -151,5 +161,9 @@
 .rating input {
   font-weight: bold;
   padding-left: 10px;
+}
+
+.show-comments-wrapper {
+  width: 480px;
 }
 
