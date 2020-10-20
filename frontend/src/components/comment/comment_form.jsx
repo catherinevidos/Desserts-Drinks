@@ -91,7 +91,7 @@ export default class CommentForm extends React.Component {
                     <button className=
                     'comment-submit' type='submit'>Submit Comment</button>
                 </form>
-
+                <div className='show-comments-wrapper'>
                 <ul>
                     {Object.values(comments).map(comment => {
                         return(
