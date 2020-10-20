@@ -8,3 +8,7 @@ export const createComment = (data) => {
 export const fetchComments = (stopId) => {
     return axios.get(`api/comments/all?${stopId}`);
 };
+
+export const deleteComment = () => {
+
+};
