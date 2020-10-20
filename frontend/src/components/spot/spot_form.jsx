@@ -49,7 +49,7 @@ export default class SpotForm extends React.Component {
 
   render() {
     if (this.state.loading) { return <LoadingIcon/> }
-  
+    let favorite = false;
     let modalBackground;
     let commentLine;
     if (this.props.theme === "Desserts") {
@@ -68,12 +68,9 @@ export default class SpotForm extends React.Component {
       return (
         <>
           <div className="modal-header">
+            <i className="far fa-heart"></i>
             {commentLine}
-            <div className="x-close-modal">
-              <button className="x-close-button" onClick={this.handleExit}>
-                X
-              </button>
-            </div>
+            <button className="x-close-button" onClick={this.handleExit}>X</button>
           </div>
           <div className="modal-body">
             <div className="business-list">
@@ -89,7 +86,10 @@ export default class SpotForm extends React.Component {
                 );
               })}
             </div>
-            <CommentFormContainer location={this.props.stopId} key={this.props.stopId}/>
+            <CommentFormContainer
+              location={this.props.stopId}
+              key={this.props.stopId}
+            />
           </div>
         </>
       );
