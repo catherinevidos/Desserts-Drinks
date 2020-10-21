@@ -41,7 +41,7 @@ router.post(
     const stopId = ObjectId(req.body.stop_id);
     const newComment = new Comment({
       body: req.body.body,
-      rating: req.body.rating,
+      rating: req.body.rating || 0,
       stop_id: stopId,
       user_id: userid,
       username: req.body.username,
@@ -52,5 +52,18 @@ router.post(
       .catch((err) => console.log(err));
   }
 );
+
+router.delete('/delete', (req, res) => {
+  debugger
+  Comment.findByIdAndDelete(req.query.id)
+    .then(() => {
+      res
+        .send({
+          status: "200",
+          response: "success",
+        })
+        .catch((err) => console.log(err));
+    });
+})
 
 module.exports = router;

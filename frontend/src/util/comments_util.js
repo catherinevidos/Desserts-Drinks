@@ -9,6 +9,6 @@ export const fetchComments = (stopId) => {
     return axios.get(`api/comments/all?${stopId}`);
 };
 
-export const deleteComment = () => {
-  return axios.delete(`/api/comments/${commentId}`);
+export const deleteComment = (id) => {
+  return axios.delete(`api/comments/delete?${id}`)
 };
