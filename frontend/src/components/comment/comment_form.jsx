@@ -39,6 +39,7 @@ export default class CommentForm extends React.Component {
         this.props.createComment(comment).then(() => {
             this.setState( this.props.comment );
         });
+        debugger
         this.props.fetchComments(stopId);
     }
 

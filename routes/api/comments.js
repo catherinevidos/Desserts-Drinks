@@ -54,7 +54,6 @@ router.post(
 );
 
 router.delete('/delete', (req, res) => {
-  debugger
   Comment.findByIdAndDelete(req.query.id)
     .then(() => {
       res
@@ -62,8 +61,7 @@ router.delete('/delete', (req, res) => {
           status: "200",
           response: "success",
         })
-        .catch((err) => console.log(err));
-    });
+    }).catch((err) => console.log(err));
 })
 
 module.exports = router;
