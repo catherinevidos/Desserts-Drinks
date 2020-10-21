@@ -54,7 +54,6 @@ router.post(
 );
 
 router.delete('/delete', (req, res) => {
-  debugger
   Comment.findByIdAndDelete(req.query.id)
     .then(() => {
       res
