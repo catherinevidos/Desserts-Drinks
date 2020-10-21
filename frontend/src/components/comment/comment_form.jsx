@@ -7,6 +7,7 @@ export default class CommentForm extends React.Component {
         this.state = this.props.comment;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRating = this.handleRating.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     update(field){
@@ -19,6 +20,10 @@ export default class CommentForm extends React.Component {
 
     componentWillMount(){
         this.props.fetchComments(this.props.comment.stop_id);
+    }
+
+    handleClick(e) {
+        this.props.deleteComment(e.currentTarget.value);
     }
 
     handleSubmit(event){
@@ -118,7 +123,7 @@ export default class CommentForm extends React.Component {
                                 <>
                                     <div className='comment-delete-wrapper'>
                                         <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
-                                        <button className='comment-delete-button'>X</button>
+                                        <button onClick={this.handleClick}className='comment-delete-button' value={comment._id}>X</button>
                                     </div>
                                     <li className='body-comments'> {comment.body} </li>
                                     <br></br>
