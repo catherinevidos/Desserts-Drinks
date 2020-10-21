@@ -12,7 +12,6 @@ export default class CommentForm extends React.Component {
 
     update(field){
         return event => {
-        debugger 
         this.setState({[field]: event.target.value})};
     }
 
@@ -32,7 +31,7 @@ export default class CommentForm extends React.Component {
         event.preventDefault();
         let comment = {
             body: this.state.body,
-            rating: parseInt(this.state.rating),
+            rating: this.state.rating,
             stop_id: this.props.comment.stop_id,
             user_id: this.state.user_id,
             username: this.state.username
@@ -41,20 +40,19 @@ export default class CommentForm extends React.Component {
         this.props.createComment(comment).then(() => {
             this.setState( this.props.comment );
         });
-        debugger
         this.props.fetchComments(stopId);
     }
 
     handleRating(ratingNum) {
-        if (ratingNum === 1) {
+        if (ratingNum === "1") {
             return '★ ';
-        } else if (ratingNum === 2) {
+        } else if (ratingNum === "2") {
             return '★★ ';
-        } else if (ratingNum === 3) {
+        } else if (ratingNum === "3") {
             return '★★★ ';
-        } else if (ratingNum === 4) {
+        } else if (ratingNum === "4") {
             return '★★★★ ';
-        } else if (ratingNum === 5) {
+        } else if (ratingNum === "5") {
             return '★★★★★ ';
         } else {
             return '★★★★★ ';
