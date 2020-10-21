@@ -18,7 +18,7 @@
   background-color: rgb(253, 231, 178);
   text-align: center;
   margin: auto;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   min-width: 480px;
   font-family: Sacramento-Regular;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2),
@@ -75,7 +75,7 @@
   text-align: center;
   font-weight: bold;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   margin-left: auto;
   height: 40px;
   border: 4px solid rgb(253, 231, 178);
@@ -164,6 +164,44 @@
 }
 
 .show-comments-wrapper {
-  width: 480px;
+ min-width: 480px;
+ margin-bottom: 20px;
+ max-width: 480px;
+ margin: auto;
+ margin-top: 30px;
+}
+
+.comments-header li { 
+  padding: 5px;
+}
+
+.comment-delete-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-delete-button {
+  border-radius: 50px;
+  border: 1px solid black;
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  &:hover {
+    background-color: #ff759a;
+  }
+  &:focus {
+    background-color: #ff759a;
+  }
+}
+
+.comment-usernames {
+  font-size: 14pt;
+}
+
+.body-comments {
+  font-style: italic;
+  margin-top: 5px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid#ff4275;
 }
 
