@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export const createComment = (data) => {
-//   return axios.post(`api/comments/${data.stop_id}/comments`, data);
-debugger
   return axios.post(`api/comments/add`, data);
 };
 
@@ -11,5 +9,5 @@ export const fetchComments = (stopId) => {
 };
 
 export const deleteComment = (id) => {
-  return axios.delete(`api/comments/delete?id=${id}`)
+  return axios.delete(`api/comments/delete?id=${id}`);
 };

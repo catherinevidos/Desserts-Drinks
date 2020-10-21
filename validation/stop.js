@@ -26,5 +26,5 @@ module.exports = function validateStopInput(data) {
     return {
         errors,
         isValid: Object.keys(errors).length === 0
-    }
-}
+    };
+};

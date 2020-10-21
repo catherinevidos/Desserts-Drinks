@@ -60,8 +60,8 @@ router.delete('/delete', (req, res) => {
         .send({
           status: "200",
           response: "success",
-        })
+        });
     }).catch((err) => console.log(err));
-})
+});
 
 module.exports = router;
