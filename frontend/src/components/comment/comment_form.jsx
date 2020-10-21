@@ -161,7 +161,7 @@ export default class CommentForm extends React.Component {
                         <h1>Our Users Say...</h1>
                     </div>
                     <ul>
-                        {Object.values(comments).map(comment => {
+                        {Object.values(comments).map((comment, idx) => {
                             return(
                                 <>
                                     <div className='comment-delete-wrapper'>
