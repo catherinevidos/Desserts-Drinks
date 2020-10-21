@@ -6,6 +6,7 @@ export default class CommentForm extends React.Component {
         super(props);
         this.state = this.props.comment;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRating = this.handleRating.bind(this);
     }
 
     update(field){
@@ -36,12 +37,27 @@ export default class CommentForm extends React.Component {
         this.props.fetchComments(stopId);
     }
 
+    handleRating(ratingNum) {
+        if (ratingNum === 1) {
+            return '★ ';
+        } else if (ratingNum === 2) {
+            return '★★ ';
+        } else if (ratingNum === 3) {
+            return '★★★ ';
+        } else if (ratingNum === 4) {
+            return '★★★★ ';
+        } else if (ratingNum === 5) {
+            return '★★★★★ ';
+        } else {
+            return '★★★★★ ';
+        }
+    }
+
     render(){
         const { comments } = this.props;
         if (comments === undefined) {
             return [];
         }
-
         return (
           <div className="comments-wrapper">
             <div className="comments-header-wrapper">
@@ -108,8 +124,8 @@ export default class CommentForm extends React.Component {
                   1 star
                 </label>
               </fieldset>
-              <br></br>
-              {/* <input 
+           <br></br>
+                        {/* <input 
                             type="number"
                             value={this.state.rating}
                             onChange={this.update('rating')}
@@ -117,40 +133,45 @@ export default class CommentForm extends React.Component {
                             max='5'
                             placeholder='5'
                         /> */}
-              <br></br>
-              <label className="comment-textarea-label">Comment:</label>
-              <br></br>
-              <br></br>
-              <textarea
-                cols="40"
-                rows="3"
-                value={this.state.body}
-                onChange={this.update("body")}
-                placeholder="Tell everyone about your experiences!"
-                required
-                className="comment-textarea"
-              />
-              <br></br>
-              <button className="comment-submit" type="submit">
-                Submit Comment
-              </button>
-            </form>
-            <div className="show-comments-wrapper">
-              <ul>
-                {Object.values(comments).map((comment) => {
-                  return (
-                    <li key={comment._id}>
-                      {comment.username}
-                      <br />
-                      {comment.body}
-                      <br />
-                      {comment.rating}
-                    </li>
-                  );
-                })}
-              </ul>
+                    <br></br>
+                    <label className='comment-textarea-label'>Comment:
+                    </label>
+                    <br></br>
+                     <br></br>
+                        <textarea 
+                            cols="40" 
+                            rows="3"
+                            value={this.state.body}
+                            onChange={this.update('body')}
+                            placeholder='Tell everyone about your experiences!'
+                            required
+                            className='comment-textarea'
+                        />
+                    <br></br>
+                    <button className=
+                    'comment-submit' type='submit'>Submit Comment</button>
+                </form>
+                <div className='show-comments-wrapper'>
+                    <div className='comments-header'>
+                        <h1>Our Users Say...</h1>
+                    </div>
+                    <ul>
+                        {Object.values(comments).map(comment => {
+                            return(
+                                <>
+                                    <div className='comment-delete-wrapper'>
+                                        <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
+                                        <button onClick={this.handleClick}className='comment-delete-button' value={comment._id}>X</button>
+                                    </div>
+                                    <li className='body-comments'> {comment.body} </li>
+                                    <br></br>
+                                    {/* <li> {this.handleRating(comment.rating)} </li> */}
+                                </>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
-          </div>
-        );
+        )
     }
 }
