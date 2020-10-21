@@ -62,8 +62,7 @@ router.delete('/delete', (req, res) => {
           status: "200",
           response: "success",
         })
-        .catch((err) => console.log(err));
-    });
+    }).catch((err) => console.log(err));
 })
 
 module.exports = router;

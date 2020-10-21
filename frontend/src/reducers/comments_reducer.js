@@ -13,6 +13,8 @@ const CommentsReducer = (state = {}, action) => {
               [action.comment.id]: action.comment,
             });
         case REMOVE_COMMENT:
+            debugger
+            // let indexDelete = newState find where action.commentId is === _id (this _id value that demarks the comment we need to remove)
             delete newState[action.commentId];
             return newState;
         default:
