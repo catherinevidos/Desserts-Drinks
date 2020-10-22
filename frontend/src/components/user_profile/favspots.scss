@@ -10,13 +10,7 @@
 // mta-yellow: #FCCC0A;
 // );
 
-body {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
+
 
 $mta-red: #df0000;
 $mta-green: #008700;
@@ -111,7 +105,12 @@ $value2 in $subways {
 
 .fav-spots {
     background-image: url(./bk2.jpg);
-    height: 100vh;
+    // height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
 }
 
 .profile-container {
@@ -227,11 +226,14 @@ $value2 in $subways {
     // width: 100%;
     display: flex;
     justify-content: center;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
 
 .profile-sidebar {
-    height: 600px;
+    max-height: 600px;
     max-width: 300px;
+    min-height: 200px;
     background-color: #FFC1D2;
     margin: 20px;
     border-radius: 25px;
@@ -252,6 +254,7 @@ $value2 in $subways {
     background-image: url('https://pxelation-seeds.s3.amazonaws.com/1FBEF7BA-B22D-4818-985F-1EBE17F212E0_1_105_c.jpeg');
     background-position: center center;
     background-size: cover;
+    background-repeat: no-repeat;
     border: 1px solid white;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -310,8 +313,9 @@ ul.desserts-list li {
 }
 
 .profile-form {
-    height: 600px;
-    width: 600px;
+    max-height: 600px;
+    max-width: 300px;
+    min-height: 200px;
     background-color: #FFC1D2;
     margin: 20px;
     background-color: #FFC1D2;
