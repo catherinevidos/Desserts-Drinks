@@ -11,6 +11,7 @@ export default class SpotForm extends React.Component {
     this.state = {
       loading: true,
       reviews: {},
+      loadingReviews: true
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
@@ -32,7 +33,7 @@ export default class SpotForm extends React.Component {
           this.props.fetchAllReviews(location.id).then((review) => {
             const reviews = this.state.reviews;
             reviews[location.id] = review.reviews[0].text;
-            this.setState({ reviews: reviews });
+            this.setState({ reviews: reviews, loadingReviews: false });
           });
       });
       this.setState({ loading: false });
@@ -66,8 +67,9 @@ export default class SpotForm extends React.Component {
 
 
   render() {
-    if (this.state.loading) { return <LoadingIcon/> }
-
+    if (this.state.loading || this.state.loadingReviews) {
+      return <LoadingIcon />;
+    }
     let heartFavorite;
     let buttonType;
     if (this.props.isFavorite) {
@@ -95,8 +97,15 @@ export default class SpotForm extends React.Component {
     if (this.props.businessess.length === 0 || this.state.reviews.length === 0) return null;
       return (
         <>
+          <div
+            className={this.state.loadingReviews ? "buffering" : "hidden"}
+          >
+            <i class="fas fa-spinner fa-spin"></i>
+          </div>
           <div className="modal-header">
-            <button className={heartFavorite} onClick={this.toggleFav}>{buttonType}</button>
+            <button className={heartFavorite} onClick={this.toggleFav}>
+              {buttonType}
+            </button>
             <div>{commentLine}</div>
             <div className="x-close-modal">
               <button className="x-close-button" onClick={this.handleExit}>
