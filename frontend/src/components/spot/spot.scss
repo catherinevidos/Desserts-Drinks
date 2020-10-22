@@ -7,6 +7,8 @@
 }
 
 .modal-header {
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     border-bottom: 4px dashed rgb(253,231,178);
@@ -24,11 +26,11 @@
     margin-right: 8px;
 }
 
-.x-close-modal{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
+// .x-close-modal{
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
+// }
 
 .x-close-modal:hover{
     border-radius: 50%;
