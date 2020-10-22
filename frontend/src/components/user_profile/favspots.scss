@@ -111,6 +111,8 @@ $value2 in $subways {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
 
 .profile-container {
@@ -226,8 +228,6 @@ $value2 in $subways {
     // width: 100%;
     display: flex;
     justify-content: center;
-    overflow: scroll;
-    scroll-behavior: smooth;
 }
 
 .profile-sidebar {
@@ -314,8 +314,9 @@ ul.desserts-list li {
 
 .profile-form {
     max-height: 600px;
-    max-width: 300px;
     min-height: 200px;
+    max-width: 700px;
+    min-width: 200px;
     background-color: #FFC1D2;
     margin: 20px;
     background-color: #FFC1D2;
