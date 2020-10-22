@@ -12,10 +12,11 @@ const mSTP = state => {
     //     }
     //     return stopObj;
     // })
-
+    const favStops = state.session.currentUser.favStops;
+    debugger
     return {
         currentUser: state.session.currentUser,
-        faves: state.session.currentUser.faveSpots,
+        faves: favStops,
         stops: Object.values(state.stops)
     };
 };
