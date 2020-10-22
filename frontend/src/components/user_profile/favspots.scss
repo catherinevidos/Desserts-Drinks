@@ -3,6 +3,112 @@
 //     src: url('./fonts/Sacramento-Regular.ttf')
 // }
 
+
+// $subways: (
+// mta-red: #df0000;
+// mta-green: #008700;
+// mta-yellow: #FCCC0A;
+// );
+
+body {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+$mta-red: #df0000;
+$mta-green: #008700;
+$mta-blue: #0a5786;
+$mta-orange: #de3700;
+$mta-purple: #5a045a;
+$mta-green-2: #4f8403;
+$mta-yellow: #FCCC0A;
+$mta-gray: #666;
+$mta-brown: #573208;
+
+$subways: (mta-red: $mta-red,
+    mta-green: $mta-green,
+    mta-blue: $mta-blue,
+    mta-orange: $mta-orange,
+    mta-purple: $mta-purple,
+    mta-green-2: $mta-green-2,
+    mta-yellow: $mta-yellow,
+    mta-gray: $mta-gray,
+    mta-brown: $mta-brown);
+
+$icon-padding: .8em;
+
+[class*="subway-icon"] {
+    position: relative;
+    font-size: .75em;
+    z-index: 5;
+    height: 1em;
+    width: 1em;
+    line-height: 1em;
+    margin-left: $icon-padding/1.5;
+    margin-right: $icon-padding/1.5;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        width: calc(100% + #{$icon-padding});
+        height: calc(100% + #{$icon-padding});
+        left: -($icon-padding / 2);
+        top: -($icon-padding / 2);
+        border-radius: 50%;
+    }
+
+    &.express {
+        margin-left: $icon-padding/1.5;
+        margin-right: $icon-padding/1.5;
+
+        &::before {
+            transform: rotate(45deg);
+            border-radius: 0;
+            width: calc(100% + #{$icon-padding / 4});
+            height: calc(100% + #{$icon-padding / 4});
+            left: -($icon-padding / 8);
+            top: -($icon-padding / 8);
+        }
+    }
+}
+
+@each $value1,
+$value2 in $subways {
+    .#{$value1} {
+        &::before {
+            background-color: $value2;
+        }
+
+        @if $value2==$mta-yellow {
+            color: #000;
+        }
+
+        @else {
+            color: #fff;
+        }
+    }
+}
+
+.subway-line {
+    align-items: stretch;
+}
+
+// .subway-icon .mta-red {
+//     color: #df0000;
+// }
+
+
 .fav-spots {
     background-image: url(./bk2.jpg);
     height: 100vh;
@@ -21,6 +127,37 @@
     margin-bottom: 20px;
     justify-content: space-between;
     align-items: center;
+}
+
+.stops-profile-wrapper {
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+.delete-stop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.x-close-profile {
+    font-family: monospace;
+    font-size: 18pt;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: background 0.5s;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    &:hover {
+        background-color: lightsalmon;
+        cursor: pointer;
+    }
+    &:focus {
+        background-color: lightsalmon;
+        cursor: pointer;
+    }
 }
 
 .buttons-container {
@@ -86,25 +223,26 @@
 
 
 .profile-body {
-    height: 100vh;
-    width: 100%;
+    // height: 100vh;
+    // width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .profile-sidebar {
     height: 600px;
-    width: 250px;
-    background-color: lightblue;
+    max-width: 300px;
+    background-color: #FFC1D2;
     margin: 20px;
-    border-radius: 20px;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 4px solid white;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 12px solid rgb(253, 231, 178);
+    border-radius: 25px;
 }
 
 .profile-image {
@@ -121,14 +259,42 @@
     margin-bottom: 15px;
 }
 
-ul.desserts-list li{
-    font-size: 18pt;
+.fave-wrapper {
+    margin-bottom: 30px;
+}
+
+.fave-wrapper li{
+    font-size: 14pt;
     text-indent: 5px;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 ul.drinks-list li {
-    font-size: 18pt;
     text-indent: 5px;
+    font-size: 10pt;
+    text-indent: 5px;
+    font-family: 'Montserrat',
+    sans-serif;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+ul.desserts-list li {
+    text-indent: 5px;
+    font-size: 10pt;
+    text-indent: 5px;
+    font-family: 'Montserrat',
+    sans-serif;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .username-text {
@@ -146,21 +312,30 @@ ul.drinks-list li {
 .profile-form {
     height: 600px;
     width: 600px;
-    background-color: lightblue;
+    background-color: #FFC1D2;
     margin: 20px;
-    border-radius: 20px;
-    border: 4px solid white;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #FFC1D2;
+    height: 600px;
+    max-width: 650px;
+    z-index: 15;
+    overflow: auto;
+    border: 12px solid rgb(253, 231, 178);
+    border-radius: 25px;
 }
 
 .profile-form h1 {
-    background-color: lightsalmon;
+    background-color: #F29F7A;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
     width: 100%;
-    border-radius: 20px 20px 0px 0px;
     font-size: 32pt;
     text-align: center;
     letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-bottom: 4px dashed rgb(253, 231, 178);
+    z-index: 999;
 
 }
 
