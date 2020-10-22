@@ -118,10 +118,10 @@ router.patch(
   "/fav_spots/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    debugger;
+    
     // const stopId = req.body.stopId;
     const stopId = req.originalUrl.split('?')[1];
-    debugger;
+   
     User.findById(req.user.id).then((user) => {
       if (user.favStops.includes(stopId)) {
         const index = user.favStops.indexOf(stopId);

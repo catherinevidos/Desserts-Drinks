@@ -11,6 +11,7 @@ const mSTP = (state, ownProps) => {
   const lng =  state.ui.modal.lng;
   const lat =  state.ui.modal.lat;
   const stopId = findStopId(lat, lng, Object.values(state.stops.data));
+  const isFavorite = state.session.currentUser.favStops.includes(stopId)
 
   return {
     lng: state.ui.modal.lng,
@@ -18,6 +19,8 @@ const mSTP = (state, ownProps) => {
     stopId: stopId,
     theme: state.ui.theme.theme,
     businessess: Object.values(state.businessess),
+    favStops: state.session.currentUser.favStops,
+    isFavorite: isFavorite
   };
 };
 

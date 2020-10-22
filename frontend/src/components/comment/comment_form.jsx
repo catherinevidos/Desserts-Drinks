@@ -64,7 +64,7 @@ export default class CommentForm extends React.Component {
       if (comments === undefined) {
         return [];
       }
-      debugger
+      
       return (
         <div className="comments-wrapper">
           <div className="comments-header-wrapper">
@@ -86,7 +86,7 @@ export default class CommentForm extends React.Component {
                 name="rating"
                 value="5"
               />
-              <label for="star5" title="Rocks!">
+              <label for="star5" title="amazing!!">
                 5 stars
               </label>
               <input
@@ -104,7 +104,7 @@ export default class CommentForm extends React.Component {
                 name="rating"
                 value="3"
               />
-              <label for="star3" title="Meh">
+              <label for="star3" title="its ok?">
                 3 stars
               </label>
               <input
@@ -113,7 +113,7 @@ export default class CommentForm extends React.Component {
                 name="rating"
                 value="2"
               />
-              <label for="star2" title="Kinda bad">
+              <label for="star2" title="not good">
                 2 stars
               </label>
               <input
@@ -122,7 +122,7 @@ export default class CommentForm extends React.Component {
                 name="rating"
                 value="1"
               />
-              <label for="star1" title="Sucks big time">
+              <label for="star1" title="really bad">
                 1 star
               </label>
             </fieldset>
