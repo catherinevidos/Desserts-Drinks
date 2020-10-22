@@ -27,9 +27,9 @@ export const fetchComments = stopId => dispatch =>
   );
 
 export const createComment = comment => dispatch => {
-  debugger
+  
     return APIUtil.createComment(comment).then(comment => {
-      debugger
+      
           return dispatch(receiveComment(comment.data))});
 };
 

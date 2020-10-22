@@ -52,6 +52,31 @@
      transition: background 0.5s;
  }
 
+ button.hearted {
+    margin-left: 6px;
+    color: red;
+    text-shadow: 2px 2px hotpink;
+    &:hover {
+        cursor: pointer;
+    }
+ }
+
+ button.not-hearted {
+    margin-left: 6px;
+    text-shadow: 1px 1px hotpink;
+    &:hover {
+        cursor: pointer;
+    }
+ } 
+
+.favorite-message {
+    visibility: hidden;
+}
+
+button.not-hearted:hover .favorite-message {
+    visibility: visible;
+}
+
 // .modal-header-drink {
 //     position: sticky;
 //     top: 0;

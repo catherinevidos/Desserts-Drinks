@@ -17,7 +17,20 @@ export default class FavSpots extends React.Component {
   //   this.props.fetchComments
   // }
 
+  componentDidMount() {
+    this.props.fetchAllStops();
+    console.log(this.props.stops[0]);
+  }
+
+  
+
+  
+
     render() {
+      debugger
+      if (this.props.stops.length === 0) {
+        return null;
+      }
         // return (
         //   <div className="fav-spots">
         //     <div className="fun-div">
@@ -74,11 +87,23 @@ export default class FavSpots extends React.Component {
               </div>
               <div className="profile-form">
                 <h1>My Favorites</h1>
-                <ol className='stops-list'>
-                  {['86th st', 'astor place', '96th st', 'bleecker st', 'houston st'].map((stop) => (
-                    <li>{stop}</li>
-                  ))}
-                </ol>
+                <div className='stop-profile-wrapper'>
+                  <div className='stop-profile-header'>
+                      <h1>Our Users Say...</h1>
+                  </div>
+                  <ul>
+                      {this.props.stops.map(stop => {
+                      if (this.props.currentUser.favSpots.includes(stop.id)) {
+                        return(
+                              <div className='fave-wrapper'>
+                                  <li className='fave-usernames'>{stop.name} </li>
+                                  <li className='stop-comments'> {stop.color} </li>
+                              </div>
+                        );
+                      }
+                    })}
+                  </ul>
+              </div>
               </div>
             </div>
           </div>

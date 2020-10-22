@@ -6,7 +6,6 @@ export default (state = {}, action) => {
     switch(action.type) {
         case ADD_FAVORITE:
             return action.stopId
-            
         default:
             return state;
     }

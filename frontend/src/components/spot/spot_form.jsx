@@ -10,7 +10,7 @@ export default class SpotForm extends React.Component {
     super(props);
     this.state = {
       loading: true,
-      reviews: {}
+      reviews: {},
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
@@ -37,6 +37,10 @@ export default class SpotForm extends React.Component {
       });
       this.setState({ loading: false });
     });
+
+    // if (this.props.faveStops[this.props.stopId]) {
+    //   this.setState({heartFavorite: 'hearted'})
+    // }
   }
 
   getBusinessDetails() {
@@ -49,16 +53,30 @@ export default class SpotForm extends React.Component {
   }
 
   toggleFav(e) {
-    debugger
+    
     e.preventDefault();
+
     this.props.Favorite(this.props.stopId).then(() => {
-      debugger
+      
       this.props.saveFavStop(this.props.stopId);
+
+      // (this.state.heartFavorite === 'hearted') ? this.setState({heartFavorite: 'not-hearted'}) : this.setState({heartFavorite: 'hearted'})
     });
   }
 
+
   render() {
     if (this.state.loading) { return <LoadingIcon/> }
+
+    let heartFavorite;
+    let buttonType;
+    if (this.props.isFavorite) {
+      heartFavorite = 'hearted';
+      buttonType = '♥ '
+    } else {
+      heartFavorite = 'not-hearted';
+      buttonType = '♡ '
+    }
   
     let modalBackground;
     let commentLine;
@@ -78,7 +96,7 @@ export default class SpotForm extends React.Component {
       return (
         <>
           <div className="modal-header">
-            <button onClick={this.toggleFav}>♡</button>
+            <button className={heartFavorite} onClick={this.toggleFav}>{buttonType}</button>
             <div>{commentLine}</div>
             <div className="x-close-modal">
               <button className="x-close-button" onClick={this.handleExit}>
