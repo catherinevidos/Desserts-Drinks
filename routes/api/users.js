@@ -41,7 +41,12 @@ router.post('/signup', (req, res) => {
                         newUser.password = hash;
                         newUser.save()
                             .then(user => {
-                                const payload = { id:user.id, username: user.username, theme: user.theme };
+                                const payload = {
+                                  id: user.id,
+                                  username: user.username,
+                                  theme: user.theme,
+                                  favStops: user.favStops,
+                                };
 
                                 jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
                                     res.json({
@@ -75,7 +80,12 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = { id: user.id, username: user.username, theme: user.theme };
+                        const payload = {
+                          id: user.id,
+                          username: user.username,
+                          theme: user.theme,
+                          favStops: user.favStops,
+                        };
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
@@ -103,5 +113,32 @@ router.patch('/edit_profile', passport.authenticate('jwt', {session: false}),(re
         .then(user => res.json(user))
         .catch(err => console.log(err))
 });
+
+router.patch(
+  "/fav_spots/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    debugger;
+    // const stopId = req.body.stopId;
+    const stopId = req.originalUrl.split('?')[1];
+    debugger;
+    User.findById(req.user.id).then((user) => {
+      if (user.favStops.includes(stopId)) {
+        const index = user.favStops.indexOf(stopId);
+        user.favStops.splice(index, 1);
+      } else {
+        user.favStops.push(stopId);
+      }
+      user.save().then((user) => {
+        return res.json({
+          id: user.id,
+          username: user.username,
+          theme: user.theme,
+          favStops: user.favStops
+        });
+      });
+    });
+  }
+);
 
 module.exports = router;

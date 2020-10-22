@@ -17,3 +17,16 @@ export const findStopId = (lat, lng, stops) => {
     }
     return stopId;
 };
+
+export const findComment = (state, id) => {
+    let index;
+    let newState = Object.values(state)
+    for (let i = 0; i < newState.length; i++) {
+        const comment = newState[i];
+        if (comment._id === id) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}

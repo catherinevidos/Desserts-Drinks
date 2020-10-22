@@ -4,6 +4,19 @@ import {Link} from 'react-router-dom';
 
 export default class FavSpots extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.logoutUser();
+  }
+
+  // fetchComments() {
+  //   this.props.fetchComments
+  // }
+
     render() {
         // return (
         //   <div className="fav-spots">
