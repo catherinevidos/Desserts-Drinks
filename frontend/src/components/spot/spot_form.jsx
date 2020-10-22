@@ -14,6 +14,7 @@ export default class SpotForm extends React.Component {
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
+    this.toggleFav = this.toggleFav.bind(this);
   }
 
   handleExit(e) {
@@ -47,6 +48,15 @@ export default class SpotForm extends React.Component {
     }
   }
 
+  toggleFav(e) {
+    debugger
+    e.preventDefault();
+    this.props.Favorite(this.props.stopId).then(() => {
+      debugger
+      this.props.saveFavStop(this.props.stopId);
+    });
+  }
+
   render() {
     if (this.state.loading) { return <LoadingIcon/> }
   
@@ -68,7 +78,8 @@ export default class SpotForm extends React.Component {
       return (
         <>
           <div className="modal-header">
-            {commentLine}
+            <button onClick={this.toggleFav}>♡</button>
+            <div>{commentLine}</div>
             <div className="x-close-modal">
               <button className="x-close-button" onClick={this.handleExit}>
                 X
@@ -89,7 +100,10 @@ export default class SpotForm extends React.Component {
                 );
               })}
             </div>
-            <CommentFormContainer location={this.props.stopId} key={this.props.stopId}/>
+            <CommentFormContainer
+              location={this.props.stopId}
+              key={this.props.stopId}
+            />
           </div>
         </>
       );

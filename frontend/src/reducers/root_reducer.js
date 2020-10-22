@@ -7,6 +7,7 @@ import { uiReducer } from './ui_reducer';
 import yelpReducer from './yelp_reducer';
 import reviewRedcuer from './reviews_reducer';
 import CommentsReducer from "./comments_reducer";
+import favoriteReducer from './favorite_reducer';
 
 const rootReducer = combineReducers({
   users: usersReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   errors: errorsReducer,
   businessess: yelpReducer,
   reviews: reviewRedcuer,
-  comments: CommentsReducer
+  comments: CommentsReducer,
+  favorites: favoriteReducer,
 });
 
 export default rootReducer;
