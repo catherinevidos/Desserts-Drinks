@@ -15,16 +15,14 @@ export default class CommentForm extends React.Component {
         this.setState({[field]: event.target.value})};
     }
 
-    componentDidMount(){
-        this.props.fetchComments(this.props.comment.stop_id);
-    }
-
     componentWillMount(){
         this.props.fetchComments(this.props.comment.stop_id);
     }
 
     handleClick(e) {
-        this.props.deleteComment(e.currentTarget.value);
+        this.props.deleteComment(e.currentTarget.value).then(() => {
+          this.props.fetchComments(this.props.comment.stop_id);
+        });
     }
 
     handleSubmit(event){
@@ -40,7 +38,6 @@ export default class CommentForm extends React.Component {
         this.props.createComment(comment).then(() => {
             this.setState( this.props.comment );
         });
-        this.props.fetchComments(stopId);
     }
 
     handleRating(ratingNum) {
