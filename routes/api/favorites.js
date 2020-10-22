@@ -11,7 +11,7 @@ router.get('/allFavorites',passport.authenticate('jwt', { session: false }), (re
         res.json(allFavs);
       })
       .catch((err) => console.log(err));
-})
+});
 
 router.post('/add_favorite/:stopId', passport.authenticate('jwt', { session: false }), (req, res) => {
     Favorite.find(({ stop_id: req.params.stopId }), function(err, result) {
@@ -47,6 +47,6 @@ router.patch('/remove_favorite/:stopId', passport.authenticate('jwt', { session:
             })
         .then((isFav) => res.json(isFav))
         .catch((err) => console.log(err));
-})
+});
 
 module.exports = router;

@@ -8,8 +8,6 @@ const CommentsReducer = (state = {}, action) => {
         case RECEIVE_COMMENTS:
             return action.comments;
         case RECEIVE_COMMENT:
-            // return {[action.comment.id]: action.comment};
-            debugger
             return Object.assign({}, state, {
               [action.comment._id]: action.comment,
             });
