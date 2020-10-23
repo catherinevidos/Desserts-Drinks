@@ -9,7 +9,6 @@ import {withRouter} from 'react-router-dom';
 import Signup from './signup';
 
 const mapStateToProps = state => {
-  debugger
   return {
     currentUser: state.session.currentUser,
     errors: state.errors.session
