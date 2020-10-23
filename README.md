@@ -1,6 +1,6 @@
 # Desserts & Drinks
 
-[Live Site](https://dessertsanddrinks.herokuapp.com/)
+[Dessets&Drinks](https://dessertsanddrinks.herokuapp.com/)
 
 ***
 
@@ -21,8 +21,15 @@ Dessert & Drinks is a treat lover's dream come true. Users are able to interact 
 * Users can mark/unmark a subway stop as favorite, the web App dynamically pulls current users information avoiding the need the hard refresh
 
 ***
+Users can change theme to dynamically update
+* markers on map
+* search result
+* overall outlook of the app
 
+Desserts theme:
 ![Desserts](https://i.imgur.com/ch0A1fS.png)
+
+Drinks theme:
 ![Drinks](https://i.imgur.com/d6wSRUp.png)
 
 ## Team Member
