@@ -39,6 +39,11 @@
     opacity: .90;
 }
 
+div.buffering {
+    z-index: 999;
+    background-color: black;
+}
+
  button.x-close-button {
     font-family: monospace;
     font-size: 18pt;
