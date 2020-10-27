@@ -152,8 +152,8 @@ export default class CommentForm extends React.Component {
                               <>
                                 <div className='comment-delete-wrapper'>
                                   <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
-                                  <div>
-                                    {currentUser.id === comment.user_id ? <button onClick={this.handleClick} className='comment-edit-button' value={comment._id}></button> : null}
+                                  <div className="delete-edit-buttoms">
+                                    {currentUser.id === comment.user_id ? <button onClick={this.handleClick} className='comment-edit-button' value={comment._id}><i class="fas fa-pencil-alt"></i></button> : null}
                                     {currentUser.id === comment.user_id ? <button onClick={this.handleClick} className='comment-delete-button' value={comment._id}>X</button> : null}
                                   </div>
                                 </div>

@@ -42,7 +42,7 @@ router.post('/', fetchAll);
 
 router.post('/allbusiness/:lat-:lng-:searchTerm', (req, res) => {
   const { lat, lng, searchTerm } = req.params; 
-  let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${lat}&longitude=${lng}`;
+  let url = `https://api.yelp.com/v3/businesses/search?term=${searchTerm}&latitude=${lat}&longitude=${lng}&radius=500`;
   return axios({
     method: "GET",
     url: url,

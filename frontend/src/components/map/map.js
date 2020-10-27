@@ -11,7 +11,7 @@ export class WebMap extends React.Component {
     this.state = {
       lat: "",
       lng: "",
-      loading: false,
+      loading: true,
     };
     this.handleClick = this.handleClick.bind(this);
   }
