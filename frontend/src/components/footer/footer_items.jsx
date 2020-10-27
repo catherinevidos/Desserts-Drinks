@@ -22,12 +22,12 @@ export const FooterItems = [
     id: 4,
     title: "Jonathan Calixto",
     url: "https://serendipitydeus.github.io",
-    cName: "footer-link",
+    cName: "footer-link"
   },
   {
     id: 5,
     title: "Adel Qudsi",
     url: "https://A-Qudsi.github.io",
-    cName: "footer-link",
+    cName: "footer-link"
   },
 ];
