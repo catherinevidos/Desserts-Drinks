@@ -64,4 +64,18 @@ router.delete('/delete', (req, res) => {
     }).catch((err) => console.log(err));
 });
 
+router.patch('/edit_comment', (req, res) => {
+  Comment.findById(req.query.id)
+     .updateOne({
+            body: req.body.body,
+            rating: req.body.rating
+        })
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+})
+
 module.exports = router;

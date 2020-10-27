@@ -11,3 +11,7 @@ export const fetchComments = (stopId) => {
 export const deleteComment = (id) => {
   return axios.delete(`api/comments/delete?id=${id}`);
 };
+
+export const editComment = (data) => {
+  return axios.patch(`api/comments/edit_comment?id=${data.id}`, data)
+}
