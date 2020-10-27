@@ -207,4 +207,16 @@
   white-space: normal;
 }
 
+.comment-edit-button {
+  background-image: url(https://pxelation-seeds.s3.amazonaws.com/pencil-alt-solid.svg);
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+}
+
+.delete-edit-buttoms {
+  display: flex;
+  justify-content: space-between;
+}
+
 
