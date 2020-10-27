@@ -93,7 +93,6 @@ export default class SpotForm extends React.Component {
       );
       modalBackground = 'modal-header-drink'
     }
-
     if (this.props.businessess.length === 0 || this.state.reviews.length === 0) return null;
       return (
         <>
