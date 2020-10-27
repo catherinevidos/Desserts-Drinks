@@ -2,7 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Navbar from '../nav/navbar_container';
 import WebMapContainer from '../map/map_container';
+import Footer from '../footer/footer';
 import './splash.scss';
+
+
 
 class Splash extends React.Component {
 
@@ -20,6 +23,9 @@ class Splash extends React.Component {
             </div>
           </div>
         </div>
+         <footer>
+        <Footer/>
+        </footer>
       </div>
     );
   }
