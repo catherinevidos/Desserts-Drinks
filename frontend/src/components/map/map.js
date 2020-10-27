@@ -47,7 +47,7 @@ export class WebMap extends React.Component {
     const style = {
       width: dynamicWidth,
       height: "70vh",
-      borderRadius: "35px",
+      borderRadius: "13px",
     };
     const { google } = this.props;
 
