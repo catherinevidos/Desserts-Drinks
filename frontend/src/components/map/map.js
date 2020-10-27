@@ -34,9 +34,8 @@ export class WebMap extends React.Component {
       lat: this.state.lat,
       lng: this.state.lng,
     });
-
-
   }
+  
   render() {
 
     if (this.props.stops.length === 0) return null;
