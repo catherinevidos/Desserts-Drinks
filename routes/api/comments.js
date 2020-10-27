@@ -71,11 +71,11 @@ router.patch('/edit_comment', (req, res) => {
             rating: req.body.rating
         })
         .then(result => {
-            res.json(result)
+            res.json(result);
         })
         .catch(err => {
-          console.log(err)
-        })
-})
+          console.log(err);
+        });
+});
 
 module.exports = router;

@@ -8,7 +8,7 @@ const receiveAllBusinesses = businessess => {
       type: RECEIVE_ALL_BUSINESSES,
       businessess,
     };
-}
+};
 
 const receiveAllReviews = (reviews) => {
   return {
@@ -20,8 +20,8 @@ const receiveAllReviews = (reviews) => {
 export const fetchAllBusinessess = (lat, lng, searchTerm) => dispatch => {
   return fetchBusiness(lat, lng, searchTerm).then(businessess => {
     return dispatch(receiveAllBusinesses(businessess.data));
-  })
-}
+  });
+};
 
 export const fetchAllReviews = (businessId) => (dispatch) => {
   return fetchReviews(businessId).then((reviews) => {
