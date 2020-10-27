@@ -6,104 +6,165 @@ export default class CommentForm extends React.Component {
         super(props);
         this.state = this.props.comment;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRating = this.handleRating.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     update(field){
-        return event => this.setState({[field]: event.currentTarget.value});
-    }
-
-    componentDidMount(){
-        this.props.fetchComments(this.props.comment.stop_id);
+        return event => {
+        this.setState({[field]: event.target.value})};
     }
 
     componentWillMount(){
         this.props.fetchComments(this.props.comment.stop_id);
     }
 
+    handleClick(e) {
+        this.props.deleteComment(e.currentTarget.value).then(() => {
+          this.props.fetchComments(this.props.comment.stop_id);
+        });
+    }
+
     handleSubmit(event){
         event.preventDefault();
         let comment = {
             body: this.state.body,
-            rating: parseInt(this.state.rating),
+            rating: this.state.rating,
             stop_id: this.props.comment.stop_id,
             user_id: this.state.user_id,
             username: this.state.username
         };
         let stopId = this.props.comment.stop_id;
-        this.props.createComment(comment);
-        this.props.fetchComments(stopId);
+        this.props.createComment(comment).then(() => {
+            this.setState( this.props.comment );
+        });
+    }
+
+    handleRating(ratingNum) {
+        if (ratingNum === "1") {
+            return '★ ';
+        } else if (ratingNum === "2") {
+            return '★★ ';
+        } else if (ratingNum === "3") {
+            return '★★★ ';
+        } else if (ratingNum === "4") {
+            return '★★★★ ';
+        } else if (ratingNum === "5") {
+            return '★★★★★ ';
+        } else {
+            return '★★★★★ ';
+        }
     }
 
     render(){
-        const { comments } = this.props;
-        if (comments === undefined) {
-            return [];
-        }
-
-        return(
-            <div className='comments-wrapper'>
-                <div className='comments-header-wrapper'>
-                    <div className='comments-header'>
-                        <h1>Leave a Comment</h1>
-                    </div>
-                </div>
-                <form  className='comment-form' onSubmit={this.handleSubmit}>
-                    <div className='username-field'>
-                    Username: 
-                    <label>{this.state.username}</label>
-                    </div>
-                    <br></br>
-                      <fieldset className="rating">
-                        <legend>Rating:</legend>
-                        <input type="radio" id="star5" name="rating" value="5" onChange={this.update('rating')} /><label title="Rocks!">5 stars</label>
-                        <input type="radio" id="star4" name="rating" value="4" onChange={this.update('rating')} /><label title="Pretty good">4 stars</label>
-                        <input type="radio" id="star3" name="rating" value="3" onChange={this.update('rating')} /><label title="Meh">3 stars</label>
-                        <input type="radio" id="star2" name="rating" value="2" onChange={this.update('rating')} /><label title="Kinda bad">2 stars</label>
-                        <input type="radio" id="star1" name="rating" value="1" onChange={this.update('rating')} /><label title="Sucks big time">1 star</label>
-                        </fieldset>
-                        <br></br>
-                        {/* <input 
-                            type="number"
-                            value={this.state.rating}
-                            onChange={this.update('rating')}
-                            required
-                            max='5'
-                            placeholder='5'
-                        /> */}
-                    <br></br>
-                    <label className='comment-textarea-label'>Comment:
-                    </label>
-                    <br></br>
-                     <br></br>
-                        <textarea 
-                            cols="40" 
-                            rows="3"
-                            value={this.state.body}
-                            onChange={this.update('body')}
-                            placeholder='Tell everyone about your experiences!'
-                            required
-                            className='comment-textarea'
-                        />
-                    <br></br>
-                    <button className=
-                    'comment-submit' type='submit'>Submit Comment</button>
-                </form>
-                <div className='show-comments-wrapper'>
-                    <ul>
-                        {Object.values(comments).map(comment => {
-                            return(
-                                <li key={comment._id}>
-                                    {comment.username}
-                                    <br/>
-                                    {comment.body}
-                                    <br/>
-                                    {comment.rating}
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
+      const { comments, currentUser } = this.props;
+      if (comments === undefined) {
+        return [];
+      }
+      
+      return (
+        <div className="comments-wrapper">
+          <div className="comments-header-wrapper">
+            <div className="comments-header">
+              <h1>Leave a Comment</h1>
             </div>
-        )
+          </div>
+          <form className="comment-form" onSubmit={this.handleSubmit}>
+            <div className="username-field">
+              Username:
+              <label>{this.state.username}</label>
+            </div>
+            <br></br>
+            <fieldset className="rating" onChange={this.update("rating")}>
+              <legend>Rating:</legend>
+              <input
+                type="radio"
+                id="star5"
+                name="rating"
+                value="5"
+              />
+              <label for="star5" title="amazing!!">
+                5 stars
+              </label>
+              <input
+                type="radio"
+                id="star4"
+                name="rating"
+                value="4"
+              />
+              <label for="star4" title="Pretty good">
+                4 stars
+              </label>
+              <input
+                type="radio"
+                id="star3"
+                name="rating"
+                value="3"
+              />
+              <label for="star3" title="its ok?">
+                3 stars
+              </label>
+              <input
+                type="radio"
+                id="star2"
+                name="rating"
+                value="2"
+              />
+              <label for="star2" title="not good">
+                2 stars
+              </label>
+              <input
+                type="radio"
+                id="star1"
+                name="rating"
+                value="1"
+              />
+              <label for="star1" title="really bad">
+                1 star
+              </label>
+            </fieldset>
+          <br></br>
+                  <br></br>
+                  <label className='comment-textarea-label'>Comment:
+                  </label>
+                  <br></br>
+                    <br></br>
+                      <textarea 
+                          cols="40" 
+                          rows="3"
+                          value={this.state.body}
+                          onChange={this.update('body')}
+                          placeholder='Tell everyone about your experiences!'
+                          required
+                          className='comment-textarea'
+                      />
+                  <br></br>
+                  <button className=
+                  'comment-submit' type='submit'>Submit Comment</button>
+              </form>
+              <div className='show-comments-wrapper'>
+                  <div className='comments-header'>
+                      <h1>Our Users Say...</h1>
+                  </div>
+                  <ul>
+                      {Object.values(comments).map((comment, idx) => {
+                          return(
+                              <>
+                                <div className='comment-delete-wrapper'>
+                                  <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
+                                  <div className="delete-edit-buttoms">
+                                    {currentUser.id === comment.user_id ? <button onClick={this.handleClick} className='comment-edit-button' value={comment._id}><i class="fas fa-pencil-alt"></i></button> : null}
+                                    {currentUser.id === comment.user_id ? <button onClick={this.handleClick} className='comment-delete-button' value={comment._id}>X</button> : null}
+                                  </div>
+                                </div>
+                                <li className='body-comments'> {comment.body} </li>
+                                <br></br>
+                              </>
+                          );
+                      })}
+                  </ul>
+              </div>
+          </div>
+      )
     }
 }

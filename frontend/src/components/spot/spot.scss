@@ -7,6 +7,8 @@
 }
 
 .modal-header {
+    display: flex;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     border-bottom: 4px dashed rgb(253,231,178);
@@ -17,12 +19,18 @@
     background-color: #FFC1D2;
     font-family: Sacramento-Regular;
     font-size: 40px;
+    z-index: 999;
 }
 
 .business-list {
     margin-right: 8px;
 }
 
+// .x-close-modal{
+//     position: absolute;
+//     top: 0px;
+//     right: 0px;
+// }
 
 .x-close-modal:hover{
     border-radius: 50%;
@@ -31,7 +39,12 @@
     opacity: .90;
 }
 
-button.x-close-button {
+div.buffering {
+    z-index: 999;
+    background-color: black;
+}
+
+ button.x-close-button {
     font-family: monospace;
     font-size: 18pt;
      height: 40px;
@@ -55,6 +68,31 @@ button.x-close-button {
     display: flex;
     justify-content: space-between;
     padding-left: 5px;
+}
+
+ button.hearted {
+    margin-left: 6px;
+    color: red;
+    text-shadow: 2px 2px hotpink;
+    &:hover {
+        cursor: pointer;
+    }
+ }
+
+ button.not-hearted {
+    margin-left: 6px;
+    text-shadow: 1px 1px hotpink;
+    &:hover {
+        cursor: pointer;
+    }
+ } 
+
+.favorite-message {
+    visibility: hidden;
+}
+
+button.not-hearted:hover .favorite-message {
+    visibility: visible;
 }
 
 // .modal-header-drink {

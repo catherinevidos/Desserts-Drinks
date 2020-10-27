@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { createComment, deleteComment, fetchComments } from '../../actions/comment_actions';
+import { createComment, deleteComment, fetchComments, editComment } from '../../actions/comment_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -12,6 +12,7 @@ const mSTP = (state, ownProps) => {
             user_id: state.session.currentUser.id,
             username: state.session.currentUser.username
         },
+        currentUser: state.session.currentUser,
         comments: state.comments
     };
 };
@@ -21,7 +22,8 @@ const mDTP = dispatch => ({
     fetchComments: (stopId) => {
         return dispatch(fetchComments(stopId));
     },
-    deleteComment: commentId => dispatch(deleteComment(commentId))
+    deleteComment: commentId => dispatch(deleteComment(commentId)),
+    editComment: comment => dispatch(editComment(comment))
 });
 
 export default connect(mSTP, mDTP)(CommentForm);

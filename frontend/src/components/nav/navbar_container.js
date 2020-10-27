@@ -8,7 +8,7 @@ import { dessertTheme, drinksTheme } from '../../actions/theme_actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    currentUser: state.session.user,
+    currentUser: state.session.currentUser,
     theme: state.ui.theme.theme,
     loggedIn: state.session.isAuthenticated
   };

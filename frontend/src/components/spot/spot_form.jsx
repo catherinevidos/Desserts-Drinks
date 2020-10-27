@@ -10,10 +10,12 @@ export default class SpotForm extends React.Component {
     super(props);
     this.state = {
       loading: true,
-      reviews: {}
+      reviews: {},
+      loadingReviews: true
     };
     this.handleExit = this.handleExit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
+    this.toggleFav = this.toggleFav.bind(this);
   }
 
   handleExit(e) {
@@ -31,11 +33,15 @@ export default class SpotForm extends React.Component {
           this.props.fetchAllReviews(location.id).then((review) => {
             const reviews = this.state.reviews;
             reviews[location.id] = review.reviews[0].text;
-            this.setState({ reviews: reviews });
+            this.setState({ reviews: reviews, loadingReviews: false });
           });
       });
       this.setState({ loading: false });
     });
+
+    // if (this.props.faveStops[this.props.stopId]) {
+    //   this.setState({heartFavorite: 'hearted'})
+    // }
   }
 
   getBusinessDetails() {
@@ -47,9 +53,33 @@ export default class SpotForm extends React.Component {
     }
   }
 
+  toggleFav(e) {
+    
+    e.preventDefault();
+
+    this.props.Favorite(this.props.stopId).then(() => {
+      
+      this.props.saveFavStop(this.props.stopId);
+
+      // (this.state.heartFavorite === 'hearted') ? this.setState({heartFavorite: 'not-hearted'}) : this.setState({heartFavorite: 'hearted'})
+    });
+  }
+
+
   render() {
-    if (this.state.loading) { return <LoadingIcon/> }
-    let favorite = false;
+    if (this.state.loading || this.state.loadingReviews) {
+      return <LoadingIcon />;
+    }
+    let heartFavorite;
+    let buttonType;
+    if (this.props.isFavorite) {
+      heartFavorite = 'hearted';
+      buttonType = '♥ '
+    } else {
+      heartFavorite = 'not-hearted';
+      buttonType = '♡ '
+    }
+  
     let modalBackground;
     let commentLine;
     if (this.props.theme === "Desserts") {
@@ -63,14 +93,23 @@ export default class SpotForm extends React.Component {
       );
       modalBackground = 'modal-header-drink'
     }
-
     if (this.props.businessess.length === 0 || this.state.reviews.length === 0) return null;
       return (
         <>
+          <div
+            className={this.state.loadingReviews ? "buffering" : "hidden"}
+          >
+          </div>
           <div className="modal-header">
-            <i className="far fa-heart"></i>
-            {commentLine}
-            <button className="x-close-button" onClick={this.handleExit}>X</button>
+            <button className={heartFavorite} onClick={this.toggleFav}>
+              {buttonType}
+            </button>
+            <div>{commentLine}</div>
+            <div className="x-close-modal">
+              <button className="x-close-button" onClick={this.handleExit}>
+                X
+              </button>
+            </div>
           </div>
           <div className="modal-body">
             <div className="business-list">
