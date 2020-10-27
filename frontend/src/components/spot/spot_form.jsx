@@ -99,7 +99,6 @@ export default class SpotForm extends React.Component {
           <div
             className={this.state.loadingReviews ? "buffering" : "hidden"}
           >
-            <i class="fas fa-spinner fa-spin"></i>
           </div>
           <div className="modal-header">
             <button className={heartFavorite} onClick={this.toggleFav}>
