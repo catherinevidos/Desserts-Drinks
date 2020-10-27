@@ -34,9 +34,8 @@ export class WebMap extends React.Component {
       lat: this.state.lat,
       lng: this.state.lng,
     });
-
-
   }
+  
   render() {
 
     if (this.props.stops.length === 0) return null;
@@ -47,7 +46,8 @@ export class WebMap extends React.Component {
     let dynamicWidth = "calc(100% - 124px)";
     const style = {
       width: dynamicWidth,
-      height: "70vh"
+      height: "70vh",
+      borderRadius: "35px",
     };
     const { google } = this.props;
 
