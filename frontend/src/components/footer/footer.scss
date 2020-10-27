@@ -1,0 +1,31 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #FFC7D6;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+a.footer-link {
+  align-items: center;
+  height: 100%;
+  line-height: 100%;
+  &:hover {
+    text-decoration: #B3DEFE underline;
+    font-style: italic;
+    transition: all .2s;
+  }
+}
+
+.footer-link-emoji {
+  text-align: center;
+}

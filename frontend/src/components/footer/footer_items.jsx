@@ -1,27 +1,33 @@
-// export const FooterItems = [
-//   {
-//     id: 1,
-//     title:
-//       "Made with 💖 by Catherine Vidos, Rachana Vishwanath, Adel Qudsi, Jonathan Calixto",
-//     url: "https://github.com/catherinevidos",
-//     cName: "footer-link-emoji",
-//   },
-//   {
-//     id: 2,
-//     title: "Github",
-//     url: "https://github.com/catherinevidos/Desserts-Drinks",
-//     cName: "footer-link",
-//   },
-//   {
-//     id: 3,
-//     title: "Link",
-//     url: "#",
-//     cName: "footer-link",
-//   },
-//   {
-//     id: 4,
-//     title: "Link",
-//     url: "#",
-//     cName: "footer-link",
-//   },
-// ];
+export const FooterItems = [
+  {
+    id: 1,
+    title:
+      "Made with ♥ by: ",
+    url: "https://github.com/catherinevidos/Desserts-Drinks",
+    cName: "footer-link",
+  },
+  {
+    id: 2,
+    title: "Catherine Vidos",
+    url: "https://catherinevidos.github.io",
+    cName: "footer-link",
+  },
+  {
+    id: 3,
+    title: "Rachana Vishwanath",
+    url: "https://rachanavishwanath.github.io",
+    cName: "footer-link",
+  },
+  {
+    id: 4,
+    title: "Jonathan Calixto",
+    url: "https://serendipitydeus.github.io",
+    cName: "footer-link",
+  },
+  {
+    id: 5,
+    title: "Adel Qudsi",
+    url: "https://A-Qudsi.github.io",
+    cName: "footer-link",
+  },
+];
