@@ -193,32 +193,6 @@ export default class CommentForm extends React.Component {
           <br></br>
           <button className='comment-submit' type='submit'>Submit Comment</button>
         </form>
-            
-        {/* <div className='show-comments-wrapper'>
-
-          <div className='comments-header'>
-            <h1>Our Users Say...</h1>
-          </div>
-
-          <ul>
-            {Object.values(comments).map((comment, idx) => {
-              return (
-                <>
-                  <div className='comment-delete-wrapper'>
-                    <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
-                    <div>
-                      {currentUser.id === comment.user_id ? <button onClick={this.handleEdit} className='comment-edit-button' value={comment._id}></button> : null}
-                      {currentUser.id === comment.user_id ? <button onClick={this.handleDelete} className='comment-delete-button' value={comment._id}>X</button> : null}
-                    </div>
-                  </div>
-                  <li className='body-comments'> {comment.body} </li>
-                  <br></br>
-                </>
-              );
-            })}
-          </ul>
-
-        </div> */}
       </div>
     )
   }

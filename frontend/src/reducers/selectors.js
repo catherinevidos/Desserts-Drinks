@@ -9,13 +9,15 @@ export const allBusiness = function (business) {
 
 export const findStopId = (lat, lng, stops) => {
     let stopId;
+    let stopName;
     for (let i = 0; i < stops.length - 1; i++) {
         if (stops[i].lat === lat && stops[i].lng === lng) {
             stopId = stops[i]._id;
-            return stopId;
+            stopName = stops[i].name;
+            break;
         }
     }
-    return stopId;
+    return [stopId, stopName];
 };
 
 export const findComment = (state, id) => {
