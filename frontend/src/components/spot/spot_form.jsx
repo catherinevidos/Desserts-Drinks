@@ -1,7 +1,7 @@
 import React from 'react';
 import SpotItemContainer from './spot_item_container';
 import './spot.scss';
-
+import $ from "jquery";
 import LoadingIcon from "../loading/loading";
 import CommentFormContainer from '../comment/comment_form_container';
 import EditCommentFormContainer from '../comment/edit_comment_form_container';
@@ -12,12 +12,17 @@ export default class SpotForm extends React.Component {
     this.state = {
       loading: true,
       reviews: {},
-      loadingReviews: true
+      loadingReviews: true,
+      formType: this.props.formType,
+      commentId: ''
     };
-    this.state.formType = this.props.formType;
+    // this.state.formType = this.props.formType;
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleExit = this.handleExit.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
     this.getBusinessDetails = this.getBusinessDetails.bind(this);
     this.toggleFav = this.toggleFav.bind(this);
+    this.handleFormType = this.handleFormType.bind(this);
   }
 
   handleExit(e) {
@@ -26,10 +31,17 @@ export default class SpotForm extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchComments(this.props.comment.stop_id);
+    this.props.fetchComments(this.props.stopId);
+  }
+
+  handleFormType(type){
+    this.setState({ 
+      formType: type
+    })
   }
 
   componentDidMount(){
+    this.props.fetchComments(this.props.stopId);
     this.props.fetchAllBusinessess(
       this.props.lat,
       this.props.lng,
@@ -79,15 +91,25 @@ export default class SpotForm extends React.Component {
   }
 
   handleDelete(event) {
+    debugger
     this.props.deleteComment(event.currentTarget.value).then(() => {
-      this.props.fetchComments(this.props.comment.stop_id);
+      this.setState({  formType: 'create' })
+      this.props.fetchComments(this.props.stopId);
     });
   }
 
-  handleEdit(event) {
+  handleEdit(event, id) {
+    debugger
+    debugger
+    const x = Math.abs($('#form-container').offset().top + $('#form-container').position().top)
+    // window.scroll(x, y);
+    $('.modal-child').scrollTop(x);
+    // $('#form-container').scrollTop(0);
+    debugger
     event.preventDefault();
     this.setState({
-      formType: 'edit'
+      formType: 'edit',
+      commentId: id
     });
   }
 
@@ -124,13 +146,12 @@ export default class SpotForm extends React.Component {
     if (comments === undefined) {
       return [];
     }
-
     return (
       <>
         <div
           className={this.state.loadingReviews ? "buffering" : "hidden"}
         >
-          <i class="fas fa-spinner fa-spin"></i>
+          <i className="fas fa-spinner fa-spin"></i>
         </div>
         <div className="modal-header">
           <button className={heartFavorite} onClick={this.toggleFav}>
@@ -157,9 +178,10 @@ export default class SpotForm extends React.Component {
               );
             })}
           </div>
-          {this.state.formType === 'create' ? <CommentFormContainer location={this.props.stopId} key={this.props.stopId} /> : <EditCommentFormContainer />}
-
-          <div className='show-comments-wrapper'>
+            <div id="form-container">
+              {this.state.formType === 'create' ? <CommentFormContainer location={this.props.stopId} key={this.props.stopId} handleFormType={this.handleFormType}/> : <EditCommentFormContainer commentId={this.state.commentId} handleFormType={this.handleFormType}/>}
+            </div>
+            <div className='show-comments-wrapper'>
 
             <div className='comments-header'>
               <h1>Our Users Say...</h1>
@@ -172,7 +194,7 @@ export default class SpotForm extends React.Component {
                     <div className='comment-delete-wrapper'>
                       <li className='comment-usernames'>{comment.username} {this.handleRating(comment.rating)}</li>
                       <div>
-                        {currentUser.id === comment.user_id ? <button onClick={this.handleEdit} className='comment-edit-button' value={comment._id}></button> : null}
+                        {currentUser.id === comment.user_id ? <button onClick={e => this.handleEdit(e, comment._id)} className='comment-edit-button' value={comment._id}></button> : null}
                         {currentUser.id === comment.user_id ? <button onClick={this.handleDelete} className='comment-delete-button' value={comment._id}>X</button> : null}
                       </div>
                     </div>

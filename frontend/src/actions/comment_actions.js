@@ -40,7 +40,7 @@ export const deleteComment = commentId => dispatch => {
 
 export const editComment = comment => dispatch => {
   return APIUtil.editComment(comment).then(comment => {
-    return dispatch(receiveComment(comment));
+    return dispatch(receiveComment(comment.data));
   });
 };
 
