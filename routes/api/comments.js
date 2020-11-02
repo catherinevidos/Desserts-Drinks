@@ -71,7 +71,10 @@ router.patch('/edit_comment', (req, res) => {
             rating: req.body.rating
         })
         .then(result => {
-            res.json(result);
+            Comment.findById(req.query.id).then(comment => {
+              res.json(comment);
+            })
+            
         })
         .catch(err => {
           console.log(err);

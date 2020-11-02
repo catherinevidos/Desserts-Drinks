@@ -13,7 +13,6 @@ const mSTP = (state, ownProps) => {
   const lat =  state.ui.modal.lat;
   const stopId = findStopId(lat, lng, Object.values(state.stops.data));
   const isFavorite = state.session.currentUser.favStops.includes(stopId);
-
   return {
     lng: state.ui.modal.lng,
     lat: state.ui.modal.lat,
