@@ -5,7 +5,11 @@ export const createComment = (data) => {
 };
 
 export const fetchComments = (stopId) => {
-    return axios.get(`api/comments/all?${stopId}`);
+  return axios.get(`api/comments/all?${stopId}`);
+};
+
+export const fetchComment = (commentId) => {
+  return axios.get(`api/comments/get_comment?id=${commentId}`);
 };
 
 export const deleteComment = (id) => {
@@ -13,5 +17,5 @@ export const deleteComment = (id) => {
 };
 
 export const editComment = (data) => {
-  return axios.patch(`api/comments/edit_comment?id=${data.id}`, data)
-}
+  return axios.patch(`api/comments/edit_comment?id=${data.id}`, data);
+};
