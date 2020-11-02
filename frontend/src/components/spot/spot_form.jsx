@@ -79,17 +79,17 @@ export default class SpotForm extends React.Component {
       heartFavorite = 'not-hearted';
       buttonType = '♡ '
     }
-  
+    console.log(this.props);
     let modalBackground;
     let commentLine;
     if (this.props.theme === "Desserts") {
       commentLine = (
-        <h1 className="index-dessert">Desserts around you</h1>
+      <h1 className="index-dessert">{`Desserts around ${this.props.stopName}`}</h1>
       );
       modalBackground = 'modal-header'
     } else {
       commentLine = (
-        <h1 className="index-drink">Drinks around you</h1>
+        <h1 className="index-drink">{`Drinks around ${this.props.stopName}`}</h1>
       );
       modalBackground = 'modal-header-drink'
     }
