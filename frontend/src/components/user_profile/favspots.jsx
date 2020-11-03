@@ -74,20 +74,6 @@ export default class FavSpots extends React.Component {
       } else {
         noStopsYet = <h1>My Favorites</h1>
       }
-      // if (this.props.currentUser.favSpots === undefined) return null;
-        // return (
-        //   <div className="fav-spots">
-        //     <div className="fun-div">
-        //       <NavbarContainer />
-        //     </div>
-        //     <h1 className="logout-button">
-        //       Your favorite spots coming soon...
-        //     </h1>
-        //     <div className='link-home'>
-        //       <Link to="/">Go back</Link>
-        //     </div>
-        //   </div>
-        // );
         return (
           <div className="fav-spots">
             <div className="profile-container">
@@ -99,7 +85,7 @@ export default class FavSpots extends React.Component {
                       <Link to="/">home</Link>
                     </div>
                     <div className="about-button">
-                      <a href="https://github.com/catherinevidos/Desserts-Drinks" target="_blank" >
+                      <a href="https://github.com/catherinevidos/Desserts-Drinks" target="_blank" rel="noopener noreferrer">
                         about
                       </a>
                     </div>

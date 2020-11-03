@@ -2,11 +2,6 @@
 
 .spot-index-item {
     display: flex;
-    // margin-bottom: 20px;
-    // width: 200px;
-    // height: 200px; 
-    
-
 
         img {
             width: 200px;
@@ -22,6 +17,10 @@
             max-height: 105px;
             margin-left: 3px;
             margin-right: 3px;
+            text-overflow: ellipsis;
+            display: inline;
+            text-align: center;
+            white-space: nowrap;
         }
 
          .index-drink {
@@ -29,6 +28,10 @@
              font-family: Sacramento-Regular;
              font-size: 35px;
              max-height: 105px;
+             text-overflow: ellipsis;
+            display: inline;
+            text-align: center;
+            white-space: nowrap;
          }
 
          .index-item-name {
@@ -72,3 +75,15 @@
         }
 
 }
+
+div.comment-line
+    {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        h1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline;
+        }
+    }
