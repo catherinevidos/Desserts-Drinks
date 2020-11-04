@@ -18,7 +18,7 @@ const removeComment = commentId => {
   return {
     type: REMOVE_COMMENT,
     commentId
-  }
+  };
 };
 
 export const fetchComments = stopId => dispatch =>
@@ -27,18 +27,25 @@ export const fetchComments = stopId => dispatch =>
   );
 
 export const createComment = comment => dispatch => {
-    return APIUtil.createComment(comment).then(comment => {
-          return dispatch(receiveComment(comment.data))});
+  return APIUtil.createComment(comment).then(comment => {
+    return dispatch(receiveComment(comment.data));
+  });
 };
 
 export const deleteComment = commentId => dispatch => {
   const comment_id = commentId;
    return APIUtil.deleteComment(commentId).then(response => {
-     return dispatch(removeComment(comment_id));})
+     return dispatch(removeComment(comment_id));});
 };
 
 export const editComment = comment => dispatch => {
   return APIUtil.editComment(comment).then(comment => {
-    return dispatch(receiveComment(comment))
-  })
-}
+    return dispatch(receiveComment(comment.data));
+  });
+};
+
+export const fetchComment = commentId => dispatch => {
+  return APIUtil.fetchComment(commentId).then(comment => {
+    return dispatch(receiveComment(comment));
+  });
+};

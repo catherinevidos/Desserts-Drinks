@@ -1,29 +1,31 @@
 import { connect } from 'react-redux';
 import CommentForm from './comment_form';
-import { createComment, deleteComment, fetchComments, editComment } from '../../actions/comment_actions';
+import { createComment, deleteComment, fetchComments } from '../../actions/comment_actions';
 
 
 const mSTP = (state, ownProps) => {
     return {
         comment: {
+            id: '',
             body: '',
-            rating: undefined,
+            rating: '1',
             stop_id: ownProps.location,
             user_id: state.session.currentUser.id,
             username: state.session.currentUser.username
         },
         currentUser: state.session.currentUser,
-        comments: state.comments
+        comments: state.comments,
+        formType: 'create'
     };
 };
 
-const mDTP = dispatch => ({
-    createComment: comment => dispatch(createComment(comment)),
+const mDTP = (dispatch, ownProps) => ({
+    action: comment => dispatch(createComment(comment)),
     fetchComments: (stopId) => {
         return dispatch(fetchComments(stopId));
     },
     deleteComment: commentId => dispatch(deleteComment(commentId)),
-    editComment: comment => dispatch(editComment(comment))
+    handleFormType: (type) => ownProps.handleFormType(type),
 });
 
 export default connect(mSTP, mDTP)(CommentForm);

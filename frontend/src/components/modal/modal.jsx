@@ -14,7 +14,6 @@ function Modal({ modal, closeModal }) {
 
     switch (modal.modal) {
       case "business":
-          
         component = (
           <SpotFormContainer 
             lat={modal.lat} lng={modal.lng} />

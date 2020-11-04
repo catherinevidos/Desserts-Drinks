@@ -7,7 +7,19 @@ const Comment = require('../../models/Comment');
 const validateCommentInput = require('../../validation/comment');
 
 router.get('/comments', (req, res) => {
-    Comment.find().then(comments => res.json(comments));
+    Comment.find().then(comments => {
+      res.json(comments)
+    });
+});
+
+router.get('/get_comment', (req, res) => {
+  Comment.findById(req.query.id)
+    .then(comment => {
+      res.json(comment)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 });
 
 // pass stopId as params to fetch comments for stop: http://localhost:5000/api/comments/all?5f7b45dcc6fc5b4512037023
@@ -71,11 +83,14 @@ router.patch('/edit_comment', (req, res) => {
             rating: req.body.rating
         })
         .then(result => {
-            res.json(result)
+            Comment.findById(req.query.id).then(comment => {
+              res.json(comment);
+            })
+            
         })
         .catch(err => {
-          console.log(err)
-        })
-})
+          console.log(err);
+        });
+});
 
 module.exports = router;
