@@ -68,6 +68,12 @@ export default class Login extends React.Component {
             <div>
               <div className="login-logo-container">
                 <img src="https://pxelation-seeds.s3.amazonaws.com/logo4.png" alt="" />
+                <button className="info-modal x-close-button" onClick={e => {
+                  debugger
+                  e.preventDefault();
+                  this.props.openModal({modal:'info'})
+                }
+                }>?</button>
               </div>
               <form onSubmit={this.handleSubmit} className="login-form">
                 <div className="login-form-child">

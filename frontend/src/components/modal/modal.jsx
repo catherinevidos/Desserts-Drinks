@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.scss';
 import SpotFormContainer from '../spot/spot_form_container';
+import Info from '../login/Info';
 
 function Modal({ modal, closeModal }) {
 
@@ -19,7 +20,9 @@ function Modal({ modal, closeModal }) {
             lat={modal.lat} lng={modal.lng} />
         );
         break;
-            
+        case "info":
+            debugger
+            component= (<Info/>)
       default:
         return null;
     }
