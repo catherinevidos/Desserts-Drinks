@@ -5,13 +5,8 @@ export default class CommentForm extends React.Component {
   constructor(props){
     super(props);
     this.state = this.props.comment;
-    // this.state.formType = this.props.formType;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRating = this.handleRating.bind(this);
-    // commenting this out as there is no handleClick, handleEdit in this component
-    // this.handleClick = this.handleClick.bind(this);
-    // this.handleEdit = this.handleEdit.bind(this);
-    // this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount(){
@@ -21,37 +16,12 @@ export default class CommentForm extends React.Component {
   }
 
   update(field){
-    debugger
     return event => {
-      debugger
       this.setState({[field]: event.target.value});
     };
   }
 
-  // componentWillMount(){
-  //   this.props.fetchComments(this.props.comment.stop_id);
-  // }
-
-  // handleDelete(e) {
-  //   this.props.deleteComment(e.currentTarget.value).then(() => {
-  //     this.props.fetchComments(this.props.comment.stop_id);
-  //   });
-  // }
-
-  // handleEdit(event){
-  //   event.preventDefault();
-  //   this.state.formType = 'edit';
-  //   this.handleSubmit(event);
-  // }
-
-  // handleDelete(event){
-  //   event.preventDefault();
-  //   this.state.formType = 'delete';
-  //   this.handleSubmit(event);
-  // }
-
   handleSubmit(event){
-    debugger
     event.preventDefault();
       this.props.action(this.state).then(() => {
         const comment = {
@@ -66,29 +36,6 @@ export default class CommentForm extends React.Component {
         this.props.handleFormType('create');
         this.setState( comment )
       });
-    // if (this.state.formType === 'create') {
-    //   let comment = {
-    //     body: this.state.body,
-    //     rating: this.state.rating,
-    //     stop_id: this.props.comment.stop_id,
-    //     user_id: this.state.user_id,
-    //     username: this.state.username
-    //   };
-    //   this.props.action(comment).then(() => {
-    //     this.setState( this.props.comment );
-    //   });
-    // } else if (this.state.formType === 'edit'){
-    //   let comment = {
-    //     body: this.state.body,
-    //     rating: this.state.rating,
-    //     stop_id: this.props.comment.stop_id,
-    //     user_id: this.state.user_id,
-    //     username: this.state.username
-    //   };
-    //   this.props.action(comment).then(() => {
-    //     this.setState( this.props.comment );
-    //   });
-    // }
   }
 
   handleRating(ratingNum) {

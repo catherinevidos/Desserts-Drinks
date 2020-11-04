@@ -91,7 +91,6 @@ export default class SpotForm extends React.Component {
   }
 
   handleDelete(event) {
-    debugger
     this.props.deleteComment(event.currentTarget.value).then(() => {
       this.setState({  formType: 'create' })
       this.props.fetchComments(this.props.stopId);
@@ -99,13 +98,8 @@ export default class SpotForm extends React.Component {
   }
 
   handleEdit(event, id) {
-    debugger
-    debugger
     const x = Math.abs($('#form-container').offset().top + $('#form-container').position().top)
-    // window.scroll(x, y);
-    $('.modal-child').scrollTop(x);
-    // $('#form-container').scrollTop(0);
-    debugger
+    $('.modal-child').scrollTop(1000);
     event.preventDefault();
     this.setState({
       formType: 'edit',
@@ -126,7 +120,6 @@ export default class SpotForm extends React.Component {
       heartFavorite = 'not-hearted';
       buttonType = '♡ ';
     }
-    console.log(this.props);
     let modalBackground;
     let commentLine;
     if (this.props.theme === "Desserts") {
@@ -151,13 +144,12 @@ export default class SpotForm extends React.Component {
         <div
           className={this.state.loadingReviews ? "buffering" : "hidden"}
         >
-          <i className="fas fa-spinner fa-spin"></i>
         </div>
         <div className="modal-header">
           <button className={heartFavorite} onClick={this.toggleFav}>
             {buttonType}
           </button>
-          <div>{commentLine}</div>
+          <div className="comment-line">{commentLine}</div>
           <div className="x-close-modal">
             <button className="x-close-button" onClick={this.handleExit}>
               X

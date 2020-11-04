@@ -27,7 +27,6 @@ export const fetchComments = stopId => dispatch =>
   );
 
 export const createComment = comment => dispatch => {
-  debugger
   return APIUtil.createComment(comment).then(comment => {
     return dispatch(receiveComment(comment.data));
   });
@@ -40,7 +39,6 @@ export const deleteComment = commentId => dispatch => {
 };
 
 export const editComment = comment => dispatch => {
-  debugger
   return APIUtil.editComment(comment).then(comment => {
     return dispatch(receiveComment(comment.data));
   });
