@@ -29,7 +29,7 @@ export default class Navbar extends React.Component {
         </button>
       </div>
     ) : (
-      <Link to="/login">Login Here</Link>
+      <Link to="/">Login Here</Link>
     );
   }
 
