@@ -102,7 +102,7 @@ class Signup extends React.Component {
                    <div className={'error-wrapper'}>
                       {this.renderErrors()}
                    </div>
-                  <Link to="/login" className="login-link">
+                  <Link to="/" className="login-link">
                     Have an account? Click to Log in!
                   </Link>
                 </div>
