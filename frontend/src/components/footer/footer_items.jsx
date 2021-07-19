@@ -27,7 +27,7 @@ export const FooterItems = [
   {
     id: 5,
     title: "Adel Qudsi",
-    url: "https://A-Qudsi.github.io",
+    url: "https://AdelQudsi.com",
     cName: "footer-link"
   },
 ];
