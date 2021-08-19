@@ -32,7 +32,7 @@ export default class Login extends React.Component {
       password: this.state.password
     };
 
-    this.props.loginUser(user).then(() => this.props.history.push('/login'));
+    this.props.loginUser(user).then(() => this.props.history.push('/'));
 
   }
 

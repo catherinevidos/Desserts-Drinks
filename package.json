@@ -42,6 +42,7 @@
     "mongoose-sequence": "^5.2.2",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "validator": "^13.1.17"
